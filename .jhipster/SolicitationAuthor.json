@@ -1,0 +1,20 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "authorId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "solicitationId",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20180315133213",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "solicitation_author",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

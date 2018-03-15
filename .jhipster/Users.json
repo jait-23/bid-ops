@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "role",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactNumber",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180315132436",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "users",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

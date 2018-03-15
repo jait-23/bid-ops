@@ -1,0 +1,23 @@
+
+{
+    "bidopscoreApp": {
+        "solicitationAuthor" : {
+            "home": {
+                "title": "Solicitation Authors",
+                "createLabel": "Create a new Solicitation Author",
+                "createOrEditLabel": "Create or edit a Solicitation Author"
+            },
+            "created": "A new Solicitation Author is created with identifier {{ param }}",
+            "updated": "A Solicitation Author is updated with identifier {{ param }}",
+            "deleted": "A Solicitation Author is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Solicitation Author {{ id }}?"
+            },
+            "detail": {
+                "title": "Solicitation Author"
+            },
+            "authorId": "Author Id",
+            "solicitationId": "Solicitation Id"
+        }
+    }
+}

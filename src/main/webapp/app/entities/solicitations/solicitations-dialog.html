@@ -1,0 +1,112 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySolicitationsLabel" data-translate="bidopscoreApp.solicitations.home.createOrEditLabel">Create or edit a Solicitations</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.solicitations.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.solicitations.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.solicitationId" for="field_solicitationId">Solicitation Id</label>
+            <input type="number" class="form-control" name="solicitationId" id="field_solicitationId"
+                    ng-model="vm.solicitations.solicitationId"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.solicitations.title"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.status" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status"
+                    ng-model="vm.solicitations.status"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.finalFilingDate" for="field_finalFilingDate">Final Filing Date</label>
+                <div class="input-group">
+                    <input id="field_finalFilingDate" type="text" class="form-control" name="finalFilingDate" datetime-picker="{{dateformat}}" ng-model="vm.solicitations.finalFilingDate" is-open="vm.datePickerOpenStatus.finalFilingDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('finalFilingDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.lastUpdated" for="field_lastUpdated">Last Updated</label>
+                <div class="input-group">
+                    <input id="field_lastUpdated" type="text" class="form-control" name="lastUpdated" datetime-picker="{{dateformat}}" ng-model="vm.solicitations.lastUpdated" is-open="vm.datePickerOpenStatus.lastUpdated"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('lastUpdated')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.type" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                    ng-model="vm.solicitations.type"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.solicitations.description"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.category" for="field_category">Category</label>
+            <input type="text" class="form-control" name="category" id="field_category"
+                    ng-model="vm.solicitations.category"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.requiredDocuments" for="field_requiredDocuments">Required Documents</label>
+            <input type="text" class="form-control" name="requiredDocuments" id="field_requiredDocuments"
+                    ng-model="vm.solicitations.requiredDocuments"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.reviewerDeliveryStatus" for="field_reviewerDeliveryStatus">Reviewer Delivery Status</label>
+            <input type="text" class="form-control" name="reviewerDeliveryStatus" id="field_reviewerDeliveryStatus"
+                    ng-model="vm.solicitations.reviewerDeliveryStatus"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.approverStatus" for="field_approverStatus">Approver Status</label>
+            <input type="text" class="form-control" name="approverStatus" id="field_approverStatus"
+                    ng-model="vm.solicitations.approverStatus"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.authorId" for="field_authorId">Author Id</label>
+            <input type="number" class="form-control" name="authorId" id="field_authorId"
+                    ng-model="vm.solicitations.authorId"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.reviewerId" for="field_reviewerId">Reviewer Id</label>
+            <input type="number" class="form-control" name="reviewerId" id="field_reviewerId"
+                    ng-model="vm.solicitations.reviewerId"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

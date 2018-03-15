@@ -1,0 +1,64 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "solicitationId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "finalFilingDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "lastUpdated",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "requiredDocuments",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reviewerDeliveryStatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "approverStatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "authorId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "reviewerId",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20180315132846",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "solicitations",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

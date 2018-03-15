@@ -1,7 +1,7 @@
 body {
-    background: #f0e1b0;
+    background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #021e14;
+    color: #333;
 }
 
 /* ==========================================================================
@@ -12,38 +12,13 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 }
 
 /* ==========================================================================
-Palette Info:
-
-Light Gold
-#f0e1b0
-
-Deep Gold
-#cbb778
-
-Light Green
-#0fa153
-
-Medium Green
-#00573d
-
-Dark Green
-#043927;
-
-Ultra-Dark Green
-#021e14
-
-========================================================================== */
-
-
-
-/* ==========================================================================
 Development Ribbon
 ========================================================================== */
 .ribbon {
-    background-color: #021e14;
-    box-shadow: 0 0 10px #f0e1b0;
+    background-color: #a00;
+    box-shadow: 0 0 10px #888;
     left: -3.5em;
-    moz-box-shadow: 0 0 10px #f0e1b0;
+    moz-box-shadow: 0 0 10px #888;
     moz-transform: rotate(-45deg);
     ms-transform: rotate(-45deg);
     o-transform: rotate(-45deg);
@@ -51,7 +26,7 @@ Development Ribbon
     position: absolute;
     top: 40px;
     transform: rotate(-45deg);
-    webkit-box-shadow: 0 0 10px #f0e1b0;
+    webkit-box-shadow: 0 0 10px #888;
     webkit-transform: rotate(-45deg);
     white-space: nowrap;
     width: 15em;
@@ -60,15 +35,15 @@ Development Ribbon
 }
 
 .ribbon a {
-    border: 1px solid #00573d;
-    color: #cbb778;
+    border: 1px solid #faa;
+    color: #fff;
     display: block;
     font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 1px 0;
     padding: 10px 50px;
     text-align: center;
     text-decoration: none;
-    text-shadow: 0 0 5px #cbb778;
+    text-shadow: 0 0 5px #444;
     pointer-events: none;
 }
 
@@ -76,144 +51,15 @@ Development Ribbon
 Version number in navbar
 ========================================================================== */
 .navbar-version {
-    font-size: 8px;
-    color: #f0e1b0;
+    font-size: 10px;
+    color: #444;
 }
 
 /* ==========================================================================
 navbar text
 ========================================================================== */
 .navbar-default .navbar-brand {
-    color: #cbb778;
-}
-
-/* ==========================================================================
-navbar
-========================================================================== */
-.navbar-default {
-
-    background-color: #043927;
-    border-color: #021e14;
-
-}
-
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-
-    color: #000000;
-    background-color: #cbb778;
-
-}
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-
-    color: #cbb778;
-    background-color: #00573d;
-
-}
-.navbar-default .navbar-nav > li > a {
-
-    color: #f0e1b0;
-
-}
-.nav > li > a:hover, .nav > li > a:focus {
-
-    text-decoration: none;
-    background-color: #043927;
-
-}
-
-/* ==========================================================================
-Calendar navbar
-========================================================================== */
-
-.btn-primary:hover {
-
-    color: #cbb778;
-    background-color: #00573d;
-    border-color: #021e14;
-
-}
-.btn:hover, .btn:focus, .btn.focus {
-
-    color: #cbb778;
-    text-decoration: none;
-
-}
-.btn-primary {
-
-    color: #cbb778;
-    background-color: #00573d;
-    border-color: #00573d;
-
-}
-.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-
-    color: #021e14;
-    background-color: #cbb778;
-    border-color: #00573d;
-
-}
-.btn-default {
-
-    color: #021e14;
-    background-color: #cbb778;
-    border-color: #021e14;
-
-}
-.btn-default:hover {
-
-    color: #043927;
-    background-color: #f0e1b0;
-    border-color: #cbb778;
-
-}
-.btn-primary:active:hover, .btn-primary.active:hover, .open > .dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open > .dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open > .dropdown-toggle.btn-primary.focus {
-
-    color: #043927;
-    background-color: #f0e1b0;
-    border-color: #cbb778;
-
-}
-/* ==========================================================================
-Button (Other)
-========================================================================== */
-.text-info {
-    color: #021e14;
-}
-.btn-success:hover {
-    color: #0fa153;
-    background-color: #ffffff;
-    border-color: #00573d;
-}
-.btn-success {
-    color: #ffffff;
-    background-color: #0fa153;
-    border-color: #00573d;
-}
-.btn-danger:hover {
-    color: #c9302c;
-    background-color: #ffffff;
-    border-color: #ac2925;
-}
-.btn-danger {
-    color: #ffffff;
-    background-color: #c9302c;
-    border-color: #ac2925;
-}
-.btn-info:hover {
-    color: #31b0d5;
-    background-color: #ffffff;
-    border-color: #46b8da;
-}
-.btn-info {
-    color: #ffffff;
-    background-color: #31b0d5;
-    border-color: #269abc;
-}
-.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-    color: #cbb778;
-    text-decoration: none;
-    background-color: #043927;
-    outline: 0;
+    color: #444;
 }
 
 /* ==========================================================================
@@ -236,7 +82,6 @@ Logo styles
 .logo .logo-img {
     height: 45px;
     display: inline-block;
-    visibility: hidden;
 }
 
 /* ==========================================================================
@@ -257,6 +102,28 @@ Main page styles
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
+}
+
+.hipster {
+    display: inline-block;
+    width: 347px;
+    height: 497px;
+    background: url("../images/hipster.png") no-repeat center top;
+    background-size: contain;
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+    .hipster {
+        background: url("../images/hipster2x.png") no-repeat center top;
+        background-size: contain;
+    }
 }
 
 /* ==========================================================================

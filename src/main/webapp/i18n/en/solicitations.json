@@ -1,0 +1,34 @@
+
+{
+    "bidopscoreApp": {
+        "solicitations" : {
+            "home": {
+                "title": "Solicitations",
+                "createLabel": "Create a new Solicitations",
+                "createOrEditLabel": "Create or edit a Solicitations"
+            },
+            "created": "A new Solicitations is created with identifier {{ param }}",
+            "updated": "A Solicitations is updated with identifier {{ param }}",
+            "deleted": "A Solicitations is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Solicitations {{ id }}?"
+            },
+            "detail": {
+                "title": "Solicitations"
+            },
+            "solicitationId": "Solicitation Id",
+            "title": "Title",
+            "status": "Status",
+            "finalFilingDate": "Final Filing Date",
+            "lastUpdated": "Last Updated",
+            "type": "Type",
+            "description": "Description",
+            "category": "Category",
+            "requiredDocuments": "Required Documents",
+            "reviewerDeliveryStatus": "Reviewer Delivery Status",
+            "approverStatus": "Approver Status",
+            "authorId": "Author Id",
+            "reviewerId": "Reviewer Id"
+        }
+    }
+}

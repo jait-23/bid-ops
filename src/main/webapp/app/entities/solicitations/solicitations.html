@@ -1,0 +1,84 @@
+<div>
+    <h2 data-translate="bidopscoreApp.solicitations.home.title">Solicitations</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="solicitations.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="bidopscoreApp.solicitations.home.createLabel">
+                        Create new Solicitations
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="solicitationId"><span data-translate="bidopscoreApp.solicitations.solicitationId">Solicitation Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="title"><span data-translate="bidopscoreApp.solicitations.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status"><span data-translate="bidopscoreApp.solicitations.status">Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="finalFilingDate"><span data-translate="bidopscoreApp.solicitations.finalFilingDate">Final Filing Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lastUpdated"><span data-translate="bidopscoreApp.solicitations.lastUpdated">Last Updated</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="type"><span data-translate="bidopscoreApp.solicitations.type">Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span data-translate="bidopscoreApp.solicitations.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="category"><span data-translate="bidopscoreApp.solicitations.category">Category</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="requiredDocuments"><span data-translate="bidopscoreApp.solicitations.requiredDocuments">Required Documents</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reviewerDeliveryStatus"><span data-translate="bidopscoreApp.solicitations.reviewerDeliveryStatus">Reviewer Delivery Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="approverStatus"><span data-translate="bidopscoreApp.solicitations.approverStatus">Approver Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="authorId"><span data-translate="bidopscoreApp.solicitations.authorId">Author Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reviewerId"><span data-translate="bidopscoreApp.solicitations.reviewerId">Reviewer Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="solicitations in vm.solicitations track by solicitations.id">
+                    <td><a ui-sref="solicitations-detail({id:solicitations.id})">{{solicitations.id}}</a></td>
+                    <td>{{solicitations.solicitationId}}</td>
+                    <td>{{solicitations.title}}</td>
+                    <td>{{solicitations.status}}</td>
+                    <td>{{solicitations.finalFilingDate | date:'medium'}}</td>
+                    <td>{{solicitations.lastUpdated | date:'medium'}}</td>
+                    <td>{{solicitations.type}}</td>
+                    <td>{{solicitations.description}}</td>
+                    <td>{{solicitations.category}}</td>
+                    <td>{{solicitations.requiredDocuments}}</td>
+                    <td>{{solicitations.reviewerDeliveryStatus}}</td>
+                    <td>{{solicitations.approverStatus}}</td>
+                    <td>{{solicitations.authorId}}</td>
+                    <td>{{solicitations.reviewerId}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="solicitations-detail({id:solicitations.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="solicitations.edit({id:solicitations.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="solicitations.delete({id:solicitations.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

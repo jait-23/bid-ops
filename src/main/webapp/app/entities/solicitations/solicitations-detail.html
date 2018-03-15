@@ -1,0 +1,71 @@
+
+<div>
+    <h2><span data-translate="bidopscoreApp.solicitations.detail.title">Solicitations</span> {{vm.solicitations.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="bidopscoreApp.solicitations.solicitationId">Solicitation Id</span></dt>
+        <dd>
+            <span>{{vm.solicitations.solicitationId}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.solicitations.title">Title</span></dt>
+        <dd>
+            <span>{{vm.solicitations.title}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.solicitations.status">Status</span></dt>
+        <dd>
+            <span>{{vm.solicitations.status}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.solicitations.finalFilingDate">Final Filing Date</span></dt>
+        <dd>
+            <span>{{vm.solicitations.finalFilingDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.solicitations.lastUpdated">Last Updated</span></dt>
+        <dd>
+            <span>{{vm.solicitations.lastUpdated | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.solicitations.type">Type</span></dt>
+        <dd>
+            <span>{{vm.solicitations.type}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.solicitations.description">Description</span></dt>
+        <dd>
+            <span>{{vm.solicitations.description}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.solicitations.category">Category</span></dt>
+        <dd>
+            <span>{{vm.solicitations.category}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.solicitations.requiredDocuments">Required Documents</span></dt>
+        <dd>
+            <span>{{vm.solicitations.requiredDocuments}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.solicitations.reviewerDeliveryStatus">Reviewer Delivery Status</span></dt>
+        <dd>
+            <span>{{vm.solicitations.reviewerDeliveryStatus}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.solicitations.approverStatus">Approver Status</span></dt>
+        <dd>
+            <span>{{vm.solicitations.approverStatus}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.solicitations.authorId">Author Id</span></dt>
+        <dd>
+            <span>{{vm.solicitations.authorId}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.solicitations.reviewerId">Reviewer Id</span></dt>
+        <dd>
+            <span>{{vm.solicitations.reviewerId}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="solicitations-detail.edit({id:vm.solicitations.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
