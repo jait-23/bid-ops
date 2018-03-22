@@ -49,5 +49,54 @@
         function openCalendar (date) {
             vm.datePickerOpenStatus[date] = true;
         }
+        
+        $scope.uploadFile = function() {
+			var fd = new FormData();
+
+			var file = document.getElementById("uploadPDF").files[0];
+			if (file != null) {
+				fd.append('file', file);
+				var locationUrl = "swagger-ui/"
+									+ file.name;
+				console.log("the saved location of the file is: "
+													+ locationUrl);
+				var filetype = file.type;
+
+				var type = filetype
+							.substring(filetype.indexOf("/") + 1);
+
+				var uploadUrl = 'file/upload';
+
+				$http({
+					url : uploadUrl,
+					method : 'POST',
+					data : fd,
+					withCredentials : true,
+					headers : {
+						'Content-Type' : undefined
+					},
+					transformRequest : angular.identity,
+					mimeType : "multipart/form-data",
+					contentType : false,
+					cache : false,
+					processData : false
+				})
+				.then(
+					function s(response) {
+						console.log("Post Success");
+						vm.managedSite.siteDisplayImageRef = locationUrl;
+						if(vm.managedSite.siteExtraInfo != null)
+						{
+							vm.managedSite.siteExtraInfo = JSON.stringify(vm.managedSite.siteExtraInfo);
+						}
+						else{
+						vm.managedSite["siteExtraInfo"] = null;	
+						}
+						ManagedSite.update({orgId: $rootScope.orgId, id: vm.managedSite.id}, vm.managedSite,onSaveFinished);
+					}, function e(response) {
+						console.log("Post failure");
+				});
+			}
+		};
     }
 })();

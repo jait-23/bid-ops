@@ -1,7 +1,7 @@
 body {
-    background: #f0e1b0;
+    background: #white;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #021e14;
+    color: black;
 }
 
 /* ==========================================================================
@@ -84,7 +84,7 @@ Version number in navbar
 navbar text
 ========================================================================== */
 .navbar-default .navbar-brand {
-    color: #cbb778;
+    color: WHITESMOKE;
 }
 
 /* ==========================================================================
@@ -92,15 +92,15 @@ navbar
 ========================================================================== */
 .navbar-default {
 
-    background-color: #043927;
-    border-color: #021e14;
+    background-color: #0D669C;
+    border-color: #0D669C;
 
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
 
     color: #000000;
-    background-color: #cbb778;
+    background-color: #ffffff;
 
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -111,7 +111,7 @@ navbar
 }
 .navbar-default .navbar-nav > li > a {
 
-    color: #f0e1b0;
+    color: #efebeb;
 
 }
 .nav > li > a:hover, .nav > li > a:focus {
@@ -140,7 +140,7 @@ Calendar navbar
 }
 .btn-primary {
 
-    color: #cbb778;
+    color: WHITESMOKE;
     background-color: #00573d;
     border-color: #00573d;
 
@@ -158,6 +158,15 @@ Calendar navbar
     background-color: #cbb778;
     border-color: #021e14;
 
+}
+.ibox-content {
+  background-color: #ffffff;
+  color: inherit;
+  padding: 15px;
+  border-color: #e7eaec;
+  border-image: none;
+  border-style: solid solid none;
+  border-width: 1px 0;
 }
 .btn-default:hover {
 
@@ -210,7 +219,7 @@ Button (Other)
     border-color: #269abc;
 }
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-    color: #cbb778;
+    color: WHITESMOKE;
     text-decoration: none;
     background-color: #043927;
     outline: 0;

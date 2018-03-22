@@ -14,43 +14,31 @@
         </div>
     </div>
     <br/>
-    <div class="table-responsive">
-        <table class="jh-table table table-striped">
-            <thead>
+    <div class="table-responsive ibox-content">
+        <table id="mytable" datatable="ng" dt-options="dtOptions"  class="jh-table table table-striped table-bordered table-hover dataTables-example">
+			<thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="solicitationId"><span data-translate="bidopscoreApp.solicitations.solicitationId">Solicitation Id</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="title"><span data-translate="bidopscoreApp.solicitations.title">Title</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="status"><span data-translate="bidopscoreApp.solicitations.status">Status</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="finalFilingDate"><span data-translate="bidopscoreApp.solicitations.finalFilingDate">Final Filing Date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="lastUpdated"><span data-translate="bidopscoreApp.solicitations.lastUpdated">Last Updated</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="type"><span data-translate="bidopscoreApp.solicitations.type">Type</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="description"><span data-translate="bidopscoreApp.solicitations.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="category"><span data-translate="bidopscoreApp.solicitations.category">Category</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="requiredDocuments"><span data-translate="bidopscoreApp.solicitations.requiredDocuments">Required Documents</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="reviewerDeliveryStatus"><span data-translate="bidopscoreApp.solicitations.reviewerDeliveryStatus">Reviewer Delivery Status</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="approverStatus"><span data-translate="bidopscoreApp.solicitations.approverStatus">Approver Status</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="authorId"><span data-translate="bidopscoreApp.solicitations.authorId">Author Id</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="reviewerId"><span data-translate="bidopscoreApp.solicitations.reviewerId">Reviewer Id</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
+                
+                
+                    <th><span>Id</span></th>
+                    <th><span data-translate="bidopscoreApp.solicitations.title">Title</span></th>
+                    <th><span data-translate="bidopscoreApp.solicitations.status">Status</span></th>
+                    <th><span data-translate="bidopscoreApp.solicitations.finalFilingDate">Final Filing Date</span></th>
+                    <th><span data-translate="bidopscoreApp.solicitations.category">Category</span></th>
+                    <th><span>Author</span></th>
+                    <th><span>Reviewer</span></th>
+                	<th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="solicitations in vm.solicitations track by solicitations.id">
-                    <td><a ui-sref="solicitations-detail({id:solicitations.id})">{{solicitations.id}}</a></td>
                     <td>{{solicitations.solicitationId}}</td>
                     <td>{{solicitations.title}}</td>
                     <td>{{solicitations.status}}</td>
                     <td>{{solicitations.finalFilingDate | date:'medium'}}</td>
-                    <td>{{solicitations.lastUpdated | date:'medium'}}</td>
-                    <td>{{solicitations.type}}</td>
-                    <td>{{solicitations.description}}</td>
                     <td>{{solicitations.category}}</td>
-                    <td>{{solicitations.requiredDocuments}}</td>
-                    <td>{{solicitations.reviewerDeliveryStatus}}</td>
-                    <td>{{solicitations.approverStatus}}</td>
                     <td>{{solicitations.authorId}}</td>
-                    <td>{{solicitations.reviewerId}}</td>
+                    <td>{{solicitations.reviewerId}}</td> 
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
