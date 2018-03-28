@@ -83,30 +83,37 @@
                 }]
             }
         })
-        .state('solicitations-detail.edit', {
-            parent: 'solicitations-detail',
-            url: '/detail/edit',
+        .state('solicitations-detail1', {
+            parent: 'solicitations',
+            url: '/solicitations-detail1/{id}',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_USER'],
+                pageTitle: 'bidopscoreApp.solicitations.detail.title'
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/solicitations/solicitations-dialog.html',
-                    controller: 'SolicitationsDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
+            views: {
+            	 'appContent@home': {
+                     templateUrl: 'app/entities/solicitations/solicitations-detail1.html',
+                     controller: 'SolicitationsDetail1Controller',
+                     controllerAs: 'vm'
+            	 }
+            },
                     resolve: {
+                    	translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                            $translatePartialLoader.addPart('solicitations');
+                            return $translate.refresh();
+                        }],
                         entity: ['Solicitations', function(Solicitations) {
                             return Solicitations.get({id : $stateParams.id}).$promise;
+                        }],
+                        previousState: ["$state", function ($state) {
+                            var currentStateData = {
+                                name: $state.current.name || 'solicitations',
+                                params: $state.params,
+                                url: $state.href($state.current.name, $state.params)
+                            };
+                            return currentStateData;
                         }]
                     }
-                }).result.then(function() {
-                    $state.go('^', {}, { reload: false });
-                }, function() {
-                    $state.go('^');
-                });
-            }]
         })
         .state('solicitations.new', {
             parent: 'solicitations',
