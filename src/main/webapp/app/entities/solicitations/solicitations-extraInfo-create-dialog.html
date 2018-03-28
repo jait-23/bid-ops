@@ -1,0 +1,38 @@
+<form name="editForm">
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="clear()">&times;</button>
+		<h4 class="modal-title"
+			>Create or
+			Edit</h4>
+	</div>
+	<div class="modal-body">
+
+		<div class="form-group">
+			<label class="control-label">Attribute</label>
+			<input type="text" class="form-control-1" ng-model="attribute" />
+		</div>
+
+		<div class="form-group">
+			<label class="control-label">Value</label>
+			<input type="text" class="form-control-1" ng-model="value"/>
+		</div>
+
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal"
+			ng-click="clear()">
+			<span class="fa fa-times"></span>&nbsp;<span class="hidden-xs hidden-sm" translate="entity.action.cancel">Cancel</span>
+		</button>
+		<button type="button"
+			ng-disabled="editForm.$invalid || editForm.$submitted"
+			data-dismiss="modal" ng-click="saveConfirmed()"
+			class="btn btn-primary">
+			<span class="fa fa-floppy-o"></span>&nbsp;<span class="hidden-xs hidden-sm" translate="entity.action.save">Save</span>
+		</button>
+	</div>
+</form>
+
+
+
