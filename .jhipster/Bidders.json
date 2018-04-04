@@ -1,0 +1,53 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "bidders",
+            "otherEntityName": "solicitations",
+            "relationshipType": "one-to-one",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "bidders"
+        },
+        {
+            "relationshipName": "jhi_user",
+            "otherEntityName": "jhi_user",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "bidders"
+        },
+        {
+            "relationshipName": "solicitations",
+            "otherEntityName": "solicitations",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "solicitation_id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "bidders"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "solicitationId",
+            "fieldType": "Long",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bidCategories",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20180403235729",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "bidders",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}

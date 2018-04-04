@@ -11,6 +11,7 @@
                 "solicitations": "Solicitations",
                 "solicitationReviewer": "Solicitation Reviewer",
                 "solicitationAuthor": "Solicitation Author",
+                "bidders": "Bidders",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -23,6 +23,8 @@ spring:
     profiles:
         active: dev
         include: swagger
+    uploadedFileLocation:
+        url: /Users/jait23/Extra/Sacramento/COURSE/sem2/csc230/bidopscore/src/main/webapp/swagger-ui/
     devtools:
         restart:
             enabled: true

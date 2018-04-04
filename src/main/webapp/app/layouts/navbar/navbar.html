@@ -26,7 +26,12 @@
                                     <span data-translate="global.menu.entities.solicitations">Solicitations</span>
                                 </a>
                             </li>
-                            
+                            <li ui-sref-active="active" ng-switch-when="true">
+                                <a ui-sref="bidders" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.bidders">Bidders</span>
+                                </a>
+                            </li>
                             <li ui-sref-active="active" ng-switch-when="true">
                             <a ui-sref="settings" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-wrench"></span>&nbsp;
@@ -89,6 +94,12 @@
                                 <a ui-sref="solicitation-author" ng-click="vm.collapseNavbar()">
                                     <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                     <span data-translate="global.menu.entities.solicitationAuthor">Solicitation Author</span>
+                                </a>
+                            </li>
+                        <li ui-sref-active="active">
+                                <a ui-sref="bidders" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.bidders">Bidders</span>
                                 </a>
                             </li>
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->

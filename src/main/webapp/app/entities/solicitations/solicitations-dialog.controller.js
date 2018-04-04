@@ -27,13 +27,16 @@
         function save () {
             vm.isSaving = true;
             if (vm.solicitations.id !== null) {
+            	console.log(vm.solicitations);
                 Solicitations.update(vm.solicitations, onSaveSuccess, onSaveError);
             } else {
+            	console.log(vm.solicitations);
                 Solicitations.save(vm.solicitations, onSaveSuccess, onSaveError);
             }
         }
 
         function onSaveSuccess (result) {
+        	console.log(result);
             $scope.$emit('bidopscoreApp:solicitationsUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
@@ -50,7 +53,7 @@
             vm.datePickerOpenStatus[date] = true;
         }
         
-        $scope.uploadFile = function() {
+        /* $scope.uploadFile = function() {
 			var fd = new FormData();
 
 			var file = document.getElementById("uploadPDF").files[0];
@@ -84,19 +87,50 @@
 				.then(
 					function s(response) {
 						console.log("Post Success");
-						vm.managedSite.siteDisplayImageRef = locationUrl;
-						if(vm.managedSite.siteExtraInfo != null)
+						vm.solicitations.requiredDocuments = locationUrl;
+						if(vm.solicitations.siteExtraInfo != null)
 						{
 							vm.managedSite.siteExtraInfo = JSON.stringify(vm.managedSite.siteExtraInfo);
 						}
 						else{
 						vm.managedSite["siteExtraInfo"] = null;	
 						}
-						ManagedSite.update({orgId: $rootScope.orgId, id: vm.managedSite.id}, vm.managedSite,onSaveFinished);
+						ManagedSite.update({id: vm.managedSite.id}, vm.managedSite,onSaveFinished);
 					}, function e(response) {
 						console.log("Post failure");
 				});
 			}
-		};
+		}; */
+        
+        $scope.uploadFile = function () {
+            var fd = new FormData();
+            
+            var file = document.getElementById("uploadPDF").files[0];
+           if(file != null)
+           {  
+	            fd.append('file', file);
+	          var  locationUrl = "https://localhost:8080/swagger-ui/" + file.name;
+	          
+	            var filetype = file.type;
+	                            
+	           var type = filetype.substring(filetype.indexOf("/") + 1);
+	            
+	            var uploadUrl = 'file/upload';
+	                       
+	            $http({
+	                url: uploadUrl,
+	                method : 'POST',
+	                data:  fd,
+	                withCredentials: true,
+	                headers: {'Content-Type': undefined },
+	                transformRequest: angular.identity,
+	                mimeType:"multipart/form-data",
+	                contentType: false,
+	                cache: false,
+	                processData:false
+	             }).then(function s(response) {console.log("Post Success"); vm.solicitations.requiredDocuments = locationUrl; Solicitations.save(vm.solicitations, onSaveFinished);}, function e(response){console.log("Post failure");});
+           }
+        };
+        
     }
 })();

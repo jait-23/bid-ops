@@ -1,0 +1,42 @@
+<div name="editForm">
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="clear()">&times;</button>
+		<h4 class="modal-title">Create
+			or Edit</h4>
+	</div>
+	<div class="modal-body">
+		<jh-alert-error></jh-alert-error>
+		<div class="form-group" style="margin-top: 15px">
+			<label1 style="margin-left: 56px; margin-top: -18px;">Attribute</label1>
+			<label1 style="margin-left: 38px; margin-top: -18px;"
+				ng-show="!isAttributeKeyEditable()">{{editKey}}</label1>
+			<input type="text" ng-model="key" required ng-maxlength="100"
+				ng-show="isAttributeKeyEditable()"
+				style="margin-left: 36px; width: auto; min-width: 230px; max-width: 500px;">
+
+		</div>
+		<div class="form-group">
+			<label1 style="margin-left: 56px">Value</label1>
+			<input style="margin-left: 59px; width: auto; min-width: 230px; max-width: 500px;"
+				ng-model="value" />
+		</div>
+
+
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal"
+			ng-click="cancel('cancel')">
+			<i class="fa fa-times"></i>&nbsp;<span
+				translate="entity.action.cancel">Cancel</span>
+		</button>
+		<button type="button"
+			ng-disabled="editForm.$invalid || editForm.$submitted"
+			data-dismiss="modal" ng-click="saveAttribute()"
+			class="btn btn-primary">
+			<i class="fa fa-floppy-o"></i>&nbsp;<span
+				translate="entity.action.save">Save</span>
+		</button>
+	</div>
+</div>

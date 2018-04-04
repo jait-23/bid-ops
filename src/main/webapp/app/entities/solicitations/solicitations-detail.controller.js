@@ -5,58 +5,68 @@
         .module('bidopscoreApp')
         .controller('SolicitationsDetailController', SolicitationsDetailController);
 
-    SolicitationsDetailController.$inject = ['$scope', '$rootScope', '$stateParams', '$uibModal', 'previousState', 'entity', 'Solicitations'];
+    SolicitationsDetailController.$inject = ['$scope', '$rootScope', '$stateParams', '$uibModal', '$http', 'previousState', 'entity', 'Solicitations'];
 
-    function SolicitationsDetailController($scope, $rootScope, $stateParams, $uibModal, previousState, entity, Solicitations) {
+    function SolicitationsDetailController($scope, $rootScope, $stateParams, $uibModal, $http, previousState, entity, Solicitations) {
         var vm = this;
+        vm.editForm;
 
         vm.solicitations = entity;
         vm.previousState = previousState.name;
+        $scope.extraInfo = vm.solicitations.requiredDocuments;
+        
+        var unsubscribe = $rootScope.$on('bidopscoreApp:solicitationsUpdate', function(event, result) {
+            vm.solicitations = result;
+        });
+        $scope.$on('$destroy', unsubscribe);
+        
+        var onSaveFinished = function (result) {
+        	console.log("done on finsihed");
+        };
+        
+        $scope.solicitations = vm.solicitations.requiredDocuments;
         
         $scope.save = function() {
 			var updatedSolicitations = {};
 			angular.copy(vm.solicitations, updatedSolicitations);
+			updatedSolicitations.requiredDocuments = JSON.stringify(updatedSolicitations.requiredDocuments);
+			
 			if (vm.solicitations.id != null) {
-				var uploadImg = document.getElementById("uploadPDF");
-				if(uploadImg != null){
-					if(uploadImg.files.length == 1){
-						vm.solicitations["organizationId"] = $rootScope.orgId;
-						$scope.uploadFile();
-					}
-					else{
-						if(updatedSolicitations.requiredDocuments != null){
-							updatedSolicitations.requiredDocuments = JSON.stringify(updatedSolicitations.requiredDocuments);
-						}
-						else{
-							updatedSolicitations.requiredDocuments = null;
-						}
-						Solicitations.update({orgId: $rootScope.orgId, id: updatedSolicitations.id}, updatedSolicitations, onSaveFinished);
-					}
-				}
-				else{
-					vm.solicitations["organizationId"] = $rootScope.orgId;
-					if(updatedSolicitations.requiredDocuments != null)
-					{
-						updatedSolicitations.requiredDocuments = JSON.stringify(updatedSolicitations.requiredDocuments);
-					}
-					else{
-						updatedSolicitations.requiredDocuments = null;	
-					}
-					Solicitations.update({orgId: $rootScope.orgId, id: updatedSolicitations.id}, updatedSolicitations, onSaveFinished);
-				}
-			}
-			else {
-				vm.solicitations["organizationId"] = $rootScope.orgId;
-				if(vm.solicitations.requiredDocuments != null)
-				{
-					vm.solicitations.requiredDocuments = JSON.stringify(vm.solicitations.requiredDocuments);
-				}
-				else{
-					vm.solicitations.requiredDocuments = null;	
-				}
-				Solicitations.save(vm.solicitations, onSaveFinished);
-			}
-		};
+				Solicitations.update(updatedSolicitations, onSaveFinished);
+        	} else { 
+        		Solicitations.save(vm.solicitations, onSaveFinished);
+        	}
+        };
+        
+        $scope.uploadFile = function () {
+            var fd = new FormData();
+            
+            var file = document.getElementById("uploadPDF").files[0];
+           if(file != null)
+           {  
+	            fd.append('file', file);
+	           var  locationUrl = "http://localhost:8080/swagger-ui/" + file.name;
+	          
+	            var filetype = file.type;
+	                            
+	           var type = filetype.substring(filetype.indexOf("/") + 1);
+	            
+	            var uploadUrl = 'file/upload';
+	                       
+	            $http({
+	                url: uploadUrl,
+	                method : 'POST',
+	                data:  fd,
+	                withCredentials: true,
+	                headers: {'Content-Type': undefined },
+	                transformRequest: angular.identity,
+	                mimeType:"multipart/form-data",
+	                contentType: false,
+	                cache: false,
+	                processData:false
+	             }).then(function s(response) {console.log("Post Success"); vm.solicitations.requiredDocuments = locationUrl}, function e(response){console.log("Post failure");});
+           }
+        };
 		
 		$scope.saveExtraInfo = function(key, value) {
 			if (vm.solicitations.requiredDocuments == null) {
@@ -80,7 +90,18 @@
 
 		};
 		
-		$scope.uploadFile = function() {
+		$scope.deleteManuals = function (item) {
+        	var updatedSolicitations = {};
+        	
+        	angular.copy(vm.solicitations, updatedSolicitations);   
+        	var index = updatedSolicitations.requiredDocuments.Manuals.indexOf(item);
+        	
+        	updatedSolicitations.requiredDocuments.Manuals.splice(index, 1);
+        	angular.copy(updatedSolicitations, vm.solicitations);
+        	 $scope.save();
+        }
+		
+/*		$scope.uploadFile = function() {
 			var fd = new FormData();
 
 			var file = document.getElementById("uploadPDF").files[0];
@@ -127,43 +148,13 @@
 						console.log("Post failure");
 				});
 			}
-		};
-    
-		$scope.requiredDocumentsInfoCreateModal = function() {
-			$uibModal.open({
-				templateUrl : 'app/entities/solicitations/solicitations-extraInfo-create-dialog.html',
-				controller : 'SolicitationsExtraInfoCreateDialogController',
-				scope : $scope,
-				size : 'lg'
-			});
-		}
-
-		$scope.requiredDocumentsInfoEditModal = function(key) {
-			$scope.editKey = key;
-			$uibModal.open({
-				templateUrl : 'app/entities/solicitations/solicitations-extraInfo-edit-dialog.html',
-				controller : 'SolicitationsExtraInfoEditDialogController',
-				scope : $scope,
-				size : 'lg'
-			});
-		}
-
-		$scope.requiredDocumentsInfoDeleteModal = function(itemkey, itemvalue) {
-			$scope.key = itemkey;
-			$scope.value = itemvalue;
-			$uibModal.open({
-				templateUrl : 'app/entities/solicitations/solicitations-extraInfo-delete-dialog.html',
-				controller : 'SolicitationsExtraInfoDeleteDialogController',
-				scope : $scope,
-				size : 'lg'
-			});
-		}
+		};  */
 	
 		$scope.saveDetailsModal = function() {
 			$uibModal.open({
 				templateUrl : 'app/entities/solicitations/solicitations-details-save-dialog.html',
 				controller : 'SolicitationsDialogDetailsSaveController',
-				scope: $scope,
+				scope : $scope,
 				size : 'lg'
 			});
 		}
@@ -172,15 +163,43 @@
 			$uibModal.open({
 				templateUrl : 'app/entities/solicitations/solicitations-details-cancel-dialog.html',
 				controller : 'SolicitationsDetailsCancelDialogController',
-				controllerAs: 'vm',
+				scope : $scope,
 				size : 'lg'
 			});
+		}		
+		
+		$scope.requiredDocumentsInfoCreateModal = function() {        	
+			$uibModal.open({
+                 templateUrl: 'app/entities/solicitations/solicitationsupload-dialog.html',
+                 controller: 'SolicitationsUploadDialogController',
+                 scope : $scope,
+                 size: 'lg'
+            });
+        }
+		
+		$scope.requiredDocumentsInfoEditModal = function() {        	
+			$uibModal.open({
+                 templateUrl: 'app/entities/solicitations/solicitationsedit-dialog.html',
+                 controller: 'SolicitationsEditDialogController',
+                 scope : $scope,
+                 size: 'lg'
+        	});
 		}
-
-        var unsubscribe = $rootScope.$on('bidopscoreApp:solicitationsUpdate', function(event, result) {
-            vm.solicitations = result;
-        });
-        $scope.$on('$destroy', unsubscribe);
+		
+		$scope.requiredDocumentsInfoDeleteModal = function(item) {        	
+			$uibModal.open({
+                 templateUrl: 'app/entities/solicitations/solicitationsdelete-dialog.html',
+                 controller: 'SolicitationsDeleteDialogController',
+                 scope : $scope,
+                 size: 'lg',
+                 resolve: {
+                     ManualItem: function () {
+                    	  console.log(item);
+                       return item;
+                     }
+                   }
+            });
+        }
         
         $scope.tabs = [{
             title: 'Details',
