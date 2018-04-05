@@ -1,15 +1,20 @@
 <div>
-    <h2 data-translate="bidopscoreApp.bidders.home.title">Bidders</h2>
+    <h2 data-translate="bidopscoreApp.bidders.home.title">Bid Opportunities</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="bidders.new" >
+                <!--<button class="btn btn-primary" ui-sref="bidders.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span  data-translate="bidopscoreApp.bidders.home.createLabel">
                         Create new Bidders
                     </span>
-                </button>
+                </button>-->
+                CalPERS has a variety of opportunities for you and your company to become a business partner.
+                If you're interested in doing business with us, you must register for an account first.
+                Once you've registered and logged in, you can view or print bid documents by adding them to your Bid List.
+                After you've added a bid to your Bid List, you'll receive email notifications about the bid opportunity.
+                Adding a bid to your account doesn't require you to submit a bid proposal to CalPERS.
             </div>
         </div>
     </div>
@@ -19,18 +24,18 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span data-translate="bidopscoreApp.bidders.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="bidCategories"><span data-translate="bidopscoreApp.bidders.bidCategories">Bid Categories</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="solicitationId"><span data-translate="bidopscoreApp.bidders.solicitationId">Solicitation Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bidCategories"><span data-translate="">Final Filing Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="solicitationId"><span data-translate="">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="bidders in vm.bidders track by bidders.id">
-                    <td><a ui-sref="bidders-detail({id:bidders.id})">{{bidders.id}}</a></td>
-                    <td>{{bidders.name}}</td>
-                    <td>{{bidders.bidCategories}}</td>
-                    <td>{{bidders.solicitationId}}</td>
+                <tr ng-repeat="solicitations in vm.solicitations track by solicitations.id">
+                    <td><a ui-sref="solicitations-detail1({id:solicitations.id})">{{solicitations.solicitationId}}</a></td>
+                    <td>{{solicitations.title}}</td>
+                    <td>{{solicitations.finalFilingDate | date:'medium'}}</td>
+                    <td>{{solicitations.description}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
@@ -39,7 +44,7 @@
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.view"></span>
                             </button>
-                            <button type="submit"
+                          <!--  <button type="submit"
                                     ui-sref="bidders.edit({id:bidders.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
@@ -50,7 +55,7 @@
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
-                            </button>
+                            </button>-->
                         </div>
                     </td>
                 </tr>

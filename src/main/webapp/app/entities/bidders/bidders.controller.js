@@ -5,9 +5,10 @@
         .module('bidopscoreApp')
         .controller('BiddersController', BiddersController);
 
-    BiddersController.$inject = ['$state', 'Bidders', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
+    BiddersController.$inject = ['$state', 'Bidders', 'ParseLinks', 'AlertService', 'paginationConstants',
+    'pagingParams', 'Solicitations'];
 
-    function BiddersController($state, Bidders, ParseLinks, AlertService, paginationConstants, pagingParams) {
+    function BiddersController($state, Bidders, ParseLinks, AlertService, paginationConstants, pagingParams, Solicitations) {
 
         var vm = this;
 
@@ -18,8 +19,31 @@
         vm.itemsPerPage = paginationConstants.itemsPerPage;
 
         loadAll();
-
         function loadAll () {
+            Solicitations.query({
+                page: pagingParams.page - 1,
+                size: vm.itemsPerPage,
+                sort: sort()
+            }, onSuccess, onError);
+            function sort() {
+                var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+                if (vm.predicate !== 'id') {
+                    result.push('id');
+                }
+                return result;
+            }
+            function onSuccess(data, headers) {
+                vm.links = ParseLinks.parse(headers('link'));
+                vm.totalItems = headers('X-Total-Count');
+                vm.queryCount = vm.totalItems;
+                vm.solicitations = data;
+                vm.page = pagingParams.page;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+        }
+      /*  function loadAll () {
             Bidders.query({
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
@@ -42,8 +66,8 @@
             function onError(error) {
                 AlertService.error(error.data.message);
             }
-        }
 
+*/
         function loadPage(page) {
             vm.page = page;
             vm.transition();
