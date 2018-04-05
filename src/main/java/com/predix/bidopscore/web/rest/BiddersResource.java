@@ -6,7 +6,6 @@ import com.predix.bidopscore.web.rest.errors.BadRequestAlertException;
 import com.predix.bidopscore.web.rest.util.HeaderUtil;
 import com.predix.bidopscore.web.rest.util.PaginationUtil;
 import com.predix.bidopscore.service.dto.BiddersDTO;
-import com.predix.bidopscore.service.dto.BiddersCriteria;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +21,6 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing Bidders.
@@ -87,13 +85,12 @@ public class BiddersResource {
      * GET  /bidders : get all the bidders.
      *
      * @param pageable the pagination information
-     * @param criteria the criterias which the requested entities should match
      * @return the ResponseEntity with status 200 (OK) and the list of bidders in body
      */
     @GetMapping("/bidders")
     @Timed
     public ResponseEntity<List<BiddersDTO>> getAllBidders(Pageable pageable) {
-        log.debug("REST request to get Bidders: {}");
+        log.debug("REST request to get a page of Bidders");
         Page<BiddersDTO> page = biddersService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/bidders");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);

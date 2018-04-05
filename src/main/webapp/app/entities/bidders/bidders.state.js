@@ -124,10 +124,9 @@
                     resolve: {
                         entity: function () {
                             return {
-                                solicitationId: null,
                                 name: null,
                                 bidCategories: null,
-                                userId: null,
+                                solicitationId: null,
                                 id: null
                             };
                         }

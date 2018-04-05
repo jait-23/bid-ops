@@ -12,7 +12,7 @@ public class SolicitationsDTO implements Serializable {
 
     private Long id;
 
-    private String solicitationId;
+    private Long solicitationId;
 
     private String title;
 
@@ -46,11 +46,11 @@ public class SolicitationsDTO implements Serializable {
         this.id = id;
     }
 
-    public String getSolicitationId() {
+    public Long getSolicitationId() {
         return solicitationId;
     }
 
-    public void setSolicitationId(String solicitationId) {
+    public void setSolicitationId(Long solicitationId) {
         this.solicitationId = solicitationId;
     }
 

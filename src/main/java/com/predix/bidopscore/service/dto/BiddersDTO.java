@@ -2,8 +2,6 @@ package com.predix.bidopscore.service.dto;
 
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -13,21 +11,11 @@ public class BiddersDTO implements Serializable {
 
     private Long id;
 
-    private Long solicitationId;
-
     private String name;
 
     private String bidCategories;
 
-    private Long userId;
-
-    private Long jhi_userId;
-
-    private String jhi_userLogin;
-
-    private Long solicitationsId;
-
-    private String solicitationsSolicitation_id;
+    private Long solicitationId;
 
     public Long getId() {
         return id;
@@ -35,14 +23,6 @@ public class BiddersDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getSolicitationId() {
-        return solicitationId;
-    }
-
-    public void setSolicitationId(Long solicitationId) {
-        this.solicitationId = solicitationId;
     }
 
     public String getName() {
@@ -61,44 +41,12 @@ public class BiddersDTO implements Serializable {
         this.bidCategories = bidCategories;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getSolicitationId() {
+        return solicitationId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getJhi_userId() {
-        return jhi_userId;
-    }
-
-    public void setJhi_userId(Long jhi_userId) {
-        this.jhi_userId = jhi_userId;
-    }
-
-    public String getJhi_userLogin() {
-        return jhi_userLogin;
-    }
-
-    public void setJhi_userLogin(String jhi_userLogin) {
-        this.jhi_userLogin = jhi_userLogin;
-    }
-
-    public Long getSolicitationsId() {
-        return solicitationsId;
-    }
-
-    public void setSolicitationsId(Long solicitationsId) {
-        this.solicitationsId = solicitationsId;
-    }
-
-    public String getSolicitationsSolicitation_id() {
-        return solicitationsSolicitation_id;
-    }
-
-    public void setSolicitationsSolicitation_id(String solicitationsSolicitation_id) {
-        this.solicitationsSolicitation_id = solicitationsSolicitation_id;
+    public void setSolicitationId(Long solicitationId) {
+        this.solicitationId = solicitationId;
     }
 
     @Override
@@ -126,10 +74,9 @@ public class BiddersDTO implements Serializable {
     public String toString() {
         return "BiddersDTO{" +
             "id=" + getId() +
-            ", solicitationId=" + getSolicitationId() +
             ", name='" + getName() + "'" +
             ", bidCategories='" + getBidCategories() + "'" +
-            ", userId=" + getUserId() +
+            ", solicitationId=" + getSolicitationId() +
             "}";
     }
 }

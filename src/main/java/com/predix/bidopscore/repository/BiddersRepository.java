@@ -11,6 +11,6 @@ import org.springframework.data.jpa.repository.*;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface BiddersRepository extends JpaRepository<Bidders, Long>, JpaSpecificationExecutor<Bidders> {
+public interface BiddersRepository extends JpaRepository<Bidders, Long> {
 
 }

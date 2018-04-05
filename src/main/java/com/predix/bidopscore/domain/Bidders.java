@@ -1,7 +1,5 @@
 package com.predix.bidopscore.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.predix.bidopscore.domain.Solicitations;
 
 import javax.persistence.*;
 
@@ -27,23 +25,8 @@ public class Bidders implements Serializable {
     @Column(name = "bid_categories")
     private String bidCategories;
 
-    @Column(name = "user_id")
-    private Long userId;
-
-    @OneToOne(mappedBy = "bidders")
-    @JsonIgnore
-    private Solicitations bidders;
-    
-    @Column(name = "solicitation_id", updatable=false, insertable=false)
+    @Column(name = "solicitation_id")
     private Long solicitationId;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private User jhi_user;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Solicitations solicitations;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -52,22 +35,6 @@ public class Bidders implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-    
-    public Solicitations getSolicitation() {
-        return solicitations;
-    }
-
-    public void setSolicitation(Solicitations solicitations) {
-        this.solicitations = solicitations;
-    }
-
-    public Long getSolicitationId() {
-        return solicitationId;
-    }
-
-    public void setSolicitationId(Long solicitationId) {
-        this.solicitationId = solicitationId;
     }
 
     public String getName() {
@@ -96,56 +63,17 @@ public class Bidders implements Serializable {
         this.bidCategories = bidCategories;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getSolicitationId() {
+        return solicitationId;
     }
 
-    public Bidders userId(Long userId) {
-        this.userId = userId;
+    public Bidders solicitationId(Long solicitationId) {
+        this.solicitationId = solicitationId;
         return this;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Solicitations getBidders() {
-        return bidders;
-    }
-
-    public Bidders bidders(Solicitations solicitations) {
-        this.bidders = solicitations;
-        return this;
-    }
-
-    public void setBidders(Solicitations solicitations) {
-        this.bidders = solicitations;
-    }
-
-    public User getJhi_user() {
-        return jhi_user;
-    }
-
-    public Bidders jhi_user(User jhi_user) {
-        this.jhi_user = jhi_user;
-        return this;
-    }
-
-    public void setJhi_user(User jhi_user) {
-        this.jhi_user = jhi_user;
-    }
-
-    public Solicitations getSolicitations() {
-        return solicitations;
-    }
-
-    public Bidders solicitations(Solicitations solicitations) {
-        this.solicitations = solicitations;
-        return this;
-    }
-
-    public void setSolicitations(Solicitations solicitations) {
-        this.solicitations = solicitations;
+    public void setSolicitationId(Long solicitationId) {
+        this.solicitationId = solicitationId;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -173,10 +101,9 @@ public class Bidders implements Serializable {
     public String toString() {
         return "Bidders{" +
             "id=" + getId() +
-            ", solicitationId=" + getSolicitationId() +
             ", name='" + getName() + "'" +
             ", bidCategories='" + getBidCategories() + "'" +
-            ", userId=" + getUserId() +
+            ", solicitationId=" + getSolicitationId() +
             "}";
     }
 }

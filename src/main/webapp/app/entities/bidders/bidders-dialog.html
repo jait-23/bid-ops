@@ -14,12 +14,6 @@
                     ng-model="vm.bidders.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="bidopscoreApp.bidders.solicitationId" for="field_solicitationId">Solicitation Id</label>
-            <input type="number" class="form-control" name="solicitationId" id="field_solicitationId"
-                    ng-model="vm.bidders.solicitationId"
-                    />
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.bidders.name" for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
                     ng-model="vm.bidders.name"
@@ -32,24 +26,12 @@
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="bidopscoreApp.bidders.userId" for="field_userId">User Id</label>
-            <input type="number" class="form-control" name="userId" id="field_userId"
-                    ng-model="vm.bidders.userId"
+            <label class="control-label" data-translate="bidopscoreApp.bidders.solicitationId" for="field_solicitationId">Solicitation Id</label>
+            <input type="number" class="form-control" name="solicitationId" id="field_solicitationId"
+                    ng-model="vm.bidders.solicitationId"
                     />
         </div>
 
-        <div class="form-group">
-            <label data-translate="bidopscoreApp.bidders.jhi_user" for="field_jhi_user">Jhi User</label>
-            <select class="form-control" id="field_jhi_user" name="jhi_user" ng-model="vm.bidders.jhi_userId" ng-options="jhi_user.id as jhi_user.login for jhi_user in vm.jhi_users | orderBy:'id'">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label data-translate="bidopscoreApp.bidders.solicitations" for="field_solicitations">Solicitations</label>
-            <select class="form-control" id="field_solicitations" name="solicitations" ng-model="vm.bidders.solicitationsId" ng-options="solicitations.id as solicitations.solicitation_id for solicitations in vm.solicitations | orderBy:'id'">
-                <option value=""></option>
-            </select>
-        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

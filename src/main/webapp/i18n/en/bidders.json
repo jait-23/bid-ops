@@ -16,13 +16,9 @@
             "detail": {
                 "title": "Bidders"
             },
-            "solicitationId": "Solicitation Id",
             "name": "Name",
             "bidCategories": "Bid Categories",
-            "userId": "User Id",
-            "bidders": "Bidders",
-            "jhi_user": "Jhi User",
-            "solicitations": "Solicitations"
+            "solicitationId": "Solicitation Id"
         }
     }
 }

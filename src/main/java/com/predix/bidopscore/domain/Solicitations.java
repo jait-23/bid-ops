@@ -7,7 +7,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.predix.bidopscore.domain.Bidders;
+import com.predix.bidopscore.domain.Solicitations;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
@@ -29,7 +29,7 @@ public class Solicitations implements Serializable {
     private Long id;
 
     @Column(name = "solicitation_id")
-    private String solicitationId;
+    private Long solicitationId;
 
     @Column(name = "title")
     private String title;
@@ -66,11 +66,6 @@ public class Solicitations implements Serializable {
 
     @Column(name = "reviewer_id")
     private Long reviewerId;
-    
-    @OneToMany(mappedBy = "bidders")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Bidders> bidders = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -81,29 +76,21 @@ public class Solicitations implements Serializable {
         this.id = id;
     }
 
-    public String getSolicitationId() {
+    public Long getSolicitationId() {
         return solicitationId;
     }
 
-    public Solicitations solicitationId(String solicitationId) {
+    public Solicitations solicitationId(Long solicitationId) {
         this.solicitationId = solicitationId;
         return this;
     }
 
-    public void setSolicitationId(String solicitationId) {
+    public void setSolicitationId(Long solicitationId) {
         this.solicitationId = solicitationId;
     }
 
     public String getTitle() {
         return title;
-    }
-    
-    public Set<Bidders> getBidders() {
-        return bidders;
-    }
-
-    public void setManagedSites(Set<Bidders> bidders) {
-        this.bidders = bidders;
     }
 
     public Solicitations title(String title) {

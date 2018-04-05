@@ -5,9 +5,9 @@
         .module('bidopscoreApp')
         .controller('BiddersDetailController', BiddersDetailController);
 
-    BiddersDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Bidders', 'Solicitations', 'Jhi_user'];
+    BiddersDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Bidders'];
 
-    function BiddersDetailController($scope, $rootScope, $stateParams, previousState, entity, Bidders, Solicitations, Jhi_user) {
+    function BiddersDetailController($scope, $rootScope, $stateParams, previousState, entity, Bidders) {
         var vm = this;
 
         vm.bidders = entity;
