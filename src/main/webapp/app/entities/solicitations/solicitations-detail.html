@@ -134,40 +134,24 @@
 													</span>
 												</button>
 											</div><br/>
-											<div class="ibox-content table-responsive">
-												<table datatable="ng" dt-options="dtOptions" class="table table-striped table-bordered table-hover dataTables-example">
-													<thead>
+											<div class="table-responsive"
+					style="position: relative; height: 80%; width: 70%; margin-left: 73px;">
+					<table class="table table-striped table-bordered"
+						style="margin-top: 18px;">
+						<thead>
 														<tr class="table-tr-th">
-															<th>Attribute</th>
-															<th>Value</th>
-															<th></th>
+															<th>Document Name</th>
+															<th>Type</th>
+															<th>Purpose</th>
 															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
-														<tr ng-repeat="(key, value) in vm.managedSite.siteExtraInfo track by $index"
-														ng-if="key!='thresholdDefinition'">
-															<td>{{key}}</td>
-															<td>{{value}}</td>
-															<td><div class="form-group">
-													<label class="col-sm-2 control-label" for="uploadPDF">Display Image</label> 
-													<div class="col-sm-3">					
-														<img ng-src="{{vm.managedSite.siteDisplayImageRef}}"
-														alt="No Image Available"
-														style="width: 150px; height: 90px"></img>
-														
-														<input id="uploadPDF" type="file"
-														style="margin-top: 25px" name="myPDF" /> </br>
-													</div>
-												</div>
-												<div class="form-group">
-													<label class="col-sm-2 control-label" for="field_siteDisplayImageUrl">Display Image URL</label>
-													<div class="col-sm-3">
-														<input type="text" class="form-control-1"
-														name="siteDisplayImageUrl" id="field_siteDisplayImageUrl" readonly
-														ng-model="vm.managedSite.siteDisplayImageRef">
-													</div>
-												</div>	</td>
+														<tr ng-repeat="Manuals in vm.solicitations.requiredDocuments.Manuals">
+														<td>{{Manuals.Name}}</td>
+														<td>{{Manuals.Type}}</td>
+														<td>{{Manuals.Purpose}}</td>
+												
 															<td>
 																<button type="submit" class="btn btn-primary btn-sm btn-margin"
 																ng-click="requiredDocumentsInfoEditModal(key)">
