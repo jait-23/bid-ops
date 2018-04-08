@@ -42,6 +42,14 @@
 										<div class="ibox float-e-margins" style="margin-top: 30px;">
 											<div class="ibox-content" style="border-width: 0 0 0 0">
 												<div class="form-group">
+													<label class="col-sm-2 control-label">Number</label>
+													<div class="col-sm-3">
+														<input style="width: 423px;" type="text" class="form-control-1"
+														 ng-model="vm.solicitations.solicitationId" required
+														ng-maxlength="100">
+													</div>
+												</div>
+												<div class="form-group">
 													<label class="col-sm-2 control-label">Title</label>
 													<div class="col-sm-3">
 														<input style="width: 423px;" type="text" class="form-control-1"
@@ -52,7 +60,14 @@
 												<div class="form-group">
 													<label class="col-sm-2 control-label">Status</label>
 													<div class="col-sm-3">
-														<input style="width: 423px;" type="text" class="form-control-1" ng-model="vm.solicitations.status">
+													<select style="width: 423px;" class="form-control-1" name="status" id="field_status"
+														ng-model="vm.solicitations.status">
+														<option value="Published">Published</option>
+														<option value="Rejected">Rejected</option>
+														<option value="Approved">Approved</option>
+														<option value="In Review">In Review</option>
+														<option value="New">New</option>
+														</select>	
 													</div>
 												</div>
 												<div class="form-group">
@@ -62,13 +77,13 @@
 														</div>
 													</div>
 												</div>
-												<div class="form-group">
+											<!--	<div class="form-group">
 													<label class="col-sm-2 control-label">Last Updated</label>
 													<div class="col-sm-3">
 														<input style="width: 423px;" class="form-control-1" type="text" date='MM/dd/yyyy hh:mm a' 
 														datetimepicker ng-model="vm.solicitations.lastUpdated" placeholder="click to select date-time" />
 													</div>
-												</div>
+												</div> -->
 												<div class="form-group">
 													<label class="col-sm-2 control-label">Type</label>
 													<div class="col-sm-3">
@@ -81,20 +96,29 @@
 												<div class="form-group">
 													<label class="col-sm-2 control-label">Category</label>
 													<div class="col-sm-3">
-														<select style="width: 423px;" class="form-control-1"
+														<select style="width: 423px;" class="form-control-1" name="category" id="field_category"
 														ng-model="vm.solicitations.category">
 														<option value="">---</option>
-														<option value="Agriculture">Agriculture</option>
-														<option value="Aerospace">Aerospace</option>
+														<option value="Actuarial Services">Actuarial Services</option>
+														<option value="Architecture & Engineering">Architecture & Engineering</option>
+														<option value="Construction">Construction</option>
+														<option value="Consulting">Consulting</option>
+														<option value="Health">Health</option>
 														<option value="Information Technology">Information Technology</option>
-														<option value="Sports">Sports</option>
+														<option value="Investments (Non-manager)">Investments (Non-manager)</option>
+														<option value="Legal Services - Outside Counsel">Legal Services - Outside Counsel</option>
+														<option value="Mailing">Mailing</option>
+														<option value="Miscellaneous">Miscellaneous</option>
+														<option value="Photography/Video Services">Photography/Video Services</option>
+														<option value="Printing/Reproduction/Graphic Design">Printing/Reproduction/Graphic Design</option>
+														</select>
 														</select>
 													</div>
 												</div>	
 												<div class="form-group">
 													<label class="col-sm-2 control-label">Description</label>
 													<div class="col-sm-3">
-														<input style="width: 423px;" type="text" class="form-control-1"
+														<input style="width: 434px; height:200px; word-wrap: break-word; display: block;" type="text" class="form-control-1"
 														ng-model="vm.solicitations.description">
 													</div>
 												</div>
@@ -126,7 +150,7 @@
 									<div class="col-lg-12">
 										<div class="ibox float-e-margins" style="margin-top: 30px;">
 											<div class="ibox-title" style="border-width: 0 0 0 0">	
-												<button type="submit" class="btn btn-primary"
+												<button style="margin-left: 6%;" type="submit" class="btn btn-primary"
 												ng-click="requiredDocumentsInfoCreateModal()">
 													<span class="fa fa-plus"></span>
 													<span class="hidden-xs hidden-sm">
@@ -142,19 +166,19 @@
 														<tr class="table-tr-th">
 															<th>Document Name</th>
 															<th>Type</th>
-															<th>Purpose</th>
-															<th>Actions</th>
+															<th>URL</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr ng-repeat="Manuals in vm.solicitations.requiredDocuments.Manuals">
 														<td>{{Manuals.Name}}</td>
 														<td>{{Manuals.Type}}</td>
-														<td>{{Manuals.Purpose}}</td>
-												
+														<td>{{Manuals.URL}}</td>
+<!--
+												<div ng-repeat="Manuals in vm.solicitations.requiredDocuments.Manuals">
 															<td>
 																<button type="submit" class="btn btn-primary btn-sm btn-margin"
-																ng-click="requiredDocumentsInfoEditModal(key)">
+																ui-sref="Manuals.URL">
 																	<span class="fa fa-pencil"></span>
 																	<span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
 																</button>
@@ -164,6 +188,8 @@
 																	<span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
 																</button>
 															</td>
+</div>
+-->
 														</tr>
 													</tbody>
 												</table>

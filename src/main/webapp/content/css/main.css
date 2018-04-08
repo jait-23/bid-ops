@@ -59,6 +59,8 @@ Development Ribbon
     pointer-events: none;
 }
 
+.required:after { content:" *"; }
+
 .ribbon a {
     border: 1px solid #00573d;
     color: #cbb778;
@@ -117,7 +119,7 @@ navbar
 .nav > li > a:hover, .nav > li > a:focus {
 
     text-decoration: none;
-    background-color: #043927;
+    background-color: #f3f3f3;
 
 }
 
@@ -235,6 +237,11 @@ Browser Upgrade Prompt
     padding: 0.2em 0;
 }
 
+.required:before{
+  content:"*";
+  font-weight:bold;
+}
+
 /* ==========================================================================
 Logo styles
 ========================================================================== */
@@ -305,7 +312,7 @@ Generic styles
 make sure browsers use the pointer cursor for anchors, even with no href
 ========================================================================== */
 a {
-    color: #1c0cf5;
+    color: #000000;
 }
 
 a:hover, .hand, [jh-sort-by] {

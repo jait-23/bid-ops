@@ -60,8 +60,8 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/bidders/bidders-detail.html',
-                    controller: 'BiddersDetailController',
+                    templateUrl: 'app/entities/solicitations/solicitationsbidders-detail.html',
+                    controller: 'SolicitationsBiddersDetailController',
                     controllerAs: 'vm'
                 }
             },

@@ -29,7 +29,7 @@ public class Solicitations implements Serializable {
     private Long id;
 
     @Column(name = "solicitation_id")
-    private Long solicitationId;
+    private String solicitationId;
 
     @Column(name = "title")
     private String title;
@@ -76,16 +76,16 @@ public class Solicitations implements Serializable {
         this.id = id;
     }
 
-    public Long getSolicitationId() {
+    public String getSolicitationId() {
         return solicitationId;
     }
 
-    public Solicitations solicitationId(Long solicitationId) {
+    public Solicitations solicitationId(String solicitationId) {
         this.solicitationId = solicitationId;
         return this;
     }
 
-    public void setSolicitationId(Long solicitationId) {
+    public void setSolicitationId(String solicitationId) {
         this.solicitationId = solicitationId;
     }
 

@@ -10,7 +10,7 @@
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group">
             <label formnovalidate class="control-label" for="field_solicitationId">Number</label>
-            <input required="true" type="number" class="form-control" name="solicitationId" id="field_solicitationId"
+            <input required="true" type="text" class="form-control" name="solicitationId" id="field_solicitationId"
                     ng-model="vm.solicitations.solicitationId"
                     />
         </div>
@@ -22,9 +22,14 @@
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.status" for="field_status">Status</label>
-            <input type="text" class="form-control" name="status" id="field_status"
-                    ng-model="vm.solicitations.status"
-                    />
+                    <select class="form-control" name="status" id="field_status"
+														ng-model="vm.solicitations.status">
+														<option value="Published">Published</option>
+														<option value="Rejected">Rejected</option>
+														<option value="Approved">Approved</option>
+														<option value="In Review">In Review</option>
+														<option value="New">New</option>
+														</select>
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.finalFilingDate" for="field_finalFilingDate">Final Filing Date</label>
@@ -70,15 +75,29 @@
         </div>  -->
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.type" for="field_type">Type</label>
-            <input type="text" class="form-control" name="type" id="field_type"
-                    ng-model="vm.solicitations.type"
-                    />
+            <select class="form-control" name="type" id="field_type"
+														ng-model="vm.solicitations.type">
+														<option value="Solicitations">Solicitations</option>
+														</select>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="bidopscoreApp.solicitations.description" for="field_description">Description</label>
-            <input type="text" class="form-control" name="description" id="field_description"
-                    ng-model="vm.solicitations.description"
-                    />
+            <label class="control-label" data-translate="bidopscoreApp.solicitations.category" for="field_category">Description</label>
+            <select class="form-control" name="category" id="field_category"
+														ng-model="vm.solicitations.category">
+														<option value="">---</option>
+														<option value="Actuarial Services">Actuarial Services</option>
+														<option value="Architecture & Engineering">Architecture & Engineering</option>
+														<option value="Construction">Construction</option>
+														<option value="Consulting">Consulting</option>
+														<option value="Health">Health</option>
+														<option value="Information Technology">Information Technology</option>
+														<option value="Investments (Non-manager)">Investments (Non-manager)</option>
+														<option value="Legal Services - Outside Counsel">Legal Services - Outside Counsel</option>
+														<option value="Mailing">Mailing</option>
+														<option value="Miscellaneous">Miscellaneous</option>
+														<option value="Photography/Video Services">Photography/Video Services</option>
+														<option value="Printing/Reproduction/Graphic Design">Printing/Reproduction/Graphic Design</option>
+														</select>
         </div><!-- 
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.category" for="field_category">Category</label>
