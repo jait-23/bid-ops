@@ -23,6 +23,13 @@
         function clear () {
             $uibModalInstance.dismiss('cancel');
         }
+        
+       /* function func_myValidation(){
+        	var inpObj = document.getElementById("field_title");
+            if (!inpObj.checkValidity()) {
+                document.getElementById("field_title").innerHTML = inpObj.validationMessage;
+            }
+        }*/
 
         function save () {
             vm.isSaving = true;

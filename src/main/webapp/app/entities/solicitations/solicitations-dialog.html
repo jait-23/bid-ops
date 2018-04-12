@@ -10,21 +10,22 @@
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group">
             <label formnovalidate class="control-label" for="field_solicitationId">Number</label>
-            <input required="true" type="text" class="form-control" name="solicitationId" id="field_solicitationId"
-                    ng-model="vm.solicitations.solicitationId"
+            <input type="text" class="form-control" name="solicitationId" id="field_solicitationId"
+                    ng-model="vm.solicitations.solicitationId" required
                     />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.title" for="field_title">Title</label>
             <input type="text" class="form-control" name="title" id="field_title"
-                    ng-model="vm.solicitations.title"
+                    ng-model="vm.solicitations.title" ng-required="vm.solicitations.title"
                     />
+                    <p ng-if="!editForm.title.$valid">Input field required</p>
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.status" for="field_status">Status</label>
-                    <select class="form-control" name="status" id="field_status"
-														ng-model="vm.solicitations.status">
-														<option value="Published">Published</option>
+                  <select class="form-control" name="status" id="field_status"
+														ng-model="vm.solicitations.status" ng-readonly="New" required> 
+														 <option value="Published">Published</option>
 														<option value="Rejected">Rejected</option>
 														<option value="Approved">Approved</option>
 														<option value="In Review">In Review</option>
@@ -34,7 +35,7 @@
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.finalFilingDate" for="field_finalFilingDate">Final Filing Date</label>
                 <div class="input-group">
-                    <input id="field_finalFilingDate" type="text" class="form-control" name="finalFilingDate" datetime-picker="{{dateformat}}" ng-model="vm.solicitations.finalFilingDate" is-open="vm.datePickerOpenStatus.finalFilingDate"
+                    <input id="field_finalFilingDate" type="text" class="form-control" name="finalFilingDate" datetime-picker="{{dateformat}}" ng-model="vm.solicitations.finalFilingDate" is-open="vm.datePickerOpenStatus.finalFilingDate" required
                     />
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('finalFilingDate')"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -76,14 +77,14 @@
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.type" for="field_type">Type</label>
             <select class="form-control" name="type" id="field_type"
-														ng-model="vm.solicitations.type">
+														ng-model="vm.solicitations.type" required> 
 														<option value="Solicitations">Solicitations</option>
 														</select>
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.category" for="field_category">Description</label>
             <select class="form-control" name="category" id="field_category"
-														ng-model="vm.solicitations.category">
+														ng-model="vm.solicitations.category" required>
 														<option value="">---</option>
 														<option value="Actuarial Services">Actuarial Services</option>
 														<option value="Architecture & Engineering">Architecture & Engineering</option>
@@ -141,7 +142,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary" >
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
         </button>
     </div>
