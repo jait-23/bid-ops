@@ -17,8 +17,9 @@
                 "title": "Bidders"
             },
             "name": "Name",
-            "bidCategories": "Bid Categories",
-            "solicitationId": "Solicitation Id"
+            "solicitationWishlistId": "Solicitation Wishlist Id",
+            "subscribedCategories": "Subscribed Categories",
+            "submittedSolicitationsId": "Submitted Solicitations Id"
         }
     }
 }

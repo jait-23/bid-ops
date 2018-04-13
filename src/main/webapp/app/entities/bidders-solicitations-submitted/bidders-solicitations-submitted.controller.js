@@ -3,11 +3,11 @@
 
     angular
         .module('bidopscoreApp')
-        .controller('BiddersController', BiddersController);
+        .controller('BiddersSolicitationsSubmittedController', BiddersSolicitationsSubmittedController);
 
-    BiddersController.$inject = ['$state', 'Bidders', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
+    BiddersSolicitationsSubmittedController.$inject = ['$state', 'BiddersSolicitationsSubmitted', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
 
-    function BiddersController($state, Bidders, ParseLinks, AlertService, paginationConstants, pagingParams) {
+    function BiddersSolicitationsSubmittedController($state, BiddersSolicitationsSubmitted, ParseLinks, AlertService, paginationConstants, pagingParams) {
 
         var vm = this;
 
@@ -20,7 +20,7 @@
         loadAll();
 
         function loadAll () {
-            Bidders.query({
+            BiddersSolicitationsSubmitted.query({
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
                 sort: sort()
@@ -36,7 +36,7 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
-                vm.bidders = data;
+                vm.biddersSolicitationsSubmitteds = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {

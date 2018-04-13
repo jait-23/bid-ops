@@ -9,17 +9,17 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('bidders', {
+        .state('bidders-solicitations-submitted', {
             parent: 'entity',
-            url: '/bidders?page&sort&search',
+            url: '/bidders-solicitations-submitted?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'bidopscoreApp.bidders.home.title'
+                pageTitle: 'bidopscoreApp.biddersSolicitationsSubmitted.home.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/bidders/bidders.html',
-                    controller: 'BiddersController',
+                    templateUrl: 'app/entities/bidders-solicitations-submitted/bidders-solicitations-submitteds.html',
+                    controller: 'BiddersSolicitationsSubmittedController',
                     controllerAs: 'vm'
                 }
             },
@@ -45,37 +45,37 @@
                     };
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('bidders');
+                    $translatePartialLoader.addPart('biddersSolicitationsSubmitted');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
             }
         })
-        .state('bidders-detail', {
-            parent: 'bidders',
-            url: '/bidders/{id}',
+        .state('bidders-solicitations-submitted-detail', {
+            parent: 'bidders-solicitations-submitted',
+            url: '/bidders-solicitations-submitted/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'bidopscoreApp.bidders.detail.title'
+                pageTitle: 'bidopscoreApp.biddersSolicitationsSubmitted.detail.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/bidders/bidders-detail.html',
-                    controller: 'BiddersDetailController',
+                    templateUrl: 'app/entities/bidders-solicitations-submitted/bidders-solicitations-submitted-detail.html',
+                    controller: 'BiddersSolicitationsSubmittedDetailController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('bidders');
+                    $translatePartialLoader.addPart('biddersSolicitationsSubmitted');
                     return $translate.refresh();
                 }],
-                entity: ['$stateParams', 'Bidders', function($stateParams, Bidders) {
-                    return Bidders.get({id : $stateParams.id}).$promise;
+                entity: ['$stateParams', 'BiddersSolicitationsSubmitted', function($stateParams, BiddersSolicitationsSubmitted) {
+                    return BiddersSolicitationsSubmitted.get({id : $stateParams.id}).$promise;
                 }],
                 previousState: ["$state", function ($state) {
                     var currentStateData = {
-                        name: $state.current.name || 'bidders',
+                        name: $state.current.name || 'bidders-solicitations-submitted',
                         params: $state.params,
                         url: $state.href($state.current.name, $state.params)
                     };
@@ -83,22 +83,22 @@
                 }]
             }
         })
-        .state('bidders-detail.edit', {
-            parent: 'bidders-detail',
+        .state('bidders-solicitations-submitted-detail.edit', {
+            parent: 'bidders-solicitations-submitted-detail',
             url: '/detail/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/bidders/bidders-dialog.html',
-                    controller: 'BiddersDialogController',
+                    templateUrl: 'app/entities/bidders-solicitations-submitted/bidders-solicitations-submitted-dialog.html',
+                    controller: 'BiddersSolicitationsSubmittedDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['Bidders', function(Bidders) {
-                            return Bidders.get({id : $stateParams.id}).$promise;
+                        entity: ['BiddersSolicitationsSubmitted', function(BiddersSolicitationsSubmitted) {
+                            return BiddersSolicitationsSubmitted.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
@@ -108,81 +108,81 @@
                 });
             }]
         })
-        .state('bidders.new', {
-            parent: 'bidders',
+        .state('bidders-solicitations-submitted.new', {
+            parent: 'bidders-solicitations-submitted',
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/bidders/bidders-dialog.html',
-                    controller: 'BiddersDialogController',
+                    templateUrl: 'app/entities/bidders-solicitations-submitted/bidders-solicitations-submitted-dialog.html',
+                    controller: 'BiddersSolicitationsSubmittedDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         entity: function () {
                             return {
-                                name: null,
-                                solicitationWishlistId: null,
-                                subscribedCategories: null,
-                                submittedSolicitationsId: null,
+                                userId: null,
+                                solicitationId: null,
+                                docURL: null,
+                                categorySolicitations: null,
                                 id: null
                             };
                         }
                     }
                 }).result.then(function() {
-                    $state.go('bidders', null, { reload: 'bidders' });
+                    $state.go('bidders-solicitations-submitted', null, { reload: 'bidders-solicitations-submitted' });
                 }, function() {
-                    $state.go('bidders');
+                    $state.go('bidders-solicitations-submitted');
                 });
             }]
         })
-        .state('bidders.edit', {
-            parent: 'bidders',
+        .state('bidders-solicitations-submitted.edit', {
+            parent: 'bidders-solicitations-submitted',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/bidders/bidders-dialog.html',
-                    controller: 'BiddersDialogController',
+                    templateUrl: 'app/entities/bidders-solicitations-submitted/bidders-solicitations-submitted-dialog.html',
+                    controller: 'BiddersSolicitationsSubmittedDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['Bidders', function(Bidders) {
-                            return Bidders.get({id : $stateParams.id}).$promise;
+                        entity: ['BiddersSolicitationsSubmitted', function(BiddersSolicitationsSubmitted) {
+                            return BiddersSolicitationsSubmitted.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('bidders', null, { reload: 'bidders' });
+                    $state.go('bidders-solicitations-submitted', null, { reload: 'bidders-solicitations-submitted' });
                 }, function() {
                     $state.go('^');
                 });
             }]
         })
-        .state('bidders.delete', {
-            parent: 'bidders',
+        .state('bidders-solicitations-submitted.delete', {
+            parent: 'bidders-solicitations-submitted',
             url: '/{id}/delete',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/bidders/bidders-delete-dialog.html',
-                    controller: 'BiddersDeleteController',
+                    templateUrl: 'app/entities/bidders-solicitations-submitted/bidders-solicitations-submitted-delete-dialog.html',
+                    controller: 'BiddersSolicitationsSubmittedDeleteController',
                     controllerAs: 'vm',
                     size: 'md',
                     resolve: {
-                        entity: ['Bidders', function(Bidders) {
-                            return Bidders.get({id : $stateParams.id}).$promise;
+                        entity: ['BiddersSolicitationsSubmitted', function(BiddersSolicitationsSubmitted) {
+                            return BiddersSolicitationsSubmitted.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('bidders', null, { reload: 'bidders' });
+                    $state.go('bidders-solicitations-submitted', null, { reload: 'bidders-solicitations-submitted' });
                 }, function() {
                     $state.go('^');
                 });

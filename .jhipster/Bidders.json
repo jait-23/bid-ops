@@ -7,11 +7,15 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "bidCategories",
+            "fieldName": "solicitationWishlistId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "subscribedCategories",
             "fieldType": "String"
         },
         {
-            "fieldName": "solicitationId",
+            "fieldName": "submittedSolicitationsId",
             "fieldType": "Long"
         }
     ],

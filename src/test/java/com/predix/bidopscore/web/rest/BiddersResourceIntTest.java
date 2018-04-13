@@ -44,11 +44,14 @@ public class BiddersResourceIntTest {
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
 
-    private static final String DEFAULT_BID_CATEGORIES = "AAAAAAAAAA";
-    private static final String UPDATED_BID_CATEGORIES = "BBBBBBBBBB";
+    private static final Long DEFAULT_SOLICITATION_WISHLIST_ID = 1L;
+    private static final Long UPDATED_SOLICITATION_WISHLIST_ID = 2L;
 
-    private static final Long DEFAULT_SOLICITATION_ID = 1L;
-    private static final Long UPDATED_SOLICITATION_ID = 2L;
+    private static final String DEFAULT_SUBSCRIBED_CATEGORIES = "AAAAAAAAAA";
+    private static final String UPDATED_SUBSCRIBED_CATEGORIES = "BBBBBBBBBB";
+
+    private static final Long DEFAULT_SUBMITTED_SOLICITATIONS_ID = 1L;
+    private static final Long UPDATED_SUBMITTED_SOLICITATIONS_ID = 2L;
 
     @Autowired
     private BiddersRepository biddersRepository;
@@ -95,8 +98,9 @@ public class BiddersResourceIntTest {
     public static Bidders createEntity(EntityManager em) {
         Bidders bidders = new Bidders()
             .name(DEFAULT_NAME)
-            .bidCategories(DEFAULT_BID_CATEGORIES)
-            .solicitationId(DEFAULT_SOLICITATION_ID);
+            .solicitationWishlistId(DEFAULT_SOLICITATION_WISHLIST_ID)
+            .subscribedCategories(DEFAULT_SUBSCRIBED_CATEGORIES)
+            .submittedSolicitationsId(DEFAULT_SUBMITTED_SOLICITATIONS_ID);
         return bidders;
     }
 
@@ -122,8 +126,9 @@ public class BiddersResourceIntTest {
         assertThat(biddersList).hasSize(databaseSizeBeforeCreate + 1);
         Bidders testBidders = biddersList.get(biddersList.size() - 1);
         assertThat(testBidders.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testBidders.getBidCategories()).isEqualTo(DEFAULT_BID_CATEGORIES);
-        assertThat(testBidders.getSolicitationId()).isEqualTo(DEFAULT_SOLICITATION_ID);
+        assertThat(testBidders.getSolicitationWishlistId()).isEqualTo(DEFAULT_SOLICITATION_WISHLIST_ID);
+        assertThat(testBidders.getSubscribedCategories()).isEqualTo(DEFAULT_SUBSCRIBED_CATEGORIES);
+        assertThat(testBidders.getSubmittedSolicitationsId()).isEqualTo(DEFAULT_SUBMITTED_SOLICITATIONS_ID);
     }
 
     @Test
@@ -158,8 +163,9 @@ public class BiddersResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(bidders.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-            .andExpect(jsonPath("$.[*].bidCategories").value(hasItem(DEFAULT_BID_CATEGORIES.toString())))
-            .andExpect(jsonPath("$.[*].solicitationId").value(hasItem(DEFAULT_SOLICITATION_ID.intValue())));
+            .andExpect(jsonPath("$.[*].solicitationWishlistId").value(hasItem(DEFAULT_SOLICITATION_WISHLIST_ID.intValue())))
+            .andExpect(jsonPath("$.[*].subscribedCategories").value(hasItem(DEFAULT_SUBSCRIBED_CATEGORIES.toString())))
+            .andExpect(jsonPath("$.[*].submittedSolicitationsId").value(hasItem(DEFAULT_SUBMITTED_SOLICITATIONS_ID.intValue())));
     }
 
     @Test
@@ -174,8 +180,9 @@ public class BiddersResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(bidders.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.bidCategories").value(DEFAULT_BID_CATEGORIES.toString()))
-            .andExpect(jsonPath("$.solicitationId").value(DEFAULT_SOLICITATION_ID.intValue()));
+            .andExpect(jsonPath("$.solicitationWishlistId").value(DEFAULT_SOLICITATION_WISHLIST_ID.intValue()))
+            .andExpect(jsonPath("$.subscribedCategories").value(DEFAULT_SUBSCRIBED_CATEGORIES.toString()))
+            .andExpect(jsonPath("$.submittedSolicitationsId").value(DEFAULT_SUBMITTED_SOLICITATIONS_ID.intValue()));
     }
 
     @Test
@@ -199,8 +206,9 @@ public class BiddersResourceIntTest {
         em.detach(updatedBidders);
         updatedBidders
             .name(UPDATED_NAME)
-            .bidCategories(UPDATED_BID_CATEGORIES)
-            .solicitationId(UPDATED_SOLICITATION_ID);
+            .solicitationWishlistId(UPDATED_SOLICITATION_WISHLIST_ID)
+            .subscribedCategories(UPDATED_SUBSCRIBED_CATEGORIES)
+            .submittedSolicitationsId(UPDATED_SUBMITTED_SOLICITATIONS_ID);
         BiddersDTO biddersDTO = biddersMapper.toDto(updatedBidders);
 
         restBiddersMockMvc.perform(put("/api/bidders")
@@ -213,8 +221,9 @@ public class BiddersResourceIntTest {
         assertThat(biddersList).hasSize(databaseSizeBeforeUpdate);
         Bidders testBidders = biddersList.get(biddersList.size() - 1);
         assertThat(testBidders.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testBidders.getBidCategories()).isEqualTo(UPDATED_BID_CATEGORIES);
-        assertThat(testBidders.getSolicitationId()).isEqualTo(UPDATED_SOLICITATION_ID);
+        assertThat(testBidders.getSolicitationWishlistId()).isEqualTo(UPDATED_SOLICITATION_WISHLIST_ID);
+        assertThat(testBidders.getSubscribedCategories()).isEqualTo(UPDATED_SUBSCRIBED_CATEGORIES);
+        assertThat(testBidders.getSubmittedSolicitationsId()).isEqualTo(UPDATED_SUBMITTED_SOLICITATIONS_ID);
     }
 
     @Test

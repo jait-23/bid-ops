@@ -22,11 +22,14 @@ public class Bidders implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "bid_categories")
-    private String bidCategories;
+    @Column(name = "solicitation_wishlist_id")
+    private Long solicitationWishlistId;
 
-    @Column(name = "solicitation_id")
-    private Long solicitationId;
+    @Column(name = "subscribed_categories")
+    private String subscribedCategories;
+
+    @Column(name = "submitted_solicitations_id")
+    private Long submittedSolicitationsId;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -50,30 +53,43 @@ public class Bidders implements Serializable {
         this.name = name;
     }
 
-    public String getBidCategories() {
-        return bidCategories;
+    public Long getSolicitationWishlistId() {
+        return solicitationWishlistId;
     }
 
-    public Bidders bidCategories(String bidCategories) {
-        this.bidCategories = bidCategories;
+    public Bidders solicitationWishlistId(Long solicitationWishlistId) {
+        this.solicitationWishlistId = solicitationWishlistId;
         return this;
     }
 
-    public void setBidCategories(String bidCategories) {
-        this.bidCategories = bidCategories;
+    public void setSolicitationWishlistId(Long solicitationWishlistId) {
+        this.solicitationWishlistId = solicitationWishlistId;
     }
 
-    public Long getSolicitationId() {
-        return solicitationId;
+    public String getSubscribedCategories() {
+        return subscribedCategories;
     }
 
-    public Bidders solicitationId(Long solicitationId) {
-        this.solicitationId = solicitationId;
+    public Bidders subscribedCategories(String subscribedCategories) {
+        this.subscribedCategories = subscribedCategories;
         return this;
     }
 
-    public void setSolicitationId(Long solicitationId) {
-        this.solicitationId = solicitationId;
+    public void setSubscribedCategories(String subscribedCategories) {
+        this.subscribedCategories = subscribedCategories;
+    }
+
+    public Long getSubmittedSolicitationsId() {
+        return submittedSolicitationsId;
+    }
+
+    public Bidders submittedSolicitationsId(Long submittedSolicitationsId) {
+        this.submittedSolicitationsId = submittedSolicitationsId;
+        return this;
+    }
+
+    public void setSubmittedSolicitationsId(Long submittedSolicitationsId) {
+        this.submittedSolicitationsId = submittedSolicitationsId;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -102,8 +118,9 @@ public class Bidders implements Serializable {
         return "Bidders{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
-            ", bidCategories='" + getBidCategories() + "'" +
-            ", solicitationId=" + getSolicitationId() +
+            ", solicitationWishlistId=" + getSolicitationWishlistId() +
+            ", subscribedCategories='" + getSubscribedCategories() + "'" +
+            ", submittedSolicitationsId=" + getSubmittedSolicitationsId() +
             "}";
     }
 }

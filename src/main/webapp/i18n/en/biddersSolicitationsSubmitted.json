@@ -1,0 +1,25 @@
+
+{
+    "bidopscoreApp": {
+        "biddersSolicitationsSubmitted" : {
+            "home": {
+                "title": "Bidders Solicitations Submitteds",
+                "createLabel": "Create a new Bidders Solicitations Submitted",
+                "createOrEditLabel": "Create or edit a Bidders Solicitations Submitted"
+            },
+            "created": "A new Bidders Solicitations Submitted is created with identifier {{ param }}",
+            "updated": "A Bidders Solicitations Submitted is updated with identifier {{ param }}",
+            "deleted": "A Bidders Solicitations Submitted is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Bidders Solicitations Submitted {{ id }}?"
+            },
+            "detail": {
+                "title": "Bidders Solicitations Submitted"
+            },
+            "userId": "User Id",
+            "solicitationId": "Solicitation Id",
+            "docURL": "Doc URL",
+            "categorySolicitations": "Category Solicitations"
+        }
+    }
+}

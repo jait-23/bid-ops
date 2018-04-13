@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="bidopscoreApp.biddersSolicitationsSubmitted.detail.title">Bidders Solicitations Submitted</span> {{vm.biddersSolicitationsSubmitted.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="bidopscoreApp.biddersSolicitationsSubmitted.userId">User Id</span></dt>
+        <dd>
+            <span>{{vm.biddersSolicitationsSubmitted.userId}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.biddersSolicitationsSubmitted.solicitationId">Solicitation Id</span></dt>
+        <dd>
+            <span>{{vm.biddersSolicitationsSubmitted.solicitationId}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.biddersSolicitationsSubmitted.docURL">Doc URL</span></dt>
+        <dd>
+            <span>{{vm.biddersSolicitationsSubmitted.docURL}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.biddersSolicitationsSubmitted.categorySolicitations">Category Solicitations</span></dt>
+        <dd>
+            <span>{{vm.biddersSolicitationsSubmitted.categorySolicitations}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="bidders-solicitations-submitted-detail.edit({id:vm.biddersSolicitationsSubmitted.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

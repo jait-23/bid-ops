@@ -13,9 +13,11 @@ public class BiddersDTO implements Serializable {
 
     private String name;
 
-    private String bidCategories;
+    private Long solicitationWishlistId;
 
-    private Long solicitationId;
+    private String subscribedCategories;
+
+    private Long submittedSolicitationsId;
 
     public Long getId() {
         return id;
@@ -33,20 +35,28 @@ public class BiddersDTO implements Serializable {
         this.name = name;
     }
 
-    public String getBidCategories() {
-        return bidCategories;
+    public Long getSolicitationWishlistId() {
+        return solicitationWishlistId;
     }
 
-    public void setBidCategories(String bidCategories) {
-        this.bidCategories = bidCategories;
+    public void setSolicitationWishlistId(Long solicitationWishlistId) {
+        this.solicitationWishlistId = solicitationWishlistId;
     }
 
-    public Long getSolicitationId() {
-        return solicitationId;
+    public String getSubscribedCategories() {
+        return subscribedCategories;
     }
 
-    public void setSolicitationId(Long solicitationId) {
-        this.solicitationId = solicitationId;
+    public void setSubscribedCategories(String subscribedCategories) {
+        this.subscribedCategories = subscribedCategories;
+    }
+
+    public Long getSubmittedSolicitationsId() {
+        return submittedSolicitationsId;
+    }
+
+    public void setSubmittedSolicitationsId(Long submittedSolicitationsId) {
+        this.submittedSolicitationsId = submittedSolicitationsId;
     }
 
     @Override
@@ -75,8 +85,9 @@ public class BiddersDTO implements Serializable {
         return "BiddersDTO{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
-            ", bidCategories='" + getBidCategories() + "'" +
-            ", solicitationId=" + getSolicitationId() +
+            ", solicitationWishlistId=" + getSolicitationWishlistId() +
+            ", subscribedCategories='" + getSubscribedCategories() + "'" +
+            ", submittedSolicitationsId=" + getSubmittedSolicitationsId() +
             "}";
     }
 }
