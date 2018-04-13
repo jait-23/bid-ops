@@ -14,18 +14,14 @@
         </div>
         <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
             <ul class="nav navbar-nav navbar-right">
-         <!--      <li ui-sref-active="active">
-                    <a ui-sref="home" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-home"></span>
-                        <span class="hidden-sm" data-translate="global.menu.home">Home</span>
-                    </a>
-                </li> -->
-                 <li ui-sref-active="active">
+              				
+                			<li ui-sref-active="active">
                                 <a ui-sref="solicitations" ng-click="vm.collapseNavbar()">
                                     <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                     <span data-translate="global.menu.entities.solicitations">Solicitations</span>
                                 </a>
                             </li>
+                            
                             <li ui-sref-active="active" ng-switch-when="true">
                                 <a ui-sref="bidders" ng-click="vm.collapseNavbar()">
                                     <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
@@ -37,18 +33,11 @@
                                 <span class="glyphicon glyphicon-wrench"></span>&nbsp;
                                 <span data-translate="global.menu.account.settings">Settings</span>
                             </a>
-                        </li>
+                          </li>
                         <li ui-sref-active="active" ng-switch-when="true">
                             <a ui-sref="password" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-lock"></span>&nbsp;
                                 <span data-translate="global.menu.account.password">Password</span>
-                            </a>
-                        </li>
-                        
-                        <li ui-sref-active="active" ng-switch-when="true">
-                            <a href="" ng-click="vm.logout()" id="logout">
-                                <span class="glyphicon glyphicon-log-out"></span>&nbsp;
-                                <span data-translate="global.menu.account.logout">Sign out</span>
                             </a>
                         </li>
                         
@@ -59,6 +48,41 @@
                             </a>
                         </li>
                         
+                        <li ui-sref-active="active" ng-switch-when="true">
+                            <a href="" ng-click="vm.logout()" id="logout">
+                                <span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                                <span data-translate="global.menu.account.logout">Sign out</span>
+                            </a>
+                        </li>
+                        <!-- 
+                        <li ui-sref-active="active" ng-switch-when="true">
+                            <a>&nbsp;
+                                <span>{{vm.account.login}}</span>
+                            </a>
+                        </li>
+                         -->
+                        <li ui-sref-active="active" ng-switch-when="false">
+                            <a ui-sref="solicitations" ng-click="vm.collapseNavbar()">
+                            	<span class="glyphicon glyphicon-log-in"></span>&nbsp;
+                                 <span data-translate="global.menu.account.login">Log In</span>
+                            </a>
+                            <!-- <a ng-switch-when="false" translate-values="{{vm.account.login}}">
+                            	<span>{{vm.account.login}}</span>
+                            </a> -->
+                         </li>
+                            
+                         <!-- <div ng-switch="vm.isAuthenticated()">
+                <div class="alert alert-success" ng-switch-when="true" data-translate="home.logged.message" translate-values="{username: '{{vm.account.login}}'}">
+                    You are logged in as user "{{vm.account.login}}".
+                </div>
+    
+       		 <div class="" ng-switch-when="false" translate-compile>
+        
+         		   <button type="button" ng-click="vm.login()" class="alert-link btn btn-default">Sign in</button>
+           			 <button type="button" ui-sref="register" class="alert-link btn btn-default">Register</button>
+        	</div>
+    
+		</div> -->    
                         
                 <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
                <!--  <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
