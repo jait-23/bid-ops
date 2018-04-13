@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "solicitationId",
+            "fieldType": "Long",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "docURL",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "categorySolicitation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180413051537",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "evaluator_one",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}
