@@ -1,0 +1,26 @@
+
+{
+    "bidopscoreApp": {
+        "evaluatorOne" : {
+            "home": {
+                "title": "Evaluator Ones",
+                "createLabel": "Create a new Evaluator One",
+                "createOrEditLabel": "Create or edit a Evaluator One"
+            },
+            "created": "A new Evaluator One is created with identifier {{ param }}",
+            "updated": "A Evaluator One is updated with identifier {{ param }}",
+            "deleted": "A Evaluator One is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Evaluator One {{ id }}?"
+            },
+            "detail": {
+                "title": "Evaluator One"
+            },
+            "userId": "User Id",
+            "solicitationId": "Solicitation Id",
+            "docURL": "Doc URL",
+            "categorySolicitation": "Category Solicitation",
+            "status": "Status"
+        }
+    }
+}
