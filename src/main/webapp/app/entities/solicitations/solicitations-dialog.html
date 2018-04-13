@@ -10,16 +10,16 @@
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group">
             <label formnovalidate class="control-label" for="field_solicitationId">Number</label>
-            <input type="text" class="form-control" name="solicitationId" id="field_solicitationId"
-                    ng-model="vm.solicitations.solicitationId" required
+            <input required="true" type="text" class="form-control" name="solicitationId" id="field_solicitationId"
+                    ng-model="vm.solicitations.solicitationId" 
                     />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.title" for="field_title">Title</label>
-            <input type="text" class="form-control" name="title" id="field_title"
-                    ng-model="vm.solicitations.title" ng-required="vm.solicitations.title"
+            <input required="true" type="text" class="form-control" name="title" id="field_title"
+                    ng-model="vm.solicitations.title" 
                     />
-                    <p ng-if="!editForm.title.$valid">Input field required</p>
+                    
         </div>
         
         <!-- <div class="form-group">
@@ -36,7 +36,7 @@
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.finalFilingDate" for="field_finalFilingDate">Final Filing Date</label>
                 <div class="input-group">
-                    <input id="field_finalFilingDate" type="text" class="form-control" name="finalFilingDate" datetime-picker="{{dateformat}}" ng-model="vm.solicitations.finalFilingDate" is-open="vm.datePickerOpenStatus.finalFilingDate" required
+                    <input required="true" id="field_finalFilingDate" type="text" class="form-control" name="finalFilingDate" datetime-picker="{{dateformat}}" ng-model="vm.solicitations.finalFilingDate" is-open="vm.datePickerOpenStatus.finalFilingDate" required
                     />
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('finalFilingDate')"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -78,14 +78,14 @@
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.type" for="field_type">Type</label>
             <select class="form-control" name="type" id="field_type"
-														ng-model="vm.solicitations.type" required> 
+														ng-model="vm.solicitations.type" > 
 														<option value="Solicitations">Solicitations</option>
 														</select>
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.category" for="field_category">Description</label>
-            <select class="form-control" name="category" id="field_category"
-														ng-model="vm.solicitations.category" required>
+            <select required="true" class="form-control" name="category" id="field_category"
+														ng-model="vm.solicitations.category">
 														<option value="">---</option>
 														<option value="Actuarial Services">Actuarial Services</option>
 														<option value="Architecture & Engineering">Architecture & Engineering</option>
