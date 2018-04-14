@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.*;
 
 
 /**
- * Spring Data JPA repository for the BiddersSolicitationsSubmitted entity.
+ * Spring Data JPA repository for the Bidders entity.
  */
 @SuppressWarnings("unused")
 @Repository

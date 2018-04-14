@@ -46,8 +46,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = BidopscoreApp.class)
 public class SolicitationsResourceIntTest {
 
-    private static final Long DEFAULT_SOLICITATION_ID = 1L;
-    private static final Long UPDATED_SOLICITATION_ID = 2L;
+    private static final String DEFAULT_SOLICITATION_ID = "AAAAAAAAAA";
+    private static final String UPDATED_SOLICITATION_ID = "BBBBBBBBBB";
 
     private static final String DEFAULT_TITLE = "AAAAAAAAAA";
     private static final String UPDATED_TITLE = "BBBBBBBBBB";
@@ -212,7 +212,7 @@ public class SolicitationsResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(solicitations.getId().intValue())))
-            .andExpect(jsonPath("$.[*].solicitationId").value(hasItem(DEFAULT_SOLICITATION_ID.intValue())))
+            .andExpect(jsonPath("$.[*].solicitationId").value(hasItem(DEFAULT_SOLICITATION_ID.toString())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
             .andExpect(jsonPath("$.[*].finalFilingDate").value(hasItem(sameInstant(DEFAULT_FINAL_FILING_DATE))))
@@ -238,7 +238,7 @@ public class SolicitationsResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(solicitations.getId().intValue()))
-            .andExpect(jsonPath("$.solicitationId").value(DEFAULT_SOLICITATION_ID.intValue()))
+            .andExpect(jsonPath("$.solicitationId").value(DEFAULT_SOLICITATION_ID.toString()))
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE.toString()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
             .andExpect(jsonPath("$.finalFilingDate").value(sameInstant(DEFAULT_FINAL_FILING_DATE)))

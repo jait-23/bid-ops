@@ -18,7 +18,7 @@ public interface BiddersSolicitationsSubmittedService {
     BiddersSolicitationsSubmittedDTO save(BiddersSolicitationsSubmittedDTO biddersSolicitationsSubmittedDTO);
 
     /**
-     * Get all the biddersSolicitationsSubmitteds.
+     * Get all the biddersSolicitationsSubmitted.
      *
      * @param pageable the pagination information
      * @return the list of entities
