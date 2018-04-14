@@ -20,38 +20,38 @@
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                 
                 
-                    <th style="width: 10%"><span>Id</span></th>
-                    <th style="width: 20%"><span data-translate="bidopscoreApp.solicitations.title">Title</span></th>
-                    <th><span data-translate="bidopscoreApp.solicitations.status">Status</span></th>
-                    <th><span data-translate="bidopscoreApp.solicitations.finalFilingDate">Final Filing Date</span></th>
-                    <th><span data-translate="bidopscoreApp.solicitations.category">Category</span></th>
-                	<th>Actions</th>
+                    <th style="width: 10%;text-align: center;"><span>Id</span></th>
+                    <th style="width: 20%;text-align: center;"><span data-translate="bidopscoreApp.solicitations.title">Title</span></th>
+                    <th style="text-align: center;"><span data-translate="bidopscoreApp.solicitations.status">Status</span></th>
+                    <th style="text-align: center;"><span data-translate="bidopscoreApp.solicitations.finalFilingDate">Final Filing Date</span></th>
+                    <th style="text-align: center;"><span data-translate="bidopscoreApp.solicitations.category">Category</span></th>
+                	<th style="text-align: center;">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="solicitations in vm.solicitations track by solicitations.id">
-                    <td>{{solicitations.solicitationId}}</td>
-                    <td>{{solicitations.title}}</td>
-                    <td>{{solicitations.status}}</td>
-                    <td>{{solicitations.finalFilingDate | date:'medium'}}</td>
-                    <td>{{solicitations.category}}</td>
+                    <td style="text-align: center;">{{solicitations.solicitationId}}</td>
+                    <td style="text-align: center;">{{solicitations.title}}</td>
+                    <td style="text-align: center;">{{solicitations.status}}</td>
+                    <td style="text-align: center;">{{solicitations.finalFilingDate | date:'medium'}}</td>
+                    <td style="text-align: center;">{{solicitations.category}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="solicitations-detail1({id:solicitations.id})"
-                                    class="btn btn-info btn-sm">
+                                    class="btn btn-sm" style="border-color:black;color:#004A0F;">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.view"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="solicitations-detail({id:solicitations.id})"
-                                    class="btn btn-primary btn-sm">
+                                    class="btn btn-sm" style="border-color:black;color:#004A0F;">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="solicitations.delete({id:solicitations.id})"
-                                    class="btn btn-danger btn-sm">
+                                    class="btn btn-sm" style="border-color:black;color:#004A0F;">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
                             </button>
