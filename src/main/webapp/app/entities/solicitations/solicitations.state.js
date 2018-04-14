@@ -125,7 +125,7 @@
             views: {
             	 'appContent@home': {
                      templateUrl: 'app/entities/solicitations/solicitations-detail1.html',
-                     controller: 'SolicitationsDetailController',
+                     controller: 'SolicitationsDetail1Controller',
                      controllerAs: 'vm'
             	 }
             },
