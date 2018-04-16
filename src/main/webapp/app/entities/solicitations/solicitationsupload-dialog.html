@@ -53,7 +53,7 @@
 		</div>
 		<div class="modal-body">
 			<jh-alert-error></jh-alert-error>
-			<div class="form-group" style="margin-top: 15px">
+			<!-- <div class="form-group" style="margin-top: 15px">
 				<label1 style="margin-left: 56px; margin-top: -18px;">Name</label1>
 				<input type="text" id="documentName"
 					ng-model="solicitations.requiredDocuments.Manuals.Name"
@@ -67,23 +67,60 @@
 					ng-model="solicitations.requiredDocuments.Manuals.Purpose"
 					required ng-maxlength="100"
 					style="margin-left: 34px; width: auto; min-width: 230px; max-width: 500px;">
-			</div>
-
-			<div class="form-group">
+			</div> -->
+			<div class="uk-text-center" uk-grid" align="center">
+    				<div class="col-sm-4">
+       					 <div class="uk-text-center" style="text-align: right;font-size:16px;">
+       							 Name<span style="color:red;">*</span>
+       					 </div>
+       					 </br>
+       					 <div class="uk-text-center" style="text-align: right;font-size:16px;">
+       							 Purpose<span style="color:red;">*</span>
+       					 </div>
+       			    </div>
+       			    
+       			    <div class="col-sm-8">
+       			    <div class="uk-card uk-card-default uk-card-body">
+       					<form><div class="uk-margin uk-width-auto">
+           					<input class="uk-input" type="text" ng-model="solicitations.requiredDocuments.Manuals.Name" required
+								ng-maxlength="100" style="width:300px;">
+        					</div>
+						<form>
+       				</div>
+       				</br>
+       				<div class="uk-card uk-card-default uk-card-body">
+       					<form><div class="uk-margin uk-width-auto">
+           					<input class="uk-input" type="text" ng-model="solicitations.requiredDocuments.Manuals.Purpose" required
+								ng-maxlength="100" style="width:300px;">
+        					</div>
+						<form>
+       				</div>
+       			    </div> 
+       		</div>
+</br>
+</br>
+			<div class="form-group" align="center">
 				<!--  <label1 style="margin-left: 56px">Upload</label1>   -->
 				<div style="clear: both">
+				</br>
 					<iframe id="viewer" frameborder="0" style="margin-left: 133px"
 						scrolling="no" width="550" height="300"></iframe>
 				</div>
 				<input id="upload" type="file" style="margin-left: 133px"
-					name="myPDF" /> </br> <input type="button" value="Preview"
-					style="margin-left: 133px;" onclick="PreviewImage();" /> <input
-					type="submit" id="btnUpload" value="Upload" ng-click="uploadFile()" />
+					name="myPDF" /> 
+				  </br> 
+				   <!-- <input type="button" value="Preview"
+					style="margin-left: 133px;" onclick="PreviewImage();" />  -->
+					<button type="button" style="margin-left: 133px;" class="btn btn-info" value="Preview" style="margin-left: 133px;" onclick="PreviewImage();" >Preview</button>
+				  <!-- <input
+					type="submit" id="btnUpload" value="Upload" ng-click="uploadFile()" /> -->
+					<button type="submit" class="btn btn-info" value="Upload" ng-click="uploadFile()">Upload</button>
+					
 				<span id="lblError" style="color: red; margin-left: 128px"></span>
 
 
 			</div>
-			<div class="form-group">
+			<div class="form-group" align="center">
 				<label1 style="margin-left: 56px">URL</label1>
 				<input id="field_solicitations" style="margin-left: 50px; width: auto; min-width: 230px; max-width: 500px;"
 					ng-model="solicitations.requiredDocuments.Manuals.URL" />

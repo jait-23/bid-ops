@@ -26,11 +26,14 @@
 
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal"
+		<!-- <button type="button" class="btn btn-default" data-dismiss="modal"
 			ng-click="cancel('cancel')">
 			<i class="fa fa-times"></i>&nbsp;<span
 				translate="entity.action.cancel">Cancel</span>
-		</button>
+		</button> -->
+		<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
 		<button type="button"
 			ng-disabled="editForm.$invalid || editForm.$submitted"
 			data-dismiss="modal" ng-click="saveAttribute()"
