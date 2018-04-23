@@ -5,12 +5,15 @@
         .module('bidopscoreApp')
         .controller('SolicitationsDialogController', SolicitationsDialogController);
 
-    SolicitationsDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Solicitations'];
+    SolicitationsDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Solicitations', 'User'];
 
-    function SolicitationsDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Solicitations) {
+    function SolicitationsDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Solicitations, User) {
         var vm = this;
 
         vm.solicitations = entity;
+        $scope.user = User.query();
+        console.log($scope.user);
+        
         vm.clear = clear;
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
@@ -24,13 +27,6 @@
         function clear () {
             $uibModalInstance.dismiss('cancel');
         }
-        
-       /* function func_myValidation(){
-        	var inpObj = document.getElementById("field_title");
-            if (!inpObj.checkValidity()) {
-                document.getElementById("field_title").innerHTML = inpObj.validationMessage;
-            }
-        }*/
 
         function save () {
             vm.isSaving = true;
@@ -60,55 +56,6 @@
         function openCalendar (date) {
             vm.datePickerOpenStatus[date] = true;
         }
-        
-        /* $scope.uploadFile = function() {
-			var fd = new FormData();
-
-			var file = document.getElementById("uploadPDF").files[0];
-			if (file != null) {
-				fd.append('file', file);
-				var locationUrl = "swagger-ui/"
-									+ file.name;
-				console.log("the saved location of the file is: "
-													+ locationUrl);
-				var filetype = file.type;
-
-				var type = filetype
-							.substring(filetype.indexOf("/") + 1);
-
-				var uploadUrl = 'file/upload';
-
-				$http({
-					url : uploadUrl,
-					method : 'POST',
-					data : fd,
-					withCredentials : true,
-					headers : {
-						'Content-Type' : undefined
-					},
-					transformRequest : angular.identity,
-					mimeType : "multipart/form-data",
-					contentType : false,
-					cache : false,
-					processData : false
-				})
-				.then(
-					function s(response) {
-						console.log("Post Success");
-						vm.solicitations.requiredDocuments = locationUrl;
-						if(vm.solicitations.siteExtraInfo != null)
-						{
-							vm.managedSite.siteExtraInfo = JSON.stringify(vm.managedSite.siteExtraInfo);
-						}
-						else{
-						vm.managedSite["siteExtraInfo"] = null;	
-						}
-						ManagedSite.update({id: vm.managedSite.id}, vm.managedSite,onSaveFinished);
-					}, function e(response) {
-						console.log("Post failure");
-				});
-			}
-		}; */
         
         $scope.uploadFile = function () {
             var fd = new FormData();

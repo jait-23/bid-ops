@@ -2,8 +2,10 @@ package com.predix.bidopscore.service.mapper;
 
 import com.predix.bidopscore.domain.Authority;
 import com.predix.bidopscore.domain.User;
+import com.predix.bidopscore.domain.*;
 import com.predix.bidopscore.service.dto.UserDTO;
 
+import org.mapstruct.Mapping;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -21,6 +23,8 @@ public class UserMapper {
     public UserDTO userToUserDTO(User user) {
         return new UserDTO(user);
     }
+    
+    @Mapping(target = "solicitations", ignore = true)
 
     public List<UserDTO> usersToUserDTOs(List<User> users) {
         return users.stream()

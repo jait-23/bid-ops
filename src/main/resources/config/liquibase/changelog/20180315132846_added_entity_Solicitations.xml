@@ -70,12 +70,19 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="reviewer_id" type="bigint">
+            <column name="user_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="solicitations"
+                                 constraintName="fk_solicitation_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user"/>
+                                 
         <dropDefaultValue tableName="solicitations" columnName="final_filing_date" columnDataType="datetime"/>
         <dropDefaultValue tableName="solicitations" columnName="last_updated" columnDataType="datetime"/>
         

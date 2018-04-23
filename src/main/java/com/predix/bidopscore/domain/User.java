@@ -1,10 +1,12 @@
 package com.predix.bidopscore.domain;
 
 import com.predix.bidopscore.config.Constants;
-
+import com.predix.bidopscore.domain.Solicitations;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
@@ -81,6 +83,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @Column(name = "reset_date")
     private Instant resetDate = null;
+    
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Solicitations> solicitations = new HashSet<>();
 
     @JsonIgnore
     @ManyToMany
@@ -207,6 +214,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setPersistentTokens(Set<PersistentToken> persistentTokens) {
         this.persistentTokens = persistentTokens;
+    }
+    
+    public Set<Solicitations> getSolicitations() {
+        return solicitations;
+    }
+
+    public void setSolicitations(Set<Solicitations> solicitations) {
+        this.solicitations = solicitations;
     }
 
     @Override

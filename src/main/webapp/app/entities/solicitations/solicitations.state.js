@@ -117,35 +117,35 @@
         })
         .state('solicitations-detail1', {
             parent: 'solicitations',
-            url: '/solicitations-detail1/{id}',
+            url: '/solicitations1/{id}',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'bidopscoreApp.solicitations.detail.title'
             },
             views: {
-            	 'appContent@home': {
-                     templateUrl: 'app/entities/solicitations/solicitations-detail1.html',
-                     controller: 'SolicitationsDetail1Controller',
-                     controllerAs: 'vm'
-            	 }
+                'content@': {
+                    templateUrl: 'app/entities/solicitations/solicitations-detail1.html',
+                    controller: 'SolicitationsDetail1Controller',
+                    controllerAs: 'vm'
+                }
             },
-                    resolve: {
-                    	translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                            $translatePartialLoader.addPart('solicitations');
-                            return $translate.refresh();
-                        }],
-                        entity: ['Solicitations', function(Solicitations) {
-                            return Solicitations.get({id : $stateParams.id}).$promise;
-                        }],
-                        previousState: ["$state", function ($state) {
-                            var currentStateData = {
-                                name: $state.current.name || 'solicitations',
-                                params: $state.params,
-                                url: $state.href($state.current.name, $state.params)
-                            };
-                            return currentStateData;
-                        }]
-                    }
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('solicitations');
+                    return $translate.refresh();
+                }],
+                entity: ['$stateParams', 'Solicitations', function($stateParams, Solicitations) {
+                    return Solicitations.get({id : $stateParams.id}).$promise;
+                }],
+                previousState: ["$state", function ($state) {
+                    var currentStateData = {
+                        name: $state.current.name || 'solicitations',
+                        params: $state.params,
+                        url: $state.href($state.current.name, $state.params)
+                    };
+                    return currentStateData;
+                }]
+            }
         })
         .state('solicitations.new', {
             parent: 'solicitations',

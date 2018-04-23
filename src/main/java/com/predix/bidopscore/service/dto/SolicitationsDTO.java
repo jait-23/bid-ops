@@ -36,7 +36,15 @@ public class SolicitationsDTO implements Serializable {
 
     private Long authorId;
 
-    private Long reviewerId;
+    private Long userId;
+    
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
     public Long getId() {
         return id;
@@ -142,14 +150,6 @@ public class SolicitationsDTO implements Serializable {
         this.authorId = authorId;
     }
 
-    public Long getReviewerId() {
-        return reviewerId;
-    }
-
-    public void setReviewerId(Long reviewerId) {
-        this.reviewerId = reviewerId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -187,7 +187,7 @@ public class SolicitationsDTO implements Serializable {
             ", reviewerDeliveryStatus='" + getReviewerDeliveryStatus() + "'" +
             ", approverStatus='" + getApproverStatus() + "'" +
             ", authorId=" + getAuthorId() +
-            ", reviewerId=" + getReviewerId() +
+            ", userId=" + getUserId() +
             "}";
     }
 }

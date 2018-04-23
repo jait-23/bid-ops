@@ -10,7 +10,8 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring", uses = {})
 public interface SolicitationsMapper extends EntityMapper<SolicitationsDTO, Solicitations> {
-
+	
+	@Mapping(source = "userId", target = "user")
 
 
     default Solicitations fromId(Long id) {

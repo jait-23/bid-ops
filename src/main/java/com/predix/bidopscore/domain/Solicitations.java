@@ -8,6 +8,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.predix.bidopscore.domain.Solicitations;
+import com.predix.bidopscore.domain.User;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
@@ -64,8 +65,27 @@ public class Solicitations implements Serializable {
     @Column(name = "author_id")
     private Long authorId;
 
-    @Column(name = "reviewer_id")
-    private Long reviewerId;
+    @Column(name = "user_id", updatable=false, insertable=false)
+    private Long userId;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
+    
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -231,19 +251,7 @@ public class Solicitations implements Serializable {
     public void setAuthorId(Long authorId) {
         this.authorId = authorId;
     }
-
-    public Long getReviewerId() {
-        return reviewerId;
-    }
-
-    public Solicitations reviewerId(Long reviewerId) {
-        this.reviewerId = reviewerId;
-        return this;
-    }
-
-    public void setReviewerId(Long reviewerId) {
-        this.reviewerId = reviewerId;
-    }
+    
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -282,7 +290,7 @@ public class Solicitations implements Serializable {
             ", reviewerDeliveryStatus='" + getReviewerDeliveryStatus() + "'" +
             ", approverStatus='" + getApproverStatus() + "'" +
             ", authorId=" + getAuthorId() +
-            ", reviewerId=" + getReviewerId() +
+            ", userId=" + getUserId() +
             "}";
     }
 }

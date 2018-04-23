@@ -5,15 +5,25 @@
         .module('bidopscoreApp')
         .controller('SolicitationsDetailController', SolicitationsDetailController);
 
-    SolicitationsDetailController.$inject = ['$scope', '$rootScope', '$stateParams', '$uibModal', '$http', 'previousState', 'entity', 'Solicitations'];
+    SolicitationsDetailController.$inject = ['$scope', '$rootScope', '$stateParams', '$uibModal', '$http', 'previousState', 'entity', 'Solicitations', 'User'];
 
-    function SolicitationsDetailController($scope, $rootScope, $stateParams, $uibModal, $http, previousState, entity, Solicitations) {
+    function SolicitationsDetailController($scope, $rootScope, $stateParams, $uibModal, $http, previousState, entity, Solicitations, User) {
         var vm = this;
         vm.editForm;
 
         vm.solicitations = entity;
         vm.previousState = previousState.name;
+        vm.users = User.query();
         $scope.extraInfo = vm.solicitations.requiredDocuments;
+        vm.datePickerOpenStatus = {};
+        vm.openCalendar = openCalendar;
+        
+        vm.datePickerOpenStatus.finalFilingDate = false;
+        vm.datePickerOpenStatus.lastUpdated = false;
+
+        function openCalendar (date) {
+            vm.datePickerOpenStatus[date] = true;
+        }
         
         var unsubscribe = $rootScope.$on('bidopscoreApp:solicitationsUpdate', function(event, result) {
             vm.solicitations = result;
@@ -100,55 +110,6 @@
         	angular.copy(updatedSolicitations, vm.solicitations);
         	 $scope.save();
         }
-		
-/*		$scope.uploadFile = function() {
-			var fd = new FormData();
-
-			var file = document.getElementById("uploadPDF").files[0];
-			if (file != null) {
-				fd.append('file', file);
-				var locationUrl = "swagger-ui/"
-									+ file.name;
-				console.log("the saved location of the file is: "
-													+ locationUrl);
-				var filetype = file.type;
-
-				var type = filetype
-							.substring(filetype.indexOf("/") + 1);
-
-				var uploadUrl = 'file/upload';
-
-				$http({
-					url : uploadUrl,
-					method : 'POST',
-					data : fd,
-					withCredentials : true,
-					headers : {
-						'Content-Type' : undefined
-					},
-					transformRequest : angular.identity,
-					mimeType : "multipart/form-data",
-					contentType : false,
-					cache : false,
-					processData : false
-				})
-				.then(
-					function s(response) {
-						console.log("Post Success");
-						vm.solicitations.requiredDocumentsRef = locationUrl;
-						if(vm.solicitations.requiredDocuments != null)
-						{
-							vm.solicitations.requiredDocuments = JSON.stringify(vm.solicitations.requiredDocuments);
-						}
-						else{
-						vm.solicitations["requiredDocuments"] = null;	
-						}
-						Solicitations.update({orgId: $rootScope.orgId, id: vm.solicitations.id}, vm.solicitations,onSaveFinished);
-					}, function e(response) {
-						console.log("Post failure");
-				});
-			}
-		};  */
 	
 		$scope.saveDetailsModal = function() {
 			$uibModal.open({
@@ -166,7 +127,20 @@
 				scope : $scope,
 				size : 'lg'
 			});
-		}		
+		}
+		
+		$scope.sendReviewModal = function(solicitationId, userId) {
+			$scope.solicitationId = solicitationId;
+			$scope.userId = userId;
+			console.log($scope.solicitationId);
+			console.log($scope.userId);
+			$uibModal.open({
+				templateUrl : 'app/entities/solicitations/solicitations-details-review-dialog.html',
+				controller : 'SolicitationsDialogDetailsReviewController',
+				scope : $scope,
+				size : 'lg'
+			});
+		}
 		
 		$scope.requiredDocumentsInfoCreateModal = function() {        	
 			$uibModal.open({

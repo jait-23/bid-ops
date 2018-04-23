@@ -22,17 +22,6 @@
                     
         </div>
         
-        <!-- <div class="form-group">
-            <label class="control-label" data-translate="bidopscoreApp.solicitations.status" for="field_status">Status</label>
-                  <select class="form-control" name="status" id="field_status"
-														ng-model="vm.solicitations.status" ng-readonly="New" required> 
-														 <option value="Published">Published</option>
-														<option value="Rejected">Rejected</option>
-														<option value="Approved">Approved</option>
-														<option value="In Review">In Review</option>
-														<option value="New">New</option>
-														</select>
-        </div> -->
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.finalFilingDate" for="field_finalFilingDate">Final Filing Date</label>
                 <div class="input-group">
@@ -43,38 +32,6 @@
                     </span>
                 </div>
         </div>
-
-												
-	<!-- 											
-			<div class="form-group">
-			<label for="uploadPDF">Display Image</label> 
-			<img ng-src="{{vm.solicitations.requiredDocuments}}" class="form-control-1"
-			alt="No Image Available" style="width: 150px; height: 80px;"></img><br/>		
-			<input id="uploadPDF" type="file" name="myPDF" class="form-control-1"/> </br>	
-		</div>
-        <div class="form-group">
-            <label class="control-label">Display Image URL</label>
-            <input type="text" class="form-control-1"
-                    ng-model="vm.solicitations.requiredDocuments" readonly
-                    ng-maxlength="510" />
-            <div>
-                <p class="help-block"
-                    translate="entity.validation.maxlength" translate-value-max="510">
-                    This field cannot be longer than 510 characters.
-                </p>
-            </div>
-        </div>  -->
-			
-     <!--    <div class="form-group">
-            <label class="control-label" data-translate="bidopscoreApp.solicitations.lastUpdated" for="field_lastUpdated">Last Updated</label>
-                <div class="input-group">
-                    <input id="field_lastUpdated" type="text" class="form-control" name="lastUpdated" datetime-picker="{{dateformat}}" ng-model="vm.solicitations.lastUpdated" is-open="vm.datePickerOpenStatus.lastUpdated"
-                    />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('lastUpdated')"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </div>
-        </div>  -->
         <div class="form-group">
             <label class="control-label" data-translate="bidopscoreApp.solicitations.type" for="field_type">Type</label>
             <select class="form-control" name="type" id="field_type"
@@ -100,44 +57,15 @@
 														<option value="Photography/Video Services">Photography/Video Services</option>
 														<option value="Printing/Reproduction/Graphic Design">Printing/Reproduction/Graphic Design</option>
 														</select>
-        </div><!-- 
-        <div class="form-group">
-            <label class="control-label" data-translate="bidopscoreApp.solicitations.category" for="field_category">Category</label>
-            <input type="text" class="form-control" name="category" id="field_category"
-                    ng-model="vm.solicitations.category"
-                    />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="bidopscoreApp.solicitations.requiredDocuments" for="field_requiredDocuments">Required Documents</label>
-            <input type="text" class="form-control" name="requiredDocuments" id="field_requiredDocuments"
-                    ng-model="vm.solicitations.requiredDocuments"
-                    />
+            <label class="control-label" for="field_type">Reviewer Name</label>
+           	
+                    <select class="form-control" ng-model="vm.solicitations.userId" 
+                    ng-options="user.id as user.login for user in user track by user.id">
+                    </select>	
+                 
         </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="bidopscoreApp.solicitations.reviewerDeliveryStatus" for="field_reviewerDeliveryStatus">Reviewer Delivery Status</label>
-            <input type="text" class="form-control" name="reviewerDeliveryStatus" id="field_reviewerDeliveryStatus"
-                    ng-model="vm.solicitations.reviewerDeliveryStatus"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="bidopscoreApp.solicitations.approverStatus" for="field_approverStatus">Approver Status</label>
-            <input type="text" class="form-control" name="approverStatus" id="field_approverStatus"
-                    ng-model="vm.solicitations.approverStatus"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="bidopscoreApp.solicitations.authorId" for="field_authorId">Author Id</label>
-            <input type="number" class="form-control" name="authorId" id="field_authorId"
-                    ng-model="vm.solicitations.authorId"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="bidopscoreApp.solicitations.reviewerId" for="field_reviewerId">Reviewer Id</label>
-            <input type="number" class="form-control" name="reviewerId" id="field_reviewerId"
-                    ng-model="vm.solicitations.reviewerId"
-                    />
-        </div>
- -->
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
