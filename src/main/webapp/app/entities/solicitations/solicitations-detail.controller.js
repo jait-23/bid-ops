@@ -12,6 +12,7 @@
         vm.editForm;
 
         vm.solicitations = entity;
+        
         vm.previousState = previousState.name;
         vm.users = User.query();
         $scope.extraInfo = vm.solicitations.requiredDocuments;

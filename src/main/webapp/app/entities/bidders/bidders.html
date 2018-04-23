@@ -26,7 +26,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="solicitations in vm.solicitations track by solicitations.id">
-                    <td><a ui-sref="solicitations-detail1({id:solicitations.id})">{{solicitations.solicitationId}}</a></td>
+                    <td>{{solicitations.solicitationId}}</td>
                     <td>{{solicitations.title}}</td>
                     <td>{{solicitations.finalFilingDate | date:'medium'}}</td>
                     <td>{{solicitations.description}}</td>
