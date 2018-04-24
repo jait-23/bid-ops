@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="bidopscoreApp.primaryEvaluations.detail.title">Primary Evaluations</span> {{vm.primaryEvaluations.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="bidopscoreApp.primaryEvaluations.userId">User Id</span></dt>
+        <dd>
+            <span>{{vm.primaryEvaluations.userId}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.primaryEvaluations.solicitationId">Solicitation Id</span></dt>
+        <dd>
+            <span>{{vm.primaryEvaluations.solicitationId}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.primaryEvaluations.docURL">Doc URL</span></dt>
+        <dd>
+            <span>{{vm.primaryEvaluations.docURL}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.primaryEvaluations.categorySolicitations">Category Solicitations</span></dt>
+        <dd>
+            <span>{{vm.primaryEvaluations.categorySolicitations}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.primaryEvaluations.status">Status</span></dt>
+        <dd>
+            <span>{{vm.primaryEvaluations.status}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="primary-evaluations-detail.edit({id:vm.primaryEvaluations.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

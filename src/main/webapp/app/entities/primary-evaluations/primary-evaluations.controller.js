@@ -3,11 +3,11 @@
 
     angular
         .module('bidopscoreApp')
-        .controller('PrimaryEvaluationController', PrimaryEvaluationController);
+        .controller('PrimaryEvaluationsController', PrimaryEvaluationsController);
 
-    PrimaryEvaluationController.$inject = ['$state', 'PrimaryEvaluation', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
+    PrimaryEvaluationsController.$inject = ['$state', 'PrimaryEvaluations', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
 
-    function PrimaryEvaluationController($state, PrimaryEvaluation, ParseLinks, AlertService, paginationConstants, pagingParams) {
+    function PrimaryEvaluationsController($state, PrimaryEvaluations, ParseLinks, AlertService, paginationConstants, pagingParams) {
 
         var vm = this;
 
@@ -20,7 +20,7 @@
         loadAll();
 
         function loadAll () {
-            PrimaryEvaluation.query({
+            PrimaryEvaluations.query({
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
                 sort: sort()

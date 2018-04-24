@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "solicitationId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "docURL",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "categorySolicitations",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180424233811",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "primary_evaluations",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

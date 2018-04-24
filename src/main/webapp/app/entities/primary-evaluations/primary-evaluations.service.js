@@ -2,11 +2,11 @@
     'use strict';
     angular
         .module('bidopscoreApp')
-        .factory('PrimaryEvaluation', PrimaryEvaluation);
+        .factory('PrimaryEvaluations', PrimaryEvaluations);
 
-    PrimaryEvaluation.$inject = ['$resource'];
+    PrimaryEvaluations.$inject = ['$resource'];
 
-    function PrimaryEvaluation ($resource) {
+    function PrimaryEvaluations ($resource) {
         var resourceUrl =  'api/primary-evaluations/:id';
 
         return $resource(resourceUrl, {}, {

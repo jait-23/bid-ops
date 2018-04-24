@@ -2,9 +2,9 @@
 
 describe('Controller Tests', function() {
 
-    describe('PrimaryEvaluation Management Detail Controller', function() {
+    describe('PrimaryEvaluations Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockPreviousState, MockPrimaryEvaluation;
+        var MockEntity, MockPreviousState, MockPrimaryEvaluations;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -12,7 +12,7 @@ describe('Controller Tests', function() {
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
             MockPreviousState = jasmine.createSpy('MockPreviousState');
-            MockPrimaryEvaluation = jasmine.createSpy('MockPrimaryEvaluation');
+            MockPrimaryEvaluations = jasmine.createSpy('MockPrimaryEvaluations');
             
 
             var locals = {
@@ -20,17 +20,17 @@ describe('Controller Tests', function() {
                 '$rootScope': $rootScope,
                 'entity': MockEntity,
                 'previousState': MockPreviousState,
-                'PrimaryEvaluation': MockPrimaryEvaluation
+                'PrimaryEvaluations': MockPrimaryEvaluations
             };
             createController = function() {
-                $injector.get('$controller')("PrimaryEvaluationDetailController", locals);
+                $injector.get('$controller')("PrimaryEvaluationsDetailController", locals);
             };
         }));
 
 
         describe('Root Scope Listening', function() {
             it('Unregisters root scope listener upon scope destruction', function() {
-                var eventType = 'bidopscoreApp:primaryEvaluationUpdate';
+                var eventType = 'bidopscoreApp:primaryEvaluationsUpdate';
 
                 createController();
                 expect($rootScope.$$listenerCount[eventType]).toEqual(1);

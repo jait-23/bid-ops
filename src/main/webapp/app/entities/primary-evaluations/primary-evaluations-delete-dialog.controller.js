@@ -3,14 +3,14 @@
 
     angular
         .module('bidopscoreApp')
-        .controller('PrimaryEvaluationDeleteController',PrimaryEvaluationDeleteController);
+        .controller('PrimaryEvaluationsDeleteController',PrimaryEvaluationsDeleteController);
 
-    PrimaryEvaluationDeleteController.$inject = ['$uibModalInstance', 'entity', 'PrimaryEvaluation'];
+    PrimaryEvaluationsDeleteController.$inject = ['$uibModalInstance', 'entity', 'PrimaryEvaluations'];
 
-    function PrimaryEvaluationDeleteController($uibModalInstance, entity, PrimaryEvaluation) {
+    function PrimaryEvaluationsDeleteController($uibModalInstance, entity, PrimaryEvaluations) {
         var vm = this;
 
-        vm.primaryEvaluation = entity;
+        vm.primaryEvaluations = entity;
         vm.clear = clear;
         vm.confirmDelete = confirmDelete;
 
@@ -19,7 +19,7 @@
         }
 
         function confirmDelete (id) {
-            PrimaryEvaluation.delete({id: id},
+            PrimaryEvaluations.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });

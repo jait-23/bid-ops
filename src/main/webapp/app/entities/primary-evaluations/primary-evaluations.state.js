@@ -9,17 +9,17 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('primary-evaluation', {
+        .state('primary-evaluations', {
             parent: 'entity',
-            url: '/primary-evaluation?page&sort&search',
+            url: '/primary-evaluations?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'bidopscoreApp.primaryEvaluation.home.title'
+                pageTitle: 'bidopscoreApp.primaryEvaluations.home.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/primary-evaluation/primary-evaluations.html',
-                    controller: 'PrimaryEvaluationController',
+                    templateUrl: 'app/entities/primary-evaluations/primary-evaluations.html',
+                    controller: 'PrimaryEvaluationsController',
                     controllerAs: 'vm'
                 }
             },
@@ -45,37 +45,37 @@
                     };
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('primaryEvaluation');
+                    $translatePartialLoader.addPart('primaryEvaluations');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
             }
         })
-        .state('primary-evaluation-detail', {
-            parent: 'primary-evaluation',
-            url: '/primary-evaluation/{id}',
+        .state('primary-evaluations-detail', {
+            parent: 'primary-evaluations',
+            url: '/primary-evaluations/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'bidopscoreApp.primaryEvaluation.detail.title'
+                pageTitle: 'bidopscoreApp.primaryEvaluations.detail.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/primary-evaluation/primary-evaluation-detail.html',
-                    controller: 'PrimaryEvaluationDetailController',
+                    templateUrl: 'app/entities/primary-evaluations/primary-evaluations-detail.html',
+                    controller: 'PrimaryEvaluationsDetailController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('primaryEvaluation');
+                    $translatePartialLoader.addPart('primaryEvaluations');
                     return $translate.refresh();
                 }],
-                entity: ['$stateParams', 'PrimaryEvaluation', function($stateParams, PrimaryEvaluation) {
-                    return PrimaryEvaluation.get({id : $stateParams.id}).$promise;
+                entity: ['$stateParams', 'PrimaryEvaluations', function($stateParams, PrimaryEvaluations) {
+                    return PrimaryEvaluations.get({id : $stateParams.id}).$promise;
                 }],
                 previousState: ["$state", function ($state) {
                     var currentStateData = {
-                        name: $state.current.name || 'primary-evaluation',
+                        name: $state.current.name || 'primary-evaluations',
                         params: $state.params,
                         url: $state.href($state.current.name, $state.params)
                     };
@@ -83,22 +83,22 @@
                 }]
             }
         })
-        .state('primary-evaluation-detail.edit', {
-            parent: 'primary-evaluation-detail',
+        .state('primary-evaluations-detail.edit', {
+            parent: 'primary-evaluations-detail',
             url: '/detail/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/primary-evaluation/primary-evaluation-dialog.html',
-                    controller: 'PrimaryEvaluationDialogController',
+                    templateUrl: 'app/entities/primary-evaluations/primary-evaluations-dialog.html',
+                    controller: 'PrimaryEvaluationsDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['PrimaryEvaluation', function(PrimaryEvaluation) {
-                            return PrimaryEvaluation.get({id : $stateParams.id}).$promise;
+                        entity: ['PrimaryEvaluations', function(PrimaryEvaluations) {
+                            return PrimaryEvaluations.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
@@ -108,16 +108,16 @@
                 });
             }]
         })
-        .state('primary-evaluation.new', {
-            parent: 'primary-evaluation',
+        .state('primary-evaluations.new', {
+            parent: 'primary-evaluations',
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/primary-evaluation/primary-evaluation-dialog.html',
-                    controller: 'PrimaryEvaluationDialogController',
+                    templateUrl: 'app/entities/primary-evaluations/primary-evaluations-dialog.html',
+                    controller: 'PrimaryEvaluationsDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
@@ -134,56 +134,56 @@
                         }
                     }
                 }).result.then(function() {
-                    $state.go('primary-evaluation', null, { reload: 'primary-evaluation' });
+                    $state.go('primary-evaluations', null, { reload: 'primary-evaluations' });
                 }, function() {
-                    $state.go('primary-evaluation');
+                    $state.go('primary-evaluations');
                 });
             }]
         })
-        .state('primary-evaluation.edit', {
-            parent: 'primary-evaluation',
+        .state('primary-evaluations.edit', {
+            parent: 'primary-evaluations',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/primary-evaluation/primary-evaluation-dialog.html',
-                    controller: 'PrimaryEvaluationDialogController',
+                    templateUrl: 'app/entities/primary-evaluations/primary-evaluations-dialog.html',
+                    controller: 'PrimaryEvaluationsDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['PrimaryEvaluation', function(PrimaryEvaluation) {
-                            return PrimaryEvaluation.get({id : $stateParams.id}).$promise;
+                        entity: ['PrimaryEvaluations', function(PrimaryEvaluations) {
+                            return PrimaryEvaluations.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('primary-evaluation', null, { reload: 'primary-evaluation' });
+                    $state.go('primary-evaluations', null, { reload: 'primary-evaluations' });
                 }, function() {
                     $state.go('^');
                 });
             }]
         })
-        .state('primary-evaluation.delete', {
-            parent: 'primary-evaluation',
+        .state('primary-evaluations.delete', {
+            parent: 'primary-evaluations',
             url: '/{id}/delete',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/primary-evaluation/primary-evaluation-delete-dialog.html',
-                    controller: 'PrimaryEvaluationDeleteController',
+                    templateUrl: 'app/entities/primary-evaluations/primary-evaluations-delete-dialog.html',
+                    controller: 'PrimaryEvaluationsDeleteController',
                     controllerAs: 'vm',
                     size: 'md',
                     resolve: {
-                        entity: ['PrimaryEvaluation', function(PrimaryEvaluation) {
-                            return PrimaryEvaluation.get({id : $stateParams.id}).$promise;
+                        entity: ['PrimaryEvaluations', function(PrimaryEvaluations) {
+                            return PrimaryEvaluations.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('primary-evaluation', null, { reload: 'primary-evaluation' });
+                    $state.go('primary-evaluations', null, { reload: 'primary-evaluations' });
                 }, function() {
                     $state.go('^');
                 });
