@@ -82,8 +82,8 @@ public class SolicitationsResourceIntTest {
     private static final Long DEFAULT_AUTHOR_ID = 1L;
     private static final Long UPDATED_AUTHOR_ID = 2L;
 
-    private static final Long DEFAULT_REVIEWER_ID = 1L;
-    private static final Long UPDATED_REVIEWER_ID = 2L;
+    private static final Long DEFAULT_USER_ID = 1L;
+    private static final Long UPDATED_USER_ID = 2L;
 
     @Autowired
     private SolicitationsRepository solicitationsRepository;
@@ -141,7 +141,7 @@ public class SolicitationsResourceIntTest {
             .reviewerDeliveryStatus(DEFAULT_REVIEWER_DELIVERY_STATUS)
             .approverStatus(DEFAULT_APPROVER_STATUS)
             .authorId(DEFAULT_AUTHOR_ID)
-            .reviewerId(DEFAULT_REVIEWER_ID);
+            .userId(DEFAULT_USER_ID);
         return solicitations;
     }
 
@@ -178,7 +178,7 @@ public class SolicitationsResourceIntTest {
         assertThat(testSolicitations.getReviewerDeliveryStatus()).isEqualTo(DEFAULT_REVIEWER_DELIVERY_STATUS);
         assertThat(testSolicitations.getApproverStatus()).isEqualTo(DEFAULT_APPROVER_STATUS);
         assertThat(testSolicitations.getAuthorId()).isEqualTo(DEFAULT_AUTHOR_ID);
-        assertThat(testSolicitations.getReviewerId()).isEqualTo(DEFAULT_REVIEWER_ID);
+        assertThat(testSolicitations.getUserId()).isEqualTo(DEFAULT_USER_ID);
     }
 
     @Test
@@ -224,7 +224,7 @@ public class SolicitationsResourceIntTest {
             .andExpect(jsonPath("$.[*].reviewerDeliveryStatus").value(hasItem(DEFAULT_REVIEWER_DELIVERY_STATUS.toString())))
             .andExpect(jsonPath("$.[*].approverStatus").value(hasItem(DEFAULT_APPROVER_STATUS.toString())))
             .andExpect(jsonPath("$.[*].authorId").value(hasItem(DEFAULT_AUTHOR_ID.intValue())))
-            .andExpect(jsonPath("$.[*].reviewerId").value(hasItem(DEFAULT_REVIEWER_ID.intValue())));
+            .andExpect(jsonPath("$.[*].userId").value(hasItem(DEFAULT_USER_ID.intValue())));
     }
 
     @Test
@@ -250,7 +250,7 @@ public class SolicitationsResourceIntTest {
             .andExpect(jsonPath("$.reviewerDeliveryStatus").value(DEFAULT_REVIEWER_DELIVERY_STATUS.toString()))
             .andExpect(jsonPath("$.approverStatus").value(DEFAULT_APPROVER_STATUS.toString()))
             .andExpect(jsonPath("$.authorId").value(DEFAULT_AUTHOR_ID.intValue()))
-            .andExpect(jsonPath("$.reviewerId").value(DEFAULT_REVIEWER_ID.intValue()));
+            .andExpect(jsonPath("$.userId").value(DEFAULT_USER_ID.intValue()));
     }
 
     @Test
@@ -285,7 +285,7 @@ public class SolicitationsResourceIntTest {
             .reviewerDeliveryStatus(UPDATED_REVIEWER_DELIVERY_STATUS)
             .approverStatus(UPDATED_APPROVER_STATUS)
             .authorId(UPDATED_AUTHOR_ID)
-            .reviewerId(UPDATED_REVIEWER_ID);
+            .userId(UPDATED_USER_ID);
         SolicitationsDTO solicitationsDTO = solicitationsMapper.toDto(updatedSolicitations);
 
         restSolicitationsMockMvc.perform(put("/api/solicitations")
@@ -309,7 +309,7 @@ public class SolicitationsResourceIntTest {
         assertThat(testSolicitations.getReviewerDeliveryStatus()).isEqualTo(UPDATED_REVIEWER_DELIVERY_STATUS);
         assertThat(testSolicitations.getApproverStatus()).isEqualTo(UPDATED_APPROVER_STATUS);
         assertThat(testSolicitations.getAuthorId()).isEqualTo(UPDATED_AUTHOR_ID);
-        assertThat(testSolicitations.getReviewerId()).isEqualTo(UPDATED_REVIEWER_ID);
+        assertThat(testSolicitations.getUserId()).isEqualTo(UPDATED_USER_ID);
     }
 
     @Test

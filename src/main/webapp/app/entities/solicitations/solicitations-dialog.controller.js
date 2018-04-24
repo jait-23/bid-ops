@@ -19,6 +19,7 @@
         vm.openCalendar = openCalendar;
         vm.save = save;
         vm.solicitations.status= "New";
+        vm.solicitations.userId = vm.solicitations.userId;
         
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

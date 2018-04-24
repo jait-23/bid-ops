@@ -13,6 +13,7 @@
                 "solicitationAuthor": "Solicitation Author",
                 "bidders": "Bidders",
                 "biddersSolicitationsSubmitted": "Bidders Solicitations Submitted",
+                "primaryEvaluation": "Primary Evaluation",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

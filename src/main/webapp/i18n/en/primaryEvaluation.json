@@ -1,0 +1,26 @@
+
+{
+    "bidopscoreApp": {
+        "primaryEvaluation" : {
+            "home": {
+                "title": "Primary Evaluations",
+                "createLabel": "Create a new Primary Evaluation",
+                "createOrEditLabel": "Create or edit a Primary Evaluation"
+            },
+            "created": "A new Primary Evaluation is created with identifier {{ param }}",
+            "updated": "A Primary Evaluation is updated with identifier {{ param }}",
+            "deleted": "A Primary Evaluation is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Primary Evaluation {{ id }}?"
+            },
+            "detail": {
+                "title": "Primary Evaluation"
+            },
+            "userId": "User Id",
+            "solicitationId": "Solicitation Id",
+            "docURL": "Doc URL",
+            "categorySolicitations": "Category Solicitations",
+            "status": "Status"
+        }
+    }
+}

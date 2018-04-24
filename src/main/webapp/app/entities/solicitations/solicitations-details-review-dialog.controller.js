@@ -14,7 +14,7 @@ angular.module('bidopscoreApp').controller(
 				// console.log(solicitationReviewer);
 				
 				$scope.saveConfirmed = function() {
-					console.log($scope.solicitationId + $scope.reviewerId);
+					/*console.log($scope.solicitationId + $scope.reviewerId);
 					$scope.solicitationReviewer.solicitationId = $scope.solicitationId;
 					$scope.solicitationReviewer.reviewerId = $scope.reviewerId;
 					
@@ -26,7 +26,9 @@ angular.module('bidopscoreApp').controller(
 		            	$scope.solicitationReviewer.solicitationId = $scope.solicitationId;
 						$scope.solicitationReviewer.reviewerId = $scope.reviewerId;
 		                SolicitationReviewer.save($scope.solicitationReviewer, onSaveSuccess, onSaveError);
-		            }
+		            }*/
+					
+					$scope.save();
 		        }
 
 		        function onSaveSuccess (result) {

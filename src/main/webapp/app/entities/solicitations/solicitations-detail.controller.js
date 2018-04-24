@@ -32,7 +32,7 @@
         $scope.$on('$destroy', unsubscribe);
         
         var onSaveFinished = function (result) {
-        	console.log("done on finsihed");
+        	console.log("done on finsihed" + result);
         };
         
         $scope.solicitations = vm.solicitations.requiredDocuments;
@@ -43,6 +43,9 @@
 			updatedSolicitations.requiredDocuments = JSON.stringify(updatedSolicitations.requiredDocuments);
 			
 			if (vm.solicitations.id != null) {
+				console.log(vm.solicitations.id);
+				vm.solicitations["userId"] = vm.solicitations.userId;
+				vm.solicitations["reviewerDeliveryStatus"] = 'sent';
 				Solicitations.update(updatedSolicitations, onSaveFinished);
         	} else { 
         		Solicitations.save(vm.solicitations, onSaveFinished);
