@@ -1,56 +1,95 @@
 <div>
-    <h2 data-translate="bidopscoreApp.primaryEvaluations.home.title">Primary Evaluations</h2>
-    <jhi-alert></jhi-alert>
+    <h2 data-translate="bidopscoreApp.primaryEvaluation.home.title">Primary Evaluations</h2>
+   <!--  <jhi-alert></jhi-alert> -->
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="primary-evaluations.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="bidopscoreApp.primaryEvaluations.home.createLabel">
-                        Create new Primary Evaluations
-                    </span>
-                </button>
-            </div>
-        </div>
+      <div class="col-sm-12">
+        
+        	<div class="table-responsive ibox-content">
+        		<table id="mytable" datatable="ng" dt-options="dtOptions"  class="jh-table table table-striped table-bordered table-hover dataTables-example">
+        			<thead>
+        				<tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+        				<th style="width: 10%;text-align: center;"><span>Id</span></th>
+                    	<th style="width: 20%;text-align: center;"><span>Title</span></th>
+                    	<th style="text-align: center;"><span>Category</span></th>
+                		<th style="text-align: center;">Action</th>
+        			</thead>
+        			<tbody>
+        				<tr ng-repeat="solicitations in vm.solicitations track by solicitations.id">
+        				<td>{{solicitations.solicitationId}}</td>
+                    	<td>{{solicitations.title}}</td>
+                    	<td>{{solicitations.category}}</td>
+                    	<td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="solicitations-detail2({id:solicitations.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view">View</span>
+                            </button>
+                         </div>
+        			</tbody>	
+        		</table>
+        	</div>
+        
+        <br/>
+        <!-- <div class="form-group">
+				<div class="col-sm-4 col-sm-offset-2">
+					<div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref=""
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-ok"></span>
+                                <span class="hidden-sm-down" data-translate="">Approve</span>
+                            </button>
+                            &nbsp;&nbsp;
+                            <button type="submit"
+                                    ui-sref=""
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <span class="hidden-sm-down" data-translate="">Reject</span>
+                            </button>
+				</div>
+			</div>
+        </div> -->
     </div>
     <br/>
-    <div class="table-responsive">
+    <!-- <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="userId"><span data-translate="bidopscoreApp.primaryEvaluations.userId">User Id</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="solicitationId"><span data-translate="bidopscoreApp.primaryEvaluations.solicitationId">Solicitation Id</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="docURL"><span data-translate="bidopscoreApp.primaryEvaluations.docURL">Doc URL</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="categorySolicitations"><span data-translate="bidopscoreApp.primaryEvaluations.categorySolicitations">Category Solicitations</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="status"><span data-translate="bidopscoreApp.primaryEvaluations.status">Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="userId"><span data-translate="bidopscoreApp.primaryEvaluation.userId">User Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="solicitationId"><span data-translate="bidopscoreApp.primaryEvaluation.solicitationId">Solicitation Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="docURL"><span data-translate="bidopscoreApp.primaryEvaluation.docURL">Doc URL</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="categorySolicitations"><span data-translate="bidopscoreApp.primaryEvaluation.categorySolicitations">Category Solicitations</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status"><span data-translate="bidopscoreApp.primaryEvaluation.status">Status</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="primaryEvaluations in vm.primaryEvaluations track by primaryEvaluations.id">
-                    <td><a ui-sref="primary-evaluations-detail({id:primaryEvaluations.id})">{{primaryEvaluations.id}}</a></td>
-                    <td>{{primaryEvaluations.userId}}</td>
-                    <td>{{primaryEvaluations.solicitationId}}</td>
-                    <td>{{primaryEvaluations.docURL}}</td>
-                    <td>{{primaryEvaluations.categorySolicitations}}</td>
-                    <td>{{primaryEvaluations.status}}</td>
+                <tr ng-repeat="primaryEvaluation in vm.primaryEvaluations track by primaryEvaluation.id">
+                    <td><a ui-sref="primary-evaluation-detail({id:primaryEvaluation.id})">{{primaryEvaluation.id}}</a></td>
+                    <td>{{primaryEvaluation.userId}}</td>
+                    <td>{{primaryEvaluation.solicitationId}}</td>
+                    <td>{{primaryEvaluation.docURL}}</td>
+                    <td>{{primaryEvaluation.categorySolicitations}}</td>
+                    <td>{{primaryEvaluation.status}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
-                                    ui-sref="primary-evaluations-detail({id:primaryEvaluations.id})"
+                                    ui-sref="primary-evaluation-detail({id:primaryEvaluation.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.view"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="primary-evaluations.edit({id:primaryEvaluations.id})"
+                                    ui-sref="primary-evaluation.edit({id:primaryEvaluation.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="primary-evaluations.delete({id:primaryEvaluations.id})"
+                                    ui-sref="primary-evaluation.delete({id:primaryEvaluation.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
@@ -60,7 +99,7 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
     <div class="text-center">
         <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
         <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
