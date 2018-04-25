@@ -2,6 +2,13 @@
 <div>
     <h2><span data-translate="bidopscoreApp.primaryEvaluations.detail.title">Primary Evaluations</span> {{vm.primaryEvaluations.id}}</h2>
     <hr>
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+    <br/>
+    <br/>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
         <dt><span data-translate="bidopscoreApp.primaryEvaluations.userId">User Id</span></dt>
@@ -16,24 +23,24 @@
         <dd>
             <span>{{vm.primaryEvaluations.docURL}}</span>
         </dd>
-        <dt><span data-translate="bidopscoreApp.primaryEvaluations.categorySolicitations">Category Solicitations</span></dt>
+        <!-- <dt><span data-translate="bidopscoreApp.primaryEvaluations.categorySolicitations">Category Solicitations</span></dt>
         <dd>
             <span>{{vm.primaryEvaluations.categorySolicitations}}</span>
         </dd>
         <dt><span data-translate="bidopscoreApp.primaryEvaluations.status">Status</span></dt>
         <dd>
             <span>{{vm.primaryEvaluations.status}}</span>
-        </dd>
+        </dd> -->
     </dl>
 
-    <button type="submit"
-            ui-sref="{{ vm.previousState }}"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    
+ 
+    <button type="button" ui-sref="" class="btn btn-primary">
+        <span class="glyphicon glyphicon-ok"></span>
+        <span class="hidden-sm-down" data-translate="">Approve</span>
     </button>
-
-    <button type="button" ui-sref="primary-evaluations-detail.edit({id:vm.primaryEvaluations.id})" class="btn btn-primary">
-        <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
-    </button>
+    <button type="button" ui-sref="" class="btn btn-danger">
+             <span class="glyphicon glyphicon-remove"></span>
+             <span class="hidden-sm-down" data-translate="">Reject</span>
+      </button>
 </div>

@@ -1,36 +1,40 @@
 <div>
-    <h2 data-translate="bidopscoreApp.primaryEvaluation.home.title">Primary Evaluations</h2>
-   <!--  <jhi-alert></jhi-alert> -->
+    <h2 data-translate="">Primary Evaluations</h2>
+   <jhi-alert></jhi-alert>
     <div class="container-fluid">
       <div class="col-sm-12">
-        
-        	<div class="table-responsive ibox-content">
-        		<table id="mytable" datatable="ng" dt-options="dtOptions"  class="jh-table table table-striped table-bordered table-hover dataTables-example">
-        			<thead>
-        				<tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-        				<th style="width: 10%;text-align: center;"><span>Id</span></th>
-                    	<th style="width: 20%;text-align: center;"><span>Title</span></th>
-                    	<th style="text-align: center;"><span>Category</span></th>
-                		<th style="text-align: center;">Action</th>
-        			</thead>
-        			<tbody>
-        				<tr ng-repeat="solicitations in vm.solicitations track by solicitations.id">
-        				<td>{{solicitations.solicitationId}}</td>
-                    	<td>{{solicitations.title}}</td>
-                    	<td>{{solicitations.category}}</td>
-                    	<td class="text-right">
+        <div class="table-responsive ibox-content">
+        <table id="mytable" datatable="ng" dt-options="dtOptions"  class="jh-table table table-striped table-bordered table-hover dataTables-example">
+			<thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th style="width: 10%"><span data-translate="global.field.id">ID</span></th>
+                    <th style="width: 20%"><span data-translate="">Title</span></th>
+                    <th style="width: 15%"><span data-translate="">Category</span></th>
+                    <th style="width: 60%"><span data-translate="">Description</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="solicitations in vm.solicitations track by solicitations.id">
+                    <td>{{solicitations.solicitationId}}</td>
+                    <td>{{solicitations.title}}</td>
+                    <td>{{solicitations.category}}</td>
+                    <td>{{solicitations.description}}</td>
+                    <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
-                                    ui-sref="solicitations-detail2({id:solicitations.id})"
+                                    ui-sref="primary-evaluations-detail({id:solicitations.id})"
                                     class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.view">View</span>
+                                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                <span class="hidden-sm-down" data-translate="">Evaluate</span>
                             </button>
-                         </div>
-        			</tbody>	
-        		</table>
-        	</div>
-        
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+     </div>
         <br/>
         <!-- <div class="form-group">
 				<div class="col-sm-4 col-sm-offset-2">
@@ -51,7 +55,7 @@
 				</div>
 			</div>
         </div> -->
-    </div>
+    
     <br/>
     <!-- <div class="table-responsive">
         <table class="jh-table table table-striped">

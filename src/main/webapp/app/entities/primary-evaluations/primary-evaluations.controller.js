@@ -5,9 +5,9 @@
         .module('bidopscoreApp')
         .controller('PrimaryEvaluationsController', PrimaryEvaluationsController);
 
-    PrimaryEvaluationsController.$inject = ['$state', 'PrimaryEvaluations', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
+    PrimaryEvaluationsController.$inject = ['$state', 'PrimaryEvaluations', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams', 'Solicitations'];
 
-    function PrimaryEvaluationsController($state, PrimaryEvaluations, ParseLinks, AlertService, paginationConstants, pagingParams) {
+    function PrimaryEvaluationsController($state, PrimaryEvaluations, ParseLinks, AlertService, paginationConstants, pagingParams, Solicitations) {
 
         var vm = this;
 
@@ -20,7 +20,7 @@
         loadAll();
 
         function loadAll () {
-            PrimaryEvaluations.query({
+        	Solicitations.query({
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
                 sort: sort()
@@ -36,7 +36,7 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
-                vm.primaryEvaluations = data;
+                vm.solicitations = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {

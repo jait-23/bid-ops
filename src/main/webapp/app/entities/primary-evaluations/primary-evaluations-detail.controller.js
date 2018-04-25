@@ -5,11 +5,13 @@
         .module('bidopscoreApp')
         .controller('PrimaryEvaluationsDetailController', PrimaryEvaluationsDetailController);
 
-    PrimaryEvaluationsDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'PrimaryEvaluations'];
+    PrimaryEvaluationsDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'PrimaryEvaluations', 'Solicitations'];
 
-    function PrimaryEvaluationsDetailController($scope, $rootScope, $stateParams, previousState, entity, PrimaryEvaluations) {
+    function PrimaryEvaluationsDetailController($scope, $rootScope, $stateParams, previousState, entity, PrimaryEvaluations, Solicitations) {
         var vm = this;
-
+        
+        vm.solicitations = entity;
+        
         vm.primaryEvaluations = entity;
         vm.previousState = previousState.name;
 
