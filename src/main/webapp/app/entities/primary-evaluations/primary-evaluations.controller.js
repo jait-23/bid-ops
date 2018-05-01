@@ -20,7 +20,7 @@
         loadAll();
 
         function loadAll () {
-        	Solicitations.query({
+        	PrimaryEvaluations.query({
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
                 sort: sort()
@@ -36,7 +36,7 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
-                vm.solicitations = data;
+                vm.primaryEvaluations = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {

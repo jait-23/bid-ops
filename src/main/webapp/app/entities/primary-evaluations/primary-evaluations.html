@@ -8,22 +8,22 @@
 			<thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th style="width: 10%"><span data-translate="global.field.id">ID</span></th>
-                    <th style="width: 20%"><span data-translate="">Title</span></th>
-                    <th style="width: 15%"><span data-translate="">Category</span></th>
-                    <th style="width: 60%"><span data-translate="">Description</span></th>
+                    <th style="width: 20%"><span data-translate="">Solicitation ID</span></th>
+                    <th style="width: 15%"><span data-translate="">Status</span></th>
+                    <th style="width: 60%"><span data-translate="">Category</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="solicitations in vm.solicitations track by solicitations.id">
-                    <td>{{solicitations.solicitationId}}</td>
-                    <td>{{solicitations.title}}</td>
-                    <td>{{solicitations.category}}</td>
-                    <td>{{solicitations.description}}</td>
+                <tr ng-repeat="primaryEvaluation in vm.primaryEvaluations track by primaryEvaluation.id">
+                    <td>{{primaryEvaluation.userId}}</td>
+                    <td>{{primaryEvaluation.solicitationId}}</td>
+                    <td>{{primaryEvaluation.status}}</td>
+                    <td>{{primaryEvaluation.categorySolicitations}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
-                                    ui-sref="primary-evaluations-detail({id:solicitations.id})"
+                                    ui-sref="primary-evaluations-detail({id:primaryEvaluation.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-exclamation-sign"></span>
                                 <span class="hidden-sm-down" data-translate="">Evaluate</span>
