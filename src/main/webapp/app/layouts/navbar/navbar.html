@@ -28,6 +28,12 @@
                                     <span data-translate="global.menu.entities.bidders">Bidders</span>
                                 </a>
                             </li>
+                             <li ui-sref-active="active" ng-switch-when="true">
+                                <a ui-sref="solicitation-reviewer" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="">Reviewer</span>
+                                </a>
+                            </li>
                             <li ui-sref-active="active" ng-switch-when="true">
                             <a ui-sref="primary-evaluations" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-user"></span>&nbsp;
@@ -150,6 +156,12 @@
                                 <a ui-sref="primary-evaluations" ng-click="vm.collapseNavbar()">
                                     <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                     <span data-translate="global.menu.entities.primaryEvaluations">Primary Evaluations</span>
+                                </a>
+                            </li>
+                        <li ui-sref-active="active">
+                                <a ui-sref="secondary-evaluation" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.secondaryEvaluation">Secondary Evaluation</span>
                                 </a>
                             </li>
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
