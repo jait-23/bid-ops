@@ -15,6 +15,7 @@
                 "biddersSolicitationsSubmitted": "Bidders Solicitations Submitted",
                 "primaryEvaluation": "Primary Evaluation",
                 "primaryEvaluations": "Primary Evaluations",
+                "secondaryEvaluation": "Secondary Evaluation",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,27 @@
+
+{
+    "bidopscoreApp": {
+        "secondaryEvaluation" : {
+            "home": {
+                "title": "Secondary Evaluations",
+                "createLabel": "Create a new Secondary Evaluation",
+                "createOrEditLabel": "Create or edit a Secondary Evaluation"
+            },
+            "created": "A new Secondary Evaluation is created with identifier {{ param }}",
+            "updated": "A Secondary Evaluation is updated with identifier {{ param }}",
+            "deleted": "A Secondary Evaluation is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Secondary Evaluation {{ id }}?"
+            },
+            "detail": {
+                "title": "Secondary Evaluation"
+            },
+            "user_id": "User Id",
+            "evaluator_id": "Evaluator Id",
+            "doc_url": "Doc Url",
+            "solicitation_id": "Solicitation Id",
+            "score": "Score",
+            "eligible": "Eligible"
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "user_id",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "evaluator_id",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "doc_url",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "solicitation_id",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "score",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "eligible",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180505044739",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "secondary_evaluation",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}
