@@ -1,7 +1,7 @@
 <div>
 	<div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-10">
-			<h2 style="font-weight: 500;"><span class="fa fa-user"></span>&nbsp; Solicitations Management</h2>
+			<h2 style="font-weight: 500;"><span class="fa fa-user"></span>&nbsp; Primary Evaluations Management</h2>
 			<ol class="breadcrumb">
 				<li>
 					<span>Primary Evaluations</span>
@@ -86,21 +86,15 @@
        										  
        										 <div class="form-group">
 													<div style="margin-top: -7%;">
-														<button style="background-color: #1d77c7; color: white" class="btn btn-primary" ng-click="saveDetailsModal()"
+														<button style="background-color: #1d77c7; color: white" class="btn btn-primary" ng-click="approveDetailsModal()"
 														ng-disabled="editForm.$invalid || editForm.$submitted">
-															<i class="far fa-save"></i>&nbsp;<span class="hidden-xs hidden-sm"
-															translate="entity.action.save">Save</span>
-														</button>
-														<button style="background-color: #1dc799; color: white" class="btn btn-primary" 
-														ng-click="sendReviewModal(vm.solicitations.id, vm.solicitations.userId)"
-														ng-disabled="editForm.$invalid || editForm.$submitted">
-															<i class="far fa-paper-plane"></i>&nbsp;<span class="hidden-xs hidden-sm"
-															>Send to Reviewer</span>
+															<i class="glyphicon glyphicon-ok"></i>&nbsp;<span class="hidden-xs hidden-sm"
+															>Approve</span>
 														</button>
 														<button class="btn btn-primary" style="background-color: #ca4242; color: white" data-dismiss="modal"
-														ng-click="cancelDetailsModal()" style="background-color: #ccc; border-color: #ccc;">
-															<i class="fas fa-ban"></i>&nbsp;<span class="hidden-xs hidden-sm"
-															translate="entity.action.cancel">Cancel</span>
+														ng-click="rejectDetailsModal()" style="background-color: #ccc; border-color: #ccc;">
+															<i class="glyphicon glyphicon-remove"></i>&nbsp;<span class="hidden-xs hidden-sm"
+															>Reject</span>
 														</button>
 													</div>
 												</div>
@@ -118,14 +112,4 @@
 			</div>
 		</div>
 	</div>
-</div>    
- 
-    <button type="button" ui-sref="" class="btn btn-primary">
-        <span class="glyphicon glyphicon-ok"></span>
-        <span class="hidden-sm-down" data-translate="">Approve</span>
-    </button>
-    <button type="button" ui-sref="" class="btn btn-danger">
-             <span class="glyphicon glyphicon-remove"></span>
-             <span class="hidden-sm-down" data-translate="">Reject</span>
-      </button>
 </div>

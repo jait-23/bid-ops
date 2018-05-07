@@ -10,10 +10,12 @@ angular.module('bidopscoreApp').controller(
 		function($scope, $stateParams, $uibModalInstance, PrimaryEvaluations) {
 
 			$scope.saveConfirmed = function() {
-				$scope.save();
+				$scope.saveApprove();
 				$uibModalInstance.close();
 			}
+			
 			$scope.clear = function() {
 				$uibModalInstance.dismiss('cancel');
 			};
+			
 		}]);
