@@ -46,6 +46,13 @@
                                 <span data-translate="">Secondary Evaluations</span>
                             </a>
                            </li>
+                           
+                           <li ui-sref-active="active" ng-switch-when="true">
+                            <a ui-sref="solicitation-reviewer" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-user"></span>&nbsp;
+                                <span data-translate="">Reviewer</span>
+                            </a>
+                           </li>
                         
                             <li ui-sref-active="active" ng-switch-when="true">
                             <a ui-sref="settings" ng-click="vm.collapseNavbar()">

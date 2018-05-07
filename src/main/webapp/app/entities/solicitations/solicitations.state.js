@@ -84,16 +84,16 @@
             }
         })
         .state('solicitations-detail2', {
-            parent: 'solicitations',
-            url: '/solicitations2/{id}',
+            parent: 'bidders',
+            url: '/solicitations/{id}',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'bidopscoreApp.solicitations.detail.title'
             },
             views: {
                 'content@': {
-                	templateUrl: 'app/entities/solicitations/solicitationsbidders-detail.html',
-                    controller: 'SolicitationsBiddersDetailController',
+                	templateUrl: 'app/entities/bidders/bidders-detail.html',
+                    controller: 'BiddersDetailController',
                     controllerAs: 'vm'
                 }
             },

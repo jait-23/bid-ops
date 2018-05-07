@@ -60,8 +60,8 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/solicitations/solicitationsbidders-detail.html',
-                    controller: 'SolicitationsBiddersDetailController',
+                    templateUrl: 'app/entities/bidders/bidders-detail.html',
+                    controller: 'BiddersDetailController',
                     controllerAs: 'vm'
                 }
             },
@@ -83,6 +83,39 @@
                 }]
             }
         })
+//        .state('solicitations-detail', {
+//            parent: 'solicitations',
+//            url: '/solicitations/{id}',
+//            data: {
+//                authorities: ['ROLE_USER'],
+//                pageTitle: 'bidopscoreApp.solicitations.detail.title'
+//            },
+//            views: {
+//                'content@': {
+//                    templateUrl: 'app/entities/solicitations/solicitations-detail.html',
+//                    controller: 'SolicitationsDetailController',
+//                    controllerAs: 'vm'
+//                }
+//            },
+//            resolve: {
+//                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+//                    $translatePartialLoader.addPart('solicitations');
+//                    return $translate.refresh();
+//                }],
+//                entity: ['$stateParams', 'Solicitations', function($stateParams, Solicitations) {
+//                    return Solicitations.get({id : $stateParams.id}).$promise;
+//                }],
+//                previousState: ["$state", function ($state) {
+//                    var currentStateData = {
+//                        name: $state.current.name || 'solicitations',
+//                        params: $state.params,
+//                        url: $state.href($state.current.name, $state.params)
+//                    };
+//                    return currentStateData;
+//                }]
+//            }
+//        })
+        
         .state('bidders-detail.edit', {
             parent: 'bidders-detail',
             url: '/detail/edit',
