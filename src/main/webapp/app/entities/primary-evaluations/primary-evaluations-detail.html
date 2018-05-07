@@ -1,39 +1,124 @@
-
 <div>
-    <h2><span data-translate="bidopscoreApp.primaryEvaluations.detail.title">Primary Evaluations</span> {{vm.primaryEvaluations.id}}</h2>
-    <hr>
-    <button type="submit"
-            ui-sref="{{ vm.previousState }}"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
-    </button>
-    <br/>
-    <br/>
+	<div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-10">
+			<h2 style="font-weight: 500;"><span class="fa fa-user"></span>&nbsp; Solicitations Management</h2>
+			<ol class="breadcrumb">
+				<li>
+					<span>Primary Evaluations</span>
+				</li>
+				<li>
+					<strong>{{vm.primaryEvaluations.id}}</strong>
+				</li>
+			</ol>
+		</div>
+		<div class="col-lg-2">   
+		</div>
+	</div>
     <jhi-alert-error></jhi-alert-error>
-    <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="bidopscoreApp.primaryEvaluations.userId">User Id</span></dt>
-        <dd>
-            <span>{{vm.primaryEvaluations.userId}}</span>
-        </dd>
-        <dt><span data-translate="bidopscoreApp.primaryEvaluations.solicitationId">Solicitation Id</span></dt>
-        <dd>
-            <span>{{vm.primaryEvaluations.solicitationId}}</span>
-        </dd>
-        <dt><span data-translate="bidopscoreApp.primaryEvaluations.docURL">Doc URL</span></dt>
-        <dd>
-            <span>{{vm.primaryEvaluations.docURL}}</span>
-        </dd>
-        <!-- <dt><span data-translate="bidopscoreApp.primaryEvaluations.categorySolicitations">Category Solicitations</span></dt>
-        <dd>
-            <span>{{vm.primaryEvaluations.categorySolicitations}}</span>
-        </dd>
-        <dt><span data-translate="bidopscoreApp.primaryEvaluations.status">Status</span></dt>
-        <dd>
-            <span>{{vm.primaryEvaluations.status}}</span>
-        </dd> -->
-    </dl>
-
-    
+	<div class="wrapper wrapper-content animated fadeInRight">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<button type="submit" ui-sref="{{ vm.previousState }}" class="btn btn-info">
+						<span class="fa fa-arrow-left"></span>&nbsp;<span class="hidden-xs hidden-sm" translate="entity.action.back"> Back</span>
+						</button>
+					</div>
+					<div class="ibox-content">
+						<div id="tabs">
+							<ul class="nav nav-tabs" style="margin-top: 15px"> <!-- margin-left: 11%;  -->
+								<li ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.url)}">
+									<a data-toggle="tab" ng-click="onClickTab(tab)">{{tab.title}}</a>
+								</li>
+							</ul>
+							<div id="mainView">
+								<div ng-include="currentTab"></div>
+							</div>
+						</div>
+						 <!--  <script type="text/ng-template" id="details.tpl.html"> -->
+							<div class="tab-content container" ><!-- style="border-style: solid;border-color:red;width:1050px;" -->
+								<div id="viewOne" class="tab-pane fade in active">
+								<div class="uk-padding">
+								</br>
+									<div class="uk-text-center" uk-grid>
+    									<div class="col-sm-3">
+       										 <div class="uk-text-center" style="text-align: center;font-size:16px;">
+       										 Users<span style="color:red;">*</span>
+       										 </div>
+       										 </br>
+       										 <div class="uk-text-center" style="text-align: center;font-size:16px;">
+       										 Solicitations Id<span style="color:red;">*</span>
+       										 </div>
+       										 </br>
+       										 <div class="uk-text-center" style="text-align: center;font-size:16px;">
+       										 Documents<span style="color:red;">*</span>
+   										    </div>
+       									</div> 
+    									 <div class="col-sm-6">
+       										 <div class="uk-card uk-card-default uk-card-body">
+       										 <form><div class="uk-margin uk-width-auto">
+           											 <input class="uk-input" type="text" ng-model="vm.primaryEvaluations.userId" required
+														ng-maxlength="100"placeholder="User Name" style="width:300px;">
+        											</div>
+       										 
+       										 </form>
+       										 </div>
+       										 </br>
+       										 <div class="uk-card uk-card-default uk-card-body">
+       										 <form><div class="uk-margin uk-width-auto">
+           											 <input class="uk-input" type="text" ng-model="vm.primaryEvaluations.solicitationId" required
+														ng-maxlength="100"placeholder="Solicitation Id" style="width:300px;">
+        											</div>
+       										 
+       										 </form>
+       										 </div>
+       										 </br>
+       										 <div class="uk-card uk-card-default uk-card-body">
+       										 <form><div class="uk-margin uk-width-auto">
+           											 <input class="uk-input" type="text" ng-model="vm.primaryEvaluations.docURL" required
+														ng-maxlength="100"placeholder="Documents" style="width:300px;">
+        											</div>
+       										 </form>
+       										 </div>
+       										 </br>
+       										 </br>
+       										 </br>
+       										  
+       										 <div class="form-group">
+													<div style="margin-top: -7%;">
+														<button style="background-color: #1d77c7; color: white" class="btn btn-primary" ng-click="saveDetailsModal()"
+														ng-disabled="editForm.$invalid || editForm.$submitted">
+															<i class="far fa-save"></i>&nbsp;<span class="hidden-xs hidden-sm"
+															translate="entity.action.save">Save</span>
+														</button>
+														<button style="background-color: #1dc799; color: white" class="btn btn-primary" 
+														ng-click="sendReviewModal(vm.solicitations.id, vm.solicitations.userId)"
+														ng-disabled="editForm.$invalid || editForm.$submitted">
+															<i class="far fa-paper-plane"></i>&nbsp;<span class="hidden-xs hidden-sm"
+															>Send to Reviewer</span>
+														</button>
+														<button class="btn btn-primary" style="background-color: #ca4242; color: white" data-dismiss="modal"
+														ng-click="cancelDetailsModal()" style="background-color: #ccc; border-color: #ccc;">
+															<i class="fas fa-ban"></i>&nbsp;<span class="hidden-xs hidden-sm"
+															translate="entity.action.cancel">Cancel</span>
+														</button>
+													</div>
+												</div>
+       										  
+       										 
+									</div>
+									
+							 </div>
+									</div>
+								</div>
+							</div>
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>    
  
     <button type="button" ui-sref="" class="btn btn-primary">
         <span class="glyphicon glyphicon-ok"></span>

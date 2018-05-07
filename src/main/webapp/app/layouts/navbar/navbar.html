@@ -40,7 +40,13 @@
                                 <span data-translate="">Evaluator 1</span>
                             </a>
                            </li>
-                        
+                            <li ui-sref-active="active">
+                                <a ui-sref="secondary-evaluations" ng-click="vm.collapseNavbar()">
+                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                    <span>Secondary Evaluations</span>
+                                </a>
+                            </li>
+                    
                             <li ui-sref-active="active" ng-switch-when="true">
                             <a ui-sref="settings" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-wrench"></span>&nbsp;
