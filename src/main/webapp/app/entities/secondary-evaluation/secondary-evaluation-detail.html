@@ -22,7 +22,7 @@
         </dd>
         <dt><span data-translate="bidopscoreApp.secondaryEvaluation.score">Score</span></dt>
         <dd>
-            <span>{{vm.secondaryEvaluation.score}}</span>
+            <span><input type="number" ng-model="vm.secondaryEvaluation.score"></span>
         </dd>
         <dt><span data-translate="bidopscoreApp.secondaryEvaluation.eligible">Eligible</span></dt>
         <dd>
@@ -36,8 +36,8 @@
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
     </button>
 
-    <button type="button" ui-sref="secondary-evaluation-detail.edit({id:vm.secondaryEvaluation.id})" class="btn btn-primary">
+    <button type="button" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+        <span class="hidden-sm-down"> Update Score</span>
     </button>
 </div>
