@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bidopscoreApp').controller(
-		'ApproveDialogSaveController',
+		'RejectDialogSaveController',
 		[
 			'$scope',
 			'$stateParams',
@@ -10,7 +10,7 @@ angular.module('bidopscoreApp').controller(
 		function($scope, $stateParams, $uibModalInstance, PrimaryEvaluations) {
 
 			$scope.saveConfirmed = function() {
-				$scope.save();
+				$scope.saveReject();
 				$uibModalInstance.close();
 			}
 			$scope.clear = function() {
