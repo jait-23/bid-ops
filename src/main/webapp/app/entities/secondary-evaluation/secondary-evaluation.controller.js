@@ -5,11 +5,14 @@
         .module('bidopscoreApp')
         .controller('SecondaryEvaluationController', SecondaryEvaluationController);
 
-    SecondaryEvaluationController.$inject = ['$state', 'SecondaryEvaluation', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
+    SecondaryEvaluationController.$inject = ['$scope', '$state', 'SecondaryEvaluation', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams', 'Bidders'];
 
-    function SecondaryEvaluationController($state, SecondaryEvaluation, ParseLinks, AlertService, paginationConstants, pagingParams) {
+    function SecondaryEvaluationController($scope, $state, SecondaryEvaluation, ParseLinks, AlertService, paginationConstants, pagingParams, Bidders) {
 
         var vm = this;
+        console.log(vm);
+    	vm.bidders = Bidders.query();
+    	console.log(vm.bidders);
 
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
@@ -56,5 +59,65 @@
                 search: vm.currentSearch
             });
         }
+        
+        /*console.log(vm.secondaryEvaluations);
+        var total=0;
+        var count=0;
+        
+        vm.secondaryEvaluations.forEach( function (arrayItem)
+        	{
+        	if(vm.secondaryEvaluations[i].score!="null" && vm.secondaryEvaluations[i].score!=undefined)
+    		{
+    	      total+=vm.secondaryEvaluations[i].score;
+    	      console.log(total);
+    	      count++;
+    	      console.log(count);
+    		}});
+        
+        var average=total/count;
+        
+        vm.secondaryEvaluations.forEach( function (arrayItem)
+            	{
+        	if(vm.secondaryEvaluations[i].score>average){
+        		vm.secondaryEvaluations[i].eligible="yes";
+        		console.log("It was a YES" + vm.secondaryEvaluations[i]);
+        		
+        	}else{
+        		vm.secondaryEvaluations[i].eligible="no";
+        		console.log("It was a NO");
+        	}
+        		});*/
+        /*for(var i=0; i<vm.secondaryEvaluations.length; i++) {
+        	if(vm.secondaryEvaluations[i].score!="null" && vm.secondaryEvaluations[i].score!=undefined)
+        		{
+        	      total+=vm.secondaryEvaluations[i].score;
+        	      console.log(total);
+        	      count++;
+        	      console.log(count);
+        		}
+        }
+        
+        
+        var average=total/count;
+        for(i=0; i<vm.secondaryEvaluations.length; i++){
+        	if(vm.secondaryEvaluations[i].score>average){
+        		vm.secondaryEvaluations[i].eligible="yes";
+        		console.log("It was a YES" + vm.secondaryEvaluations[i]);
+        		
+        	}else{
+        		vm.secondaryEvaluations[i].eligible="no";
+        		console.log("It was a NO");
+        	}
+        	
+	
+        }*/
+        
+        $scope.showFee = function(userId) {
+        	
+        	
+        	console.log(vm.bidders + "hey user");
+
+            $scope.msg = 'clicked';
+          } 
     }
 })();

@@ -14,21 +14,6 @@
         vm.secondaryEvaluation = entity;
         vm.previousState = previousState.name;
         
-        /*console.log(vm.secondaryEvaluation);
-        var total=0;
-        var count=0;
-        for(var i=0; i<vm.secondaryEvaluation.length; i++) {
-        	if(vm.secondaryEvaluation[i].score!="null" && vm.secondaryEvaluation[i].score!=undefined)
-        		{
-        	      total+=vm.secondaryEvaluation[i].score;
-        	      count++;
-        		}
-        }
-        
-        for(var i=0; i<vm.secondaryEvaluation.length[i]; i++){
-        	
-        }*/
-        
         var onSaveFinished = function (result) {
         	console.log("done on finsihed" + result);
         };
