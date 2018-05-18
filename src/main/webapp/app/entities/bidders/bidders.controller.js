@@ -1,13 +1,13 @@
-(function() {
++(function() {
     'use strict';
 
     angular
         .module('bidopscoreApp')
         .controller('BiddersController', BiddersController);
 
-    BiddersController.$inject = ['$state', 'Bidders', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams','User','Solicitations'];
+    BiddersController.$inject = ['$state', 'Bidders', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
 
-    function BiddersController($state, Bidders, ParseLinks, AlertService, paginationConstants, pagingParams, User, Solicitations) {
+    function BiddersController($state, Bidders, ParseLinks, AlertService, paginationConstants, pagingParams) {
 
         var vm = this;
 
@@ -21,16 +21,6 @@
 
         function loadAll () {
             Bidders.query({
-                page: pagingParams.page - 1,
-                size: vm.itemsPerPage,
-                sort: sort()
-            }, onSuccess, onError);
-            User.query({
-                page: pagingParams.page - 1,
-                size: vm.itemsPerPage,
-                sort: sort()
-            }, onSuccess, onError);
-            Solicitations.query({
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
                 sort: sort()

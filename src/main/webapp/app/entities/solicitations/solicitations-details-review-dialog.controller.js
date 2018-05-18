@@ -27,7 +27,7 @@ angular.module('bidopscoreApp').controller(
 						$scope.solicitationReviewer.reviewerId = $scope.reviewerId;
 		                SolicitationReviewer.save($scope.solicitationReviewer, onSaveSuccess, onSaveError);
 		            }*/
-					
+					$scope.solicitations.status = "In Review";
 					$scope.save();
 		        }
 

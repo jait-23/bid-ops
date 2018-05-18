@@ -83,6 +83,39 @@
                 }]
             }
         })
+        
+        .state('bidders-detail1', {
+            parent: 'bidders',
+            url: '/bidders/{id}',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'bidopscoreApp.bidders.detail.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/bidders/bidders-detail1.html',
+                    controller: 'BiddersDetail1Controller',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('bidders');
+                    return $translate.refresh();
+                }],
+                entity: ['$stateParams', 'Bidders', function($stateParams, Bidders) {
+                    return Bidders.get({id : $stateParams.id}).$promise;
+                }],
+                previousState: ["$state", function ($state) {
+                    var currentStateData = {
+                        name: $state.current.name || 'bidders',
+                        params: $state.params,
+                        url: $state.href($state.current.name, $state.params)
+                    };
+                    return currentStateData;
+                }]
+            }
+        })
         .state('bidders-detail.edit', {
             parent: 'bidders-detail',
             url: '/detail/edit',
