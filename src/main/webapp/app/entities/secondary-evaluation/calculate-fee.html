@@ -9,22 +9,22 @@
                
                     <th jh-sort-by="user_id"><span data-translate="bidopscoreApp.secondaryEvaluation.user_id">User Id</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="evaluator_id"><span data-translate="bidopscoreApp.secondaryEvaluation.evaluator_id">Evaluator Id</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="doc_url"><span data-translate="bidopscoreApp.secondaryEvaluation.doc_url">Doc Url</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="solicitation_id"><span data-translate="bidopscoreApp.secondaryEvaluation.solicitation_id">Solicitation Id</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="score"><span data-translate="bidopscoreApp.secondaryEvaluation.score">Score</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="eligible"><span data-translate="bidopscoreApp.secondaryEvaluation.eligible">Eligible</span> <span class="glyphicon glyphicon-sort"></span></th>                    
+                    <th jh-sort-by="fee-score">FeeScore<span class="glyphicon glyphicon-sort"></span></th>                   
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="secondaryEvaluation in vm.secondaryEvaluations track by secondaryEvaluation.id">
+                <tr ng-repeat="bidders in vm.bidders track by bidders.id" 
+                     ng-if="vm.secondaryEvaluation.eligible=='yes'">
+                    <td>{{bidders.user_id}}</td>
+                    <td>{{bidders.evaluator_id}}</td>
+                    <td>{{bidders.solicitation_id}}</td>
+                    <td>{{bidders.score}}</td>
+                    <td>{{bidders.fee_score}}</td>
                     
-                    <td>{{secondaryEvaluation.user_id}}</td>
-                    <td>{{secondaryEvaluation.evaluator_id}}</td>
-                    <td>{{secondaryEvaluation.doc_url}}</td>
-                    <td>{{secondaryEvaluation.solicitation_id}}</td>
-                    <td>{{secondaryEvaluation.score}}</td>
-                    <td>{{secondaryEvaluation.eligible}}</td>
+                    
                     
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
@@ -32,7 +32,7 @@
                                     ui-sref="secondary-evaluation-detail({id:secondaryEvaluation.id})"
                                     class="btn btn-info btn-sm">
                                 
-                                <span class="hidden-sm-down">Score</span>
+                                <span class="hidden-sm-down">Contact Details</span>
                             </button>
                           <!--  <button type="submit"
                                     ui-sref="secondary-evaluation.edit({id:secondaryEvaluation.id})"

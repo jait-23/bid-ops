@@ -12,11 +12,12 @@
         var vm = this;
         console.log(vm);
     	vm.bidders = Bidders.query();
+    	vm.secondaryEvaluation = SecondaryEvaluation.query();
     	console.log(vm.bidders);
     	
     	vm.score = 0;
     	
-    	$scope.secondaryEvaluation = SecondaryEvaluation.query();
+    	
     	
     	SecondaryEvaluation.query().$promise
 		.then(function(result) {
@@ -24,7 +25,7 @@
 			console.log(result);
 			$scope.totalCount();
 		});
-    	console.log($scope.secondaryEvaluation);
+    	console.log(vm.secondaryEvaluation);
     	console.log(vm.bidders);
     	
     	$scope.secondaryEvaluationTotal = [];
@@ -38,7 +39,9 @@
 
         loadAll();
         
- 
+        $scope.clear = function() {
+			$uibModalInstance.dismiss('cancel');
+		};
 
         function loadAll () {
             SecondaryEvaluation.query({
@@ -85,14 +88,33 @@
         $scope.save = function() {
 		
 			console.log(vm.score + "m here hey");
+			console.log(vm.bidders);
+			//vm.bidders[0].minimum_score_for_eligibility.push(vm.score);
 			//vm.bidders.["minimum_score_for_eligibility"].push({vm.score});
-			//vm.bidders["minimum_score_for_eligibility"]=vm.score;
+			vm.bidders[0].minimumScoreForEligibility=vm.score;
 			
-			for(var i=0; i<vm.bidders.length; i++)
-			{
+			$http({
+                
+                method : 'POST',
+                // data:  fd,
+                withCredentials: true,
+                headers: {'Content-Type': undefined },
+                transformRequest: angular.identity,
+                mimeType:"multipart/form-data",
+                contentType: false,
+                cache: false,
+                processData:false
+             }).then(function s(response) 
+             {console.log("Post Success"); 
+             vm.bidders[0].minimumScoreForEligibility = vm.score;
+             Bidders.save(vm.bidders, onSaveFinished);},
+             function e(response){console.log("Post failure");});
+			
+			//for(var i=0; i<vm.bidders.length; i++)
+			//{
 				//vm.bidders[i]["minimum_score_for_eligibility"]=vm.score;
-				vm.bidders[i].minimum_score_for_eligibility.push(vm.score);
-			}
+			//	vm.bidders[i].minimum_score_for_eligibility.push(vm.score);
+			//}
 			
         };
         

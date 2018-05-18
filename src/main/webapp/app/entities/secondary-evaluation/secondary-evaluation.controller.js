@@ -11,8 +11,13 @@
 
         var vm = this;
         console.log(vm);
+        
+        vm.secondaryEvaluation = SecondaryEvaluation.query();
+        console.log(vm.secondaryEvaluation);
     	vm.bidders = Bidders.query();
-    	
+    	$scope.secondaryEvaluationTotal = [];
+		$scope.secondaryEvaluation = [];
+		console.log(vm.secondaryEvaluations);
     	SecondaryEvaluation.query().$promise
 		.then(function(result) {
 			console.log("promised SecondaryEvaluation");
@@ -22,8 +27,7 @@
     	console.log($scope.secondaryEvaluation);
     	console.log(vm.bidders);
     	
-    	$scope.secondaryEvaluationTotal = [];
-		$scope.secondaryEvaluation = [];
+    	
 
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
@@ -77,12 +81,12 @@
         
         
        // console.log(totalAvgScore());
-        
+        console.log(vm.secondaryEvaluations);
       $scope.totalCount = function(){
     	  
-    	  for(var i=0;i< vm.secondaryEvaluations.length ; i++)
+    	  for(var i=0;i < vm.secondaryEvaluations.length ; i++)
           {
-          	if(vm.secondaryEvaluations[i].score > vm.bidders[0].minimum_score_for_eligibility)
+          	if(vm.secondaryEvaluations[i].score > vm.bidders[0].minimumScoreForEligibility)
     		  
           	{
           		vm.secondaryEvaluations[i].eligible="yes";

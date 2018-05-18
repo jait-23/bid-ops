@@ -16,6 +16,7 @@
                 "primaryEvaluation": "Primary Evaluation",
                 "primaryEvaluations": "Primary Evaluations",
                 "secondaryEvaluation": "Secondary Evaluation",
+                "files": "Files",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

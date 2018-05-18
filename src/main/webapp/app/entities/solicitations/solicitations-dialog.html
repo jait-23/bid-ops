@@ -58,6 +58,14 @@
 														<option value="Printing/Reproduction/Graphic Design">Printing/Reproduction/Graphic Design</option>
 														</select>
         </div>
+        
+        <div class="form-group">
+			<label class="control-label">Required Documents</label>
+			<select class="form-control" ng-model="vm.solicitations.filesDTOs"
+				style="margin-left: 0%; width: 350px;"
+				ng-options="files as files.documentName for files in files track by files.id"></select>
+		</div>
+        
         <div class="form-group">
             <label class="control-label" for="field_type">Reviewer Name</label>
            	
