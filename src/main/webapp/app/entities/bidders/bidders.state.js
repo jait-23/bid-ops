@@ -82,8 +82,7 @@
                     return currentStateData;
                 }]
             }
-        })
-        
+        })  
         .state('bidders-detail1', {
             parent: 'bidders',
             url: '/bidders/{id}',

@@ -5,11 +5,12 @@
         .module('bidopscoreApp')
         .controller('SolicitationReviewerController', SolicitationReviewerController);
 
-    SolicitationReviewerController.$inject = ['$state', 'SolicitationReviewer', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
+    SolicitationReviewerController.$inject = ['$state', 'SolicitationReviewer', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams', 'Solicitations'];
 
-    function SolicitationReviewerController($state, SolicitationReviewer, ParseLinks, AlertService, paginationConstants, pagingParams) {
+    function SolicitationReviewerController($state, SolicitationReviewer, ParseLinks, AlertService, paginationConstants, pagingParams, Solicitations) {
 
         var vm = this;
+        vm.solicitations = Solicitations.query();
 
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;

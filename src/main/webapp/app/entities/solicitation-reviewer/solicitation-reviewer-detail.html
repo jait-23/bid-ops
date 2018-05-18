@@ -1,4 +1,69 @@
+<div>
+	<div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-10">
+			<h2 style="font-weight: 500;"><span class="fa fa-user"></span>&nbsp; Solicitations Management</h2>
+			<ol class="breadcrumb">
+				<li>
+					<span>Solicitations</span>
+				</li>
+				<li>
+					<strong>{{vm.solicitations.title}}</strong>
+				</li>
+			</ol>
+		</div>
+		<div class="col-lg-2">   
+		</div>
+	</div>
+    <jhi-alert-error></jhi-alert-error>
+	<div class="wrapper wrapper-content animated fadeInRight">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<button type="submit" ui-sref="{{ vm.previousState }}" class="btn btn-info">
+						<span class="fa fa-arrow-left"></span>&nbsp;<span class="hidden-xs hidden-sm" translate="entity.action.back"> Back</span>
+						</button>
+					</div>
+					<br/>
+					<br/>
+				  <dl class="dl-horizontal jh-entity-details">
+					<dt><span>Number</span></dt>
+        				<dd><span>{{vm.solicitations.solicitationId}}</span></dd>
+        			 <dt style="align:center;"><span>Name</span></dt>
+       				    <dd><span>{{vm.solicitations.title}}</span></dd>
+       				 <dt style="align:center;"><span>Type</span></dt>
+       				    <dd><span>{{vm.solicitations.type}}</span></dd>
+       				 <dt style="align:center;"><span>Final Filling Date</span></dt>
+       				    <dd><span>{{vm.solicitations.finalFilingDate}}</span></dd>
+       				  <dt style="align:center;"><span>Category</span></dt>
+       				    <dd><span>{{vm.solicitations.category}}</span></dd>
+       				  <dt style="align:center;"><span>Description</span></dt>
+       				    <dd><span>{{vm.solicitations.description}}</span></dd>
+       				    <dt style="align:center;"><span></div>
+				<div class="form-group">
+													<div>
+														<button style="background-color: #1d77c7; color: white" class="btn btn-primary" ng-click="approveDetailsModal()"
+														ng-disabled="editForm.$invalid || editForm.$submitted">
+															<i class="glyphicon glyphicon-ok"></i>&nbsp;<span class="hidden-xs hidden-sm"
+															>Approve</span>
+														</button>
+														<button class="btn btn-primary" style="background-color: #ca4242; color: white" data-dismiss="modal"
+														ng-click="rejectDetailsModal()" style="background-color: #ccc; border-color: #ccc;">
+															<i class="glyphicon glyphicon-remove"></i>&nbsp;<span class="hidden-xs hidden-sm"
+															>Reject</span>
+														</button>
+													</div>
+												</div></span></dt>
+                   </dl>
+                   
+				
+			</div>
+		</div>
+	</div>
+</div>
+				
 
+<!-- 
 <div>
     <h2><span data-translate="bidopscoreApp.solicitationReviewer.detail.title">Solicitation Reviewer</span> {{vm.solicitationReviewer.id}}</h2>
     <hr>
@@ -25,3 +90,4 @@
         <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
     </button>
 </div>
+ -->
