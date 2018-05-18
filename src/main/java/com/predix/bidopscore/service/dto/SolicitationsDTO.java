@@ -3,7 +3,15 @@ package com.predix.bidopscore.service.dto;
 
 import java.time.ZonedDateTime;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.predix.bidopscore.service.dto.FilesDTO;
 
 /**
  * A DTO for the Solicitations entity.
@@ -38,6 +46,8 @@ public class SolicitationsDTO implements Serializable {
 
     private Long userId;
     
+    private Set<FilesDTO> filesDTOs = new HashSet<>();
+    
     public Long getUserId() {
         return userId;
     }
@@ -61,6 +71,14 @@ public class SolicitationsDTO implements Serializable {
     public void setSolicitationId(String solicitationId) {
         this.solicitationId = solicitationId;
     }
+    
+    public Set<FilesDTO> getFilesDTOs() {
+		return filesDTOs;
+	}
+
+	public void setFilesDTOs(Set<FilesDTO> filesDTOs) {
+		this.filesDTOs = filesDTOs;
+	}
 
     public String getTitle() {
         return title;
@@ -183,6 +201,7 @@ public class SolicitationsDTO implements Serializable {
             ", type='" + getType() + "'" +
             ", description='" + getDescription() + "'" +
             ", category='" + getCategory() + "'" +
+            ", filesDTOs=" + filesDTOs + "'" +
             ", requiredDocuments='" + getRequiredDocuments() + "'" +
             ", reviewerDeliveryStatus='" + getReviewerDeliveryStatus() + "'" +
             ", approverStatus='" + getApproverStatus() + "'" +
