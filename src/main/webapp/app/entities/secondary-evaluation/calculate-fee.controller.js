@@ -3,15 +3,16 @@
 
     angular
         .module('bidopscoreApp')
-        .controller('SecondaryEvaluationController', SecondaryEvaluationController);
+        .controller('CalculateFeeController', CalculateFeeController);
 
-    SecondaryEvaluationController.$inject = ['$scope', '$state', 'SecondaryEvaluation', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams', 'Bidders'];
+    CalculateFeeController.$inject = ['$scope', '$state', 'SecondaryEvaluation', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams', 'Bidders'];
 
-    function SecondaryEvaluationController($scope, $state, SecondaryEvaluation, ParseLinks, AlertService, paginationConstants, pagingParams, Bidders) {
+    function CalculateFeeController($scope, $state, SecondaryEvaluation, ParseLinks, AlertService, paginationConstants, pagingParams, Bidders) {
 
         var vm = this;
         console.log(vm);
     	vm.bidders = Bidders.query();
+    	$scope.secondaryEvaluation = SecondaryEvaluation.query();
     	
     	SecondaryEvaluation.query().$promise
 		.then(function(result) {
@@ -79,20 +80,13 @@
        // console.log(totalAvgScore());
         
       $scope.totalCount = function(){
-    	  
-    	  for(var i=0;i< vm.secondaryEvaluations.length ; i++)
-          {
-          	if(vm.secondaryEvaluations[i].score > vm.bidders[0].minimum_score_for_eligibility)
-    		  
-          	{
-          		vm.secondaryEvaluations[i].eligible="yes";
-          		console.log("It was a YES" + vm.secondaryEvaluations[i]);
-          		
-          	}else{
-          		vm.secondaryEvaluations[i].eligible="no";
-          		console.log("It was a NO");
-          	}
-          		}
+    	  for (var i=0; i < $scope.secondaryEvaluation.length; i++) {
+        		if ($scope.secondaryEvaluation[i].score != null &&  $scope.secondaryEvaluation[i].score != undefined && $scope.secondaryEvaluation[i].score != 'null') {
+        			$scope.total += $scope.secondaryEvaluation[i].score;
+        			console.log($scope.total);
+        			console.log($scope.count);
+        		}
+        	}
       }
         
         /*var average=total/count;

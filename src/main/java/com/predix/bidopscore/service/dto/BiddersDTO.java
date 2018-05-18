@@ -19,6 +19,14 @@ public class BiddersDTO implements Serializable {
 
     private Long submittedSolicitationsId;
 
+    private Integer proposedFee;
+
+    private Integer minimumScoreForEligibility;
+
+    private Integer maximumFeeScore;
+
+    private Integer feeScore;
+
     public Long getId() {
         return id;
     }
@@ -59,6 +67,38 @@ public class BiddersDTO implements Serializable {
         this.submittedSolicitationsId = submittedSolicitationsId;
     }
 
+    public Integer getProposedFee() {
+        return proposedFee;
+    }
+
+    public void setProposedFee(Integer proposedFee) {
+        this.proposedFee = proposedFee;
+    }
+
+    public Integer getMinimumScoreForEligibility() {
+        return minimumScoreForEligibility;
+    }
+
+    public void setMinimumScoreForEligibility(Integer minimumScoreForEligibility) {
+        this.minimumScoreForEligibility = minimumScoreForEligibility;
+    }
+
+    public Integer getMaximumFeeScore() {
+        return maximumFeeScore;
+    }
+
+    public void setMaximumFeeScore(Integer maximumFeeScore) {
+        this.maximumFeeScore = maximumFeeScore;
+    }
+
+    public Integer getFeeScore() {
+        return feeScore;
+    }
+
+    public void setFeeScore(Integer feeScore) {
+        this.feeScore = feeScore;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -88,6 +128,10 @@ public class BiddersDTO implements Serializable {
             ", solicitationWishlistId=" + getSolicitationWishlistId() +
             ", subscribedCategories='" + getSubscribedCategories() + "'" +
             ", submittedSolicitationsId=" + getSubmittedSolicitationsId() +
+            ", proposedFee=" + getProposedFee() +
+            ", minimumScoreForEligibility=" + getMinimumScoreForEligibility() +
+            ", maximumFeeScore=" + getMaximumFeeScore() +
+            ", feeScore=" + getFeeScore() +
             "}";
     }
 }

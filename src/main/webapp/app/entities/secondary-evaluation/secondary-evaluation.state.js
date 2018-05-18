@@ -51,6 +51,90 @@
                 }]
             }
         })
+        .state('minimum-score-criteria', {
+            parent: 'entity',
+            url: '/minimum-score-criteria',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'bidopscoreApp.secondaryEvaluation.home.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/secondary-evaluation/minimum-score-criteria.html',
+                    controller: 'MinimumScoreCriteriaController',
+                    controllerAs: 'vm'
+                }
+            },
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: null
+            },
+            resolve: {
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('secondaryEvaluation');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
+            }
+        })
+        .state('calculate-fee', {
+            parent: 'entity',
+            url: '/calculate-fee',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'bidopscoreApp.secondaryEvaluation.home.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/secondary-evaluation/calculate-fee.html',
+                    controller: 'CalculateFeeController',
+                    controllerAs: 'vm'
+                }
+            },
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: null
+            },
+            resolve: {
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('secondaryEvaluation');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
+            }
+        })
         .state('secondary-evaluation-detail', {
             parent: 'secondary-evaluation',
             url: '/secondary-evaluation/{id}',

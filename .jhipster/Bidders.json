@@ -17,6 +17,22 @@
         {
             "fieldName": "submittedSolicitationsId",
             "fieldType": "Long"
+        },
+        {
+            "fieldName": "proposedFee",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "minimumScoreForEligibility",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maximumFeeScore",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "feeScore",
+            "fieldType": "Integer"
         }
     ],
     "changelogDate": "20180405065316",

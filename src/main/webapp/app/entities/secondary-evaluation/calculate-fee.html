@@ -1,17 +1,5 @@
 <div>
-    <h2 data-translate="bidopscoreApp.secondaryEvaluation.home.title">Secondary Evaluations</h2>
-    
-	<button style="background-color: #1d77c7; color: white" class="btn btn-primary" 
-	ui-sref="calculate-fee" ng-disabled="editForm.$invalid || editForm.$submitted">
-	<i class="glyphicon glyphicon-edit"></i>&nbsp;
-	<span class="hidden-xs hidden-sm">calculate Fee Score</span>
-	</button>
-	<button style="background-color: #1d77c7; color: white" class="btn btn-primary" 
-	ui-sref="minimum-score-criteria" ng-disabled="editForm.$invalid || editForm.$submitted">
-	<i class="glyphicon glyphicon-ok"></i>&nbsp;
-	<span class="hidden-xs hidden-sm">Check Eligibility</span>
-	</button>
-				
+    <h2>Fee Scores</h2>				
     <jhi-alert></jhi-alert>
     <br/>
     <div class="table-responsive">
@@ -83,6 +71,11 @@
                 </tr>
             </tbody>
         </table>
+        <button style="background-color: #1d77c7; color: white" class="btn btn-primary" 
+	ui-sref="secondary-evaluation" ng-disabled="editForm.$invalid || editForm.$submitted">
+	<i class="glyphicon glyphicon-arrow"></i>&nbsp;
+	<span class="hidden-xs hidden-sm">back</span>
+	</button>
     </div>
     <div class="text-center">
         <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
