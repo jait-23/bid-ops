@@ -39,7 +39,9 @@
 
         loadAll();
         
- 
+        $scope.clear = function() {
+			$uibModalInstance.dismiss('cancel');
+		};
 
         function loadAll () {
             SecondaryEvaluation.query({
@@ -90,6 +92,23 @@
 			//vm.bidders[0].minimum_score_for_eligibility.push(vm.score);
 			//vm.bidders.["minimum_score_for_eligibility"].push({vm.score});
 			vm.bidders[0].minimumScoreForEligibility=vm.score;
+			
+			$http({
+                
+                method : 'POST',
+                // data:  fd,
+                withCredentials: true,
+                headers: {'Content-Type': undefined },
+                transformRequest: angular.identity,
+                mimeType:"multipart/form-data",
+                contentType: false,
+                cache: false,
+                processData:false
+             }).then(function s(response) 
+             {console.log("Post Success"); 
+             vm.bidders[0].minimumScoreForEligibility = vm.score;
+             Bidders.save(vm.bidders, onSaveFinished);},
+             function e(response){console.log("Post failure");});
 			
 			//for(var i=0; i<vm.bidders.length; i++)
 			//{
