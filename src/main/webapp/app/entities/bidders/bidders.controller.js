@@ -5,9 +5,9 @@
         .module('bidopscoreApp')
         .controller('BiddersController', BiddersController);
 
-    BiddersController.$inject = ['$state', 'Bidders', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams','jhi_user','Solicitations'];
+    BiddersController.$inject = ['$state', 'Bidders', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams','User','Solicitations'];
 
-    function BiddersController($state, Bidders, ParseLinks, AlertService, paginationConstants, pagingParams,jhi_user,Solicitations) {
+    function BiddersController($state, Bidders, ParseLinks, AlertService, paginationConstants, pagingParams, User, Solicitations) {
 
         var vm = this;
 
@@ -25,7 +25,7 @@
                 size: vm.itemsPerPage,
                 sort: sort()
             }, onSuccess, onError);
-            jhi_user.query({
+            User.query({
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
                 sort: sort()
