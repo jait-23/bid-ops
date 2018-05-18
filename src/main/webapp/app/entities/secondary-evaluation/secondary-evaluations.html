@@ -23,6 +23,7 @@
                     <th jh-sort-by="evaluator_id"><span data-translate="bidopscoreApp.secondaryEvaluation.evaluator_id">Evaluator Id</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="doc_url"><span data-translate="bidopscoreApp.secondaryEvaluation.doc_url">Doc Url</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="solicitation_id"><span data-translate="bidopscoreApp.secondaryEvaluation.solicitation_id">Solicitation Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="minimum_score"><span>Minimum Score</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="score"><span data-translate="bidopscoreApp.secondaryEvaluation.score">Score</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="eligible"><span data-translate="bidopscoreApp.secondaryEvaluation.eligible">Eligible</span> <span class="glyphicon glyphicon-sort"></span></th>                    
                     <th></th>
@@ -35,6 +36,7 @@
                     <td>{{secondaryEvaluation.evaluator_id}}</td>
                     <td>{{secondaryEvaluation.doc_url}}</td>
                     <td>{{secondaryEvaluation.solicitation_id}}</td>
+                    <td>{{secondaryEvaluation.minimum_score}}</td>
                     <td>{{secondaryEvaluation.score}}</td>
                     <td>{{secondaryEvaluation.eligible}}</td>
                     
@@ -46,12 +48,12 @@
                                 
                                 <span class="hidden-sm-down">Score</span>
                             </button>
-                          <!--  <button type="submit"
-                                    ui-sref="secondary-evaluation.edit({id:secondaryEvaluation.id})"
+                          <button type="submit"
+                                    ui-sref="secondary-evaluation-detail1({id:secondaryEvaluation.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
-                            </button>
+                                <span class="hidden-sm-down">Edit</span>
+                            </button><!-- 
                             <button type="submit"
                                     ui-sref="secondary-evaluation.delete({id:secondaryEvaluation.id})"
                                     class="btn btn-danger btn-sm">

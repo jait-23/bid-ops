@@ -1,9 +1,7 @@
 <div class="modal-content">
 	<form name="deleteForm" ng-submit="confirmSave(secondaryEvaluation.id)">
 		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal"
-				aria-hidden="true" ng-click="clear()">&times;</button>
-			<h4 class="modal-title">Minimum ELigibility Criteria</h4>
+			<h4 class="modal-title">Minimum Eligibility Criteria</h4>
 		</div>
 		<div class="modal-body">
 			<p >Enter minimum score for passing eligibility criteria</p>
@@ -11,7 +9,7 @@
 		<div class="form-group">
        
             <input type="number" class="form-control" name="score" id="field_score"
-                    ng-model="vm.score"
+                    ng-model="score"
                     />
         </div>
 		<div class="modal-footer">

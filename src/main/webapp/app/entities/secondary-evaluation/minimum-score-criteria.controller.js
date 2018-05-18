@@ -5,9 +5,9 @@
         .module('bidopscoreApp')
         .controller('MinimumScoreCriteriaController', MinimumScoreCriteriaController);
 
-    MinimumScoreCriteriaController.$inject = ['$scope', '$state', '$uibModal', '$http', 'SecondaryEvaluation', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams', 'Bidders'];
+    MinimumScoreCriteriaController.$inject = ['$rootScope', '$scope', '$state', '$uibModal', '$http', 'SecondaryEvaluation', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams', 'Bidders'];
 
-    function MinimumScoreCriteriaController($scope, $state, $uibModal, $http, SecondaryEvaluation, ParseLinks, AlertService, paginationConstants, pagingParams, Bidders) {
+    function MinimumScoreCriteriaController($rootScope, $scope, $state, $uibModal, $http, SecondaryEvaluation, ParseLinks, AlertService, paginationConstants, pagingParams, Bidders) {
 
         var vm = this;
         console.log(vm);
@@ -15,9 +15,10 @@
     	vm.secondaryEvaluation = SecondaryEvaluation.query();
     	console.log(vm.bidders);
     	
-    	vm.score = 0;
+    	$scope.score = 0;
     	
-    	
+    	$rootScope.score = $scope.score;
+    	console.log($rootScope.score + "heyy");
     	
     	SecondaryEvaluation.query().$promise
 		.then(function(result) {
@@ -87,16 +88,30 @@
         
         $scope.save = function() {
 		
-			console.log(vm.score + "m here hey");
+			console.log($scope.score + "m here hey");
 			console.log(vm.bidders);
 			//vm.bidders[0].minimum_score_for_eligibility.push(vm.score);
 			//vm.bidders.["minimum_score_for_eligibility"].push({vm.score});
-			vm.bidders[0].minimumScoreForEligibility=vm.score;
-			
-			$http({
-                
+			vm.bidders[0].minimumScoreForEligibility=$scope.score;
+			/* var data = $.param({
+				 vm.bidders[0].minimumScoreForEligibility:vm.score;
+	            });
+
+	            $http.put('http://localhost:8080/api/bidders'+ vm.score)
+	            .success(function (data, status, headers) {
+	                $scope.ServerResponse = data;
+	            })
+	            .error(function (data, status, header, config) {
+	                $scope.ServerResponse =  htmlDecode("Data: " + data +
+	                    "\n\n\n\nstatus: " + status +
+	                    "\n\n\n\nheaders: " + header +
+	                    "\n\n\n\nconfig: " + config);
+	            }
+			*/
+			/*$http({
+                url: 'http://localhost:8080/api/bidders',
                 method : 'POST',
-                // data:  fd,
+                data:  vm.score,
                 withCredentials: true,
                 headers: {'Content-Type': undefined },
                 transformRequest: angular.identity,
@@ -108,7 +123,7 @@
              {console.log("Post Success"); 
              vm.bidders[0].minimumScoreForEligibility = vm.score;
              Bidders.save(vm.bidders, onSaveFinished);},
-             function e(response){console.log("Post failure");});
+             function e(response){console.log("Post failure");});*/
 			
 			//for(var i=0; i<vm.bidders.length; i++)
 			//{
@@ -117,6 +132,8 @@
 			//}
 			
         };
+        
+       
         
         
        // console.log(totalAvgScore());
