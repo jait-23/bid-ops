@@ -1,14 +1,90 @@
 <div>
     <h2>Your Profile</h2>
     </div>
+    
+    <div>
+    <h2 data-translate="bidopscoreApp.bidders.home.title">Bidders</h2>
     <jhi-alert></jhi-alert>
+    <!-- <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="bidders.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="bidopscoreApp.bidders.home.createLabel">
+                        Create new Bidders
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div> -->
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="solicitationId"><span data-translate="bidopscoreApp.bidders.solicitationId">Solicitation Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="bidopscoreApp.bidders.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bidCategories"><span data-translate="bidopscoreApp.bidders.bidCategories">Bid Categories</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="userId"><span data-translate="bidopscoreApp.bidders.userId">User Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="jhi_userLogin"><span data-translate="bidopscoreApp.bidders.jhi_user">Jhi User</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="solicitationsSolicitation_id"><span data-translate="bidopscoreApp.bidders.solicitations">Solicitations</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="bidders in vm.bidders track by bidders.id">
+                    <td><a ui-sref="bidders-detail({id:bidders.id})">{{bidders.id}}</a></td>
+                    <td>{{bidders.solicitationId}}</td>
+                    <td>{{bidders.name}}</td>
+                    <td>{{bidders.bidCategories}}</td>
+                    <td>{{bidders.userId}}</td>
+                    <td>
+                        <a ui-sref="jhi-user-detail({id:bidders.jhi_userId})">{{bidders.jhi_userLogin}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="solicitations-detail({id:bidders.solicitationsId})">{{bidders.solicitationsSolicitation_id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="bidders-detail({id:bidders.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="bidders.edit({id:bidders.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="bidders.delete({id:bidders.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>
+
+    <!-- <jhi-alert></jhi-alert>
     <div>
      <span data-translate="bidopscoreApp.bidders.name">Name</span> <span></span>
      
 	</div>
-    <!--<div>
+    <div>
     <th><span>Solicitation Wishlist</span> <span class="glyphicon glyphicon-sort"></span></th>
-    </div> -->
+    </div>
     
     
     <div class="table-responsive">
@@ -19,23 +95,24 @@
                 </tr>
             </thead></table>
             <tbody>
-               <!--<tr ng-repeat="solicitations in vm.solicitations track by solicitations.id">--> 
+               <tr ng-repeat="solicitations in vm.solicitations track by solicitations.id"> 
                <tr>
-                   <!--<td style="text-align: center;">{{solicitations.solicitationId}}</td> --> 
+                   <td style="text-align: center;">{{solicitations.solicitationId}}</td> 
                <td ng-model="vm.solicitations.subscribedCategories"></td>
               </tr>
             </div>
   
     
     <div class="text-center">
-    <!--<div class="btn-group flex-btn-group-container">-->
+    <div class="btn-group flex-btn-group-container">
       	<button type="submit"
             ui-sref="bidders-detail({id:bidders.id})"
                 class="btn btn-info btn-sm">
                 <span class="glyphicon glyphicon-eye-open"></span>
                 <span class="hidden-sm-down"> View Solicitations</span>
         </button>
-      <!--</div>-->
+      </div>
         <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
         <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
+ -->
