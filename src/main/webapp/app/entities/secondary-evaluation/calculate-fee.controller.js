@@ -3,21 +3,17 @@
 
     angular
         .module('bidopscoreApp')
-        .controller('SecondaryEvaluationController', SecondaryEvaluationController);
+        .controller('CalculateFeeController', CalculateFeeController);
 
-    SecondaryEvaluationController.$inject = ['$scope', '$state', 'SecondaryEvaluation', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams', 'Bidders'];
+    CalculateFeeController.$inject = ['$scope', '$state', 'SecondaryEvaluation', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams', 'Bidders'];
 
-    function SecondaryEvaluationController($scope, $state, SecondaryEvaluation, ParseLinks, AlertService, paginationConstants, pagingParams, Bidders) {
+    function CalculateFeeController($scope, $state, SecondaryEvaluation, ParseLinks, AlertService, paginationConstants, pagingParams, Bidders) {
 
         var vm = this;
         console.log(vm);
-        
-        vm.secondaryEvaluation = SecondaryEvaluation.query();
-        console.log(vm.secondaryEvaluation);
     	vm.bidders = Bidders.query();
-    	$scope.secondaryEvaluationTotal = [];
-		$scope.secondaryEvaluation = [];
-		console.log(vm.secondaryEvaluations);
+    	vm.secondaryEvaluation = SecondaryEvaluation.query();
+    	
     	SecondaryEvaluation.query().$promise
 		.then(function(result) {
 			console.log("promised SecondaryEvaluation");
@@ -27,7 +23,8 @@
     	console.log($scope.secondaryEvaluation);
     	console.log(vm.bidders);
     	
-    	
+    	$scope.secondaryEvaluationTotal = [];
+		$scope.secondaryEvaluation = [];
 
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
@@ -76,28 +73,7 @@
             });
         }
         
-        $scope.total=0;
-        $scope.count=0;
-        
-        
-       // console.log(totalAvgScore());
-        console.log(vm.secondaryEvaluations);
-      $scope.totalCount = function(){
-    	  
-    	  for(var i=0;i < vm.secondaryEvaluations.length ; i++)
-          {
-          	if(vm.secondaryEvaluations[i].score > vm.bidders[0].minimumScoreForEligibility)
-    		  
-          	{
-          		vm.secondaryEvaluations[i].eligible="yes";
-          		console.log("It was a YES" + vm.secondaryEvaluations[i]);
-          		
-          	}else{
-          		vm.secondaryEvaluations[i].eligible="no";
-          		console.log("It was a NO");
-          	}
-          		}
-      }
+     
         
         /*var average=total/count;
         

@@ -31,6 +31,18 @@ public class Bidders implements Serializable {
     @Column(name = "submitted_solicitations_id")
     private Long submittedSolicitationsId;
 
+    @Column(name = "proposed_fee")
+    private Integer proposedFee;
+
+    @Column(name = "minimum_score_for_eligibility")
+    private Integer minimumScoreForEligibility;
+
+    @Column(name = "maximum_fee_score")
+    private Integer maximumFeeScore;
+
+    @Column(name = "fee_score")
+    private Integer feeScore;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -91,6 +103,58 @@ public class Bidders implements Serializable {
     public void setSubmittedSolicitationsId(Long submittedSolicitationsId) {
         this.submittedSolicitationsId = submittedSolicitationsId;
     }
+
+    public Integer getProposedFee() {
+        return proposedFee;
+    }
+
+    public Bidders proposedFee(Integer proposedFee) {
+        this.proposedFee = proposedFee;
+        return this;
+    }
+
+    public void setProposedFee(Integer proposedFee) {
+        this.proposedFee = proposedFee;
+    }
+
+    public Integer getMinimumScoreForEligibility() {
+        return minimumScoreForEligibility;
+    }
+
+    public Bidders minimumScoreForEligibility(Integer minimumScoreForEligibility) {
+        this.minimumScoreForEligibility = minimumScoreForEligibility;
+        return this;
+    }
+
+    public void setMinimumScoreForEligibility(Integer minimumScoreForEligibility) {
+        this.minimumScoreForEligibility = minimumScoreForEligibility;
+    }
+
+    public Integer getMaximumFeeScore() {
+        return maximumFeeScore;
+    }
+
+    public Bidders maximumFeeScore(Integer maximumFeeScore) {
+        this.maximumFeeScore = maximumFeeScore;
+        return this;
+    }
+
+    public void setMaximumFeeScore(Integer maximumFeeScore) {
+        this.maximumFeeScore = maximumFeeScore;
+    }
+
+    public Integer getFeeScore() {
+        return feeScore;
+    }
+
+    public Bidders feeScore(Integer feeScore) {
+        this.feeScore = feeScore;
+        return this;
+    }
+
+    public void setFeeScore(Integer feeScore) {
+        this.feeScore = feeScore;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -121,6 +185,10 @@ public class Bidders implements Serializable {
             ", solicitationWishlistId=" + getSolicitationWishlistId() +
             ", subscribedCategories='" + getSubscribedCategories() + "'" +
             ", submittedSolicitationsId=" + getSubmittedSolicitationsId() +
+            ", proposedFee=" + getProposedFee() +
+            ", minimumScoreForEligibility=" + getMinimumScoreForEligibility() +
+            ", maximumFeeScore=" + getMaximumFeeScore() +
+            ", feeScore=" + getFeeScore() +
             "}";
     }
 }

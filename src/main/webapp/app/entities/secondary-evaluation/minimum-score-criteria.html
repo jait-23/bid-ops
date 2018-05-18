@@ -1,0 +1,30 @@
+<div class="modal-content">
+	<form name="deleteForm" ng-submit="confirmSave(secondaryEvaluation.id)">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true" ng-click="clear()">&times;</button>
+			<h4 class="modal-title">Confirm Save Operation</h4>
+		</div>
+		<div class="modal-body">
+			<p >Enter minimum score for passing eligibility criteria</p>
+		</div> 
+		<div class="form-group">
+       
+            <input type="number" class="form-control" name="score" id="field_score"
+                    ng-model="vm.score"
+                    />
+        </div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal"
+				ng-click="clear()">
+				<i class="fa fa-times"></i>&nbsp;<span
+					translate="entity.action.cancel">Cancel</span>
+			</button>
+			<button style="background-color: #1d77c7; color: white" class="btn btn-primary" ng-click="saveDetailsModal()"
+														ng-disabled="editForm.$invalid || editForm.$submitted">
+															<i class="far fa-save"></i>&nbsp;<span class="hidden-xs hidden-sm"
+															translate="entity.action.save">Save</span>
+														</button>
+		</div>
+	</form>
+</div>

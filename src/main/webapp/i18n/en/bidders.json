@@ -19,7 +19,11 @@
             "name": "Name",
             "solicitationWishlistId": "Solicitation Wishlist Id",
             "subscribedCategories": "Subscribed Categories",
-            "submittedSolicitationsId": "Submitted Solicitations Id"
+            "submittedSolicitationsId": "Submitted Solicitations Id",
+            "proposedFee": "Proposed Fee",
+            "minimumScoreForEligibility": "Minimum Score For Eligibility",
+            "maximumFeeScore": "Maximum Fee Score",
+            "feeScore": "Fee Score"
         }
     }
 }

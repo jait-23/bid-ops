@@ -1,3 +1,4 @@
+
 <form name="editForm" role="form" novalidate ng-submit="vm.save()">
 
     <div class="modal-header">
@@ -34,6 +35,30 @@
             <label class="control-label" data-translate="bidopscoreApp.bidders.submittedSolicitationsId" for="field_submittedSolicitationsId">Submitted Solicitations Id</label>
             <input type="number" class="form-control" name="submittedSolicitationsId" id="field_submittedSolicitationsId"
                     ng-model="vm.bidders.submittedSolicitationsId"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.bidders.proposedFee" for="field_proposedFee">Proposed Fee</label>
+            <input type="number" class="form-control" name="proposedFee" id="field_proposedFee"
+                    ng-model="vm.bidders.proposedFee"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.bidders.minimumScoreForEligibility" for="field_minimumScoreForEligibility">Minimum Score For Eligibility</label>
+            <input type="number" class="form-control" name="minimumScoreForEligibility" id="field_minimumScoreForEligibility"
+                    ng-model="vm.bidders.minimumScoreForEligibility"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.bidders.maximumFeeScore" for="field_maximumFeeScore">Maximum Fee Score</label>
+            <input type="number" class="form-control" name="maximumFeeScore" id="field_maximumFeeScore"
+                    ng-model="vm.bidders.maximumFeeScore"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="bidopscoreApp.bidders.feeScore" for="field_feeScore">Fee Score</label>
+            <input type="number" class="form-control" name="feeScore" id="field_feeScore"
+                    ng-model="vm.bidders.feeScore"
                     />
         </div>
 

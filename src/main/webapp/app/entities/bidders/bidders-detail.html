@@ -1,6 +1,6 @@
 
 <div>
-    <h2><span data-translate="bidopscoreApp.bidders.detail.title">Bidders</span> {{vm.bidders.name}}</h2>
+    <h2><span data-translate="bidopscoreApp.bidders.detail.title">Bidders</span> {{vm.bidders.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
@@ -8,17 +8,33 @@
         <dd>
             <span>{{vm.bidders.name}}</span>
         </dd>
+        <dt><span data-translate="bidopscoreApp.bidders.solicitationWishlistId">Solicitation Wishlist Id</span></dt>
+        <dd>
+            <span>{{vm.bidders.solicitationWishlistId}}</span>
+        </dd>
         <dt><span data-translate="bidopscoreApp.bidders.subscribedCategories">Subscribed Categories</span></dt>
         <dd>
             <span>{{vm.bidders.subscribedCategories}}</span>
         </dd>
-        <dt><span data-translate="bidopscoreApp.bidders.solicitationWishlistId">Solicitation WishlistId</span></dt>
-        <dd>
-            <span>{{vm.bidders.solicitationWishlistId}}</span>
-        </dd>
         <dt><span data-translate="bidopscoreApp.bidders.submittedSolicitationsId">Submitted Solicitations Id</span></dt>
         <dd>
             <span>{{vm.bidders.submittedSolicitationsId}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.bidders.proposedFee">Proposed Fee</span></dt>
+        <dd>
+            <span>{{vm.bidders.proposedFee}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.bidders.minimumScoreForEligibility">Minimum Score For Eligibility</span></dt>
+        <dd>
+            <span>{{vm.bidders.minimumScoreForEligibility}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.bidders.maximumFeeScore">Maximum Fee Score</span></dt>
+        <dd>
+            <span>{{vm.bidders.maximumFeeScore}}</span>
+        </dd>
+        <dt><span data-translate="bidopscoreApp.bidders.feeScore">Fee Score</span></dt>
+        <dd>
+            <span>{{vm.bidders.feeScore}}</span>
         </dd>
     </dl>
 
@@ -30,6 +46,6 @@
 
     <button type="button" ui-sref="bidders-detail.edit({id:vm.bidders.id})" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-sm-down" data-translate="entity.action.edit"> Apply</span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
     </button>
 </div>

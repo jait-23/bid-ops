@@ -38,6 +38,22 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="proposed_fee" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="minimum_score_for_eligibility" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="maximum_fee_score" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fee_score" type="integer">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

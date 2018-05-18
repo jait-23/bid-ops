@@ -53,6 +53,18 @@ public class BiddersResourceIntTest {
     private static final Long DEFAULT_SUBMITTED_SOLICITATIONS_ID = 1L;
     private static final Long UPDATED_SUBMITTED_SOLICITATIONS_ID = 2L;
 
+    private static final Integer DEFAULT_PROPOSED_FEE = 1;
+    private static final Integer UPDATED_PROPOSED_FEE = 2;
+
+    private static final Integer DEFAULT_MINIMUM_SCORE_FOR_ELIGIBILITY = 1;
+    private static final Integer UPDATED_MINIMUM_SCORE_FOR_ELIGIBILITY = 2;
+
+    private static final Integer DEFAULT_MAXIMUM_FEE_SCORE = 1;
+    private static final Integer UPDATED_MAXIMUM_FEE_SCORE = 2;
+
+    private static final Integer DEFAULT_FEE_SCORE = 1;
+    private static final Integer UPDATED_FEE_SCORE = 2;
+
     @Autowired
     private BiddersRepository biddersRepository;
 
@@ -100,7 +112,11 @@ public class BiddersResourceIntTest {
             .name(DEFAULT_NAME)
             .solicitationWishlistId(DEFAULT_SOLICITATION_WISHLIST_ID)
             .subscribedCategories(DEFAULT_SUBSCRIBED_CATEGORIES)
-            .submittedSolicitationsId(DEFAULT_SUBMITTED_SOLICITATIONS_ID);
+            .submittedSolicitationsId(DEFAULT_SUBMITTED_SOLICITATIONS_ID)
+            .proposedFee(DEFAULT_PROPOSED_FEE)
+            .minimumScoreForEligibility(DEFAULT_MINIMUM_SCORE_FOR_ELIGIBILITY)
+            .maximumFeeScore(DEFAULT_MAXIMUM_FEE_SCORE)
+            .feeScore(DEFAULT_FEE_SCORE);
         return bidders;
     }
 
@@ -129,6 +145,10 @@ public class BiddersResourceIntTest {
         assertThat(testBidders.getSolicitationWishlistId()).isEqualTo(DEFAULT_SOLICITATION_WISHLIST_ID);
         assertThat(testBidders.getSubscribedCategories()).isEqualTo(DEFAULT_SUBSCRIBED_CATEGORIES);
         assertThat(testBidders.getSubmittedSolicitationsId()).isEqualTo(DEFAULT_SUBMITTED_SOLICITATIONS_ID);
+        assertThat(testBidders.getProposedFee()).isEqualTo(DEFAULT_PROPOSED_FEE);
+        assertThat(testBidders.getMinimumScoreForEligibility()).isEqualTo(DEFAULT_MINIMUM_SCORE_FOR_ELIGIBILITY);
+        assertThat(testBidders.getMaximumFeeScore()).isEqualTo(DEFAULT_MAXIMUM_FEE_SCORE);
+        assertThat(testBidders.getFeeScore()).isEqualTo(DEFAULT_FEE_SCORE);
     }
 
     @Test
@@ -165,7 +185,11 @@ public class BiddersResourceIntTest {
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
             .andExpect(jsonPath("$.[*].solicitationWishlistId").value(hasItem(DEFAULT_SOLICITATION_WISHLIST_ID.intValue())))
             .andExpect(jsonPath("$.[*].subscribedCategories").value(hasItem(DEFAULT_SUBSCRIBED_CATEGORIES.toString())))
-            .andExpect(jsonPath("$.[*].submittedSolicitationsId").value(hasItem(DEFAULT_SUBMITTED_SOLICITATIONS_ID.intValue())));
+            .andExpect(jsonPath("$.[*].submittedSolicitationsId").value(hasItem(DEFAULT_SUBMITTED_SOLICITATIONS_ID.intValue())))
+            .andExpect(jsonPath("$.[*].proposedFee").value(hasItem(DEFAULT_PROPOSED_FEE)))
+            .andExpect(jsonPath("$.[*].minimumScoreForEligibility").value(hasItem(DEFAULT_MINIMUM_SCORE_FOR_ELIGIBILITY)))
+            .andExpect(jsonPath("$.[*].maximumFeeScore").value(hasItem(DEFAULT_MAXIMUM_FEE_SCORE)))
+            .andExpect(jsonPath("$.[*].feeScore").value(hasItem(DEFAULT_FEE_SCORE)));
     }
 
     @Test
@@ -182,7 +206,11 @@ public class BiddersResourceIntTest {
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.solicitationWishlistId").value(DEFAULT_SOLICITATION_WISHLIST_ID.intValue()))
             .andExpect(jsonPath("$.subscribedCategories").value(DEFAULT_SUBSCRIBED_CATEGORIES.toString()))
-            .andExpect(jsonPath("$.submittedSolicitationsId").value(DEFAULT_SUBMITTED_SOLICITATIONS_ID.intValue()));
+            .andExpect(jsonPath("$.submittedSolicitationsId").value(DEFAULT_SUBMITTED_SOLICITATIONS_ID.intValue()))
+            .andExpect(jsonPath("$.proposedFee").value(DEFAULT_PROPOSED_FEE))
+            .andExpect(jsonPath("$.minimumScoreForEligibility").value(DEFAULT_MINIMUM_SCORE_FOR_ELIGIBILITY))
+            .andExpect(jsonPath("$.maximumFeeScore").value(DEFAULT_MAXIMUM_FEE_SCORE))
+            .andExpect(jsonPath("$.feeScore").value(DEFAULT_FEE_SCORE));
     }
 
     @Test
@@ -208,7 +236,11 @@ public class BiddersResourceIntTest {
             .name(UPDATED_NAME)
             .solicitationWishlistId(UPDATED_SOLICITATION_WISHLIST_ID)
             .subscribedCategories(UPDATED_SUBSCRIBED_CATEGORIES)
-            .submittedSolicitationsId(UPDATED_SUBMITTED_SOLICITATIONS_ID);
+            .submittedSolicitationsId(UPDATED_SUBMITTED_SOLICITATIONS_ID)
+            .proposedFee(UPDATED_PROPOSED_FEE)
+            .minimumScoreForEligibility(UPDATED_MINIMUM_SCORE_FOR_ELIGIBILITY)
+            .maximumFeeScore(UPDATED_MAXIMUM_FEE_SCORE)
+            .feeScore(UPDATED_FEE_SCORE);
         BiddersDTO biddersDTO = biddersMapper.toDto(updatedBidders);
 
         restBiddersMockMvc.perform(put("/api/bidders")
@@ -224,6 +256,10 @@ public class BiddersResourceIntTest {
         assertThat(testBidders.getSolicitationWishlistId()).isEqualTo(UPDATED_SOLICITATION_WISHLIST_ID);
         assertThat(testBidders.getSubscribedCategories()).isEqualTo(UPDATED_SUBSCRIBED_CATEGORIES);
         assertThat(testBidders.getSubmittedSolicitationsId()).isEqualTo(UPDATED_SUBMITTED_SOLICITATIONS_ID);
+        assertThat(testBidders.getProposedFee()).isEqualTo(UPDATED_PROPOSED_FEE);
+        assertThat(testBidders.getMinimumScoreForEligibility()).isEqualTo(UPDATED_MINIMUM_SCORE_FOR_ELIGIBILITY);
+        assertThat(testBidders.getMaximumFeeScore()).isEqualTo(UPDATED_MAXIMUM_FEE_SCORE);
+        assertThat(testBidders.getFeeScore()).isEqualTo(UPDATED_FEE_SCORE);
     }
 
     @Test

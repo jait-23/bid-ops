@@ -2,6 +2,7 @@
 	<div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-10">
 			<h2 style="font-weight: 500;"><span class="fa fa-user"></span>&nbsp; Secondary Evaluations Management</h2>
+			
 			<ol class="breadcrumb">
 				<li>
 					<span>Secondary Evaluations</span>
@@ -67,7 +68,7 @@
        										 <div class="uk-card uk-card-default uk-card-body">
        										 <form><div class="uk-margin uk-width-auto">
            											 <input class="uk-input" type="text" ng-model="vm.secondaryEvaluation.user_id" required
-														ng-maxlength="100"placeholder="User Name" style="width:300px;">
+														ng-maxlength="100"placeholder="User Name" style="width:300px;" readonly>
         											</div>
        										 
        										 </form>
@@ -76,7 +77,7 @@
        										 <div class="uk-card uk-card-default uk-card-body">
        										 <form><div class="uk-margin uk-width-auto">
            											 <input class="uk-input" type="text" ng-model="vm.secondaryEvaluation.evaluator_id" required
-														ng-maxlength="100"placeholder="Evaluator Id" style="width:300px;">
+														ng-maxlength="100"placeholder="Evaluator Id" style="width:300px;" readonly>
         											</div>
        										 
        										 </form>
@@ -92,24 +93,24 @@
        										 <div class="uk-card uk-card-default uk-card-body">
        										 <form><div class="uk-margin uk-width-auto">
            											 <input class="uk-input" type="text" ng-model="vm.secondaryEvaluation.solicitation_id" required
-														ng-maxlength="100"placeholder="Solicitation Id" style="width:300px;">
+														ng-maxlength="100"placeholder="Solicitation Id" style="width:300px;" readonly>
         											</div>
        										 </form>
        										 </div>
        										 </br>
        										 <div class="uk-card uk-card-default uk-card-body">
        										 <form><div class="uk-margin uk-width-auto">
-           											 <input class="uk-input" type="text" ng-model="vm.secondaryEvaluation.score" required
+           											 <input class="uk-input" type="number" ng-model="vm.secondaryEvaluation.score" required
 														ng-maxlength="100"placeholder="Score" style="width:300px;">
         											</div>
        										 </form>
        										 </div>
        										 </br>
-       										 <div class="uk-card uk-card-default uk-card-body">
+       										 <!--  <div class="uk-card uk-card-default uk-card-body">
        										 <form><div class="uk-margin uk-width-auto">
            											 <input class="uk-input" type="text" ng-model="vm.secondaryEvaluation.eligible" required
 														ng-maxlength="100"placeholder="Eligible" style="width:300px;">
-        											</div>
+        											</div> -->
        										 </form>
        										 </div>
        										 </br>
