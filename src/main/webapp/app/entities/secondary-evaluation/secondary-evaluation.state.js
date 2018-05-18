@@ -135,6 +135,38 @@
                 }]
             }
         })
+        .state('secondary-evaluation-detail1', {
+            parent: 'secondary-evaluation',
+            url: '/secondary-evaluation1/{id}',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'bidopscoreApp.secondaryEvaluation.detail.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/secondary-evaluation/secondary-evaluation-detail1.html',
+                    controller: 'SecondaryEvaluationDetail1Controller',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('secondaryEvaluation');
+                    return $translate.refresh();
+                }],
+                entity: ['$stateParams', 'SecondaryEvaluation', function($stateParams, SecondaryEvaluation) {
+                    return SecondaryEvaluation.get({id : $stateParams.id}).$promise;
+                }],
+                previousState: ["$state", function ($state) {
+                    var currentStateData = {
+                        name: $state.current.name || 'secondary-evaluation',
+                        params: $state.params,
+                        url: $state.href($state.current.name, $state.params)
+                    };
+                    return currentStateData;
+                }]
+            }
+        })
         .state('secondary-evaluation-detail', {
             parent: 'secondary-evaluation',
             url: '/secondary-evaluation/{id}',

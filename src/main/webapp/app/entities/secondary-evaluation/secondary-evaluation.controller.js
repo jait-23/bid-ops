@@ -5,9 +5,9 @@
         .module('bidopscoreApp')
         .controller('SecondaryEvaluationController', SecondaryEvaluationController);
 
-    SecondaryEvaluationController.$inject = ['$scope', '$state', 'SecondaryEvaluation', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams', 'Bidders'];
+    SecondaryEvaluationController.$inject = ['$rootScope', '$scope', '$state', 'SecondaryEvaluation', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams', 'Bidders'];
 
-    function SecondaryEvaluationController($scope, $state, SecondaryEvaluation, ParseLinks, AlertService, paginationConstants, pagingParams, Bidders) {
+    function SecondaryEvaluationController($rootScope, $scope, $state, SecondaryEvaluation, ParseLinks, AlertService, paginationConstants, pagingParams, Bidders) {
 
         var vm = this;
         console.log(vm);
@@ -27,7 +27,9 @@
     	console.log($scope.secondaryEvaluation);
     	console.log(vm.bidders);
     	
-    	
+    	console.log($rootScope.score);
+    	console.log(vm.score);
+    	console.log($scope.score);
 
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;

@@ -30,8 +30,19 @@ public class SecondaryEvaluation implements Serializable {
 
     @Column(name = "solicitation_id")
     private Long solicitation_id;
+    
+    @Column(name = "minimum_score")
+    private Integer minimum_score;
 
-    @Column(name = "score")
+    public Integer getMinimum_score() {
+		return minimum_score;
+	}
+
+	public void setMinimum_score(Integer minimum_score) {
+		this.minimum_score = minimum_score;
+	}
+
+	@Column(name = "score")
     private Integer score;
 
     @Column(name = "eligible")

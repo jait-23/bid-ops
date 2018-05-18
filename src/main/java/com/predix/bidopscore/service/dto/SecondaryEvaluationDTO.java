@@ -20,8 +20,18 @@ public class SecondaryEvaluationDTO implements Serializable {
     private Long solicitation_id;
 
     private Integer score;
+    
+    private Integer minimum_score;
 
-    private String eligible;
+    public Integer getMinimum_score() {
+		return minimum_score;
+	}
+
+	public void setMinimum_score(Integer minimum_score) {
+		this.minimum_score = minimum_score;
+	}
+
+	private String eligible;
 
     public Long getId() {
         return id;
