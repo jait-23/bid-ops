@@ -21,14 +21,8 @@ public interface SolicitationsMapper extends EntityMapper<SolicitationsDTO, Soli
 	
 	// @Mapping(source = "userId", target = "user")
 	
-	@Mapping(source = "files", target = "filesDTOs")
-	public abstract SolicitationsDTO solicitationsToSolicitationsDTO(Solicitations solicitations);
-	
 	SolicitationsDTO toDto(Solicitations solicitations);
 
-	@Mapping(source = "filesDTOs", target = "files")
-	public abstract Solicitations solicitationsDTOToSolicitations(SolicitationsDTO solicitationsDTO);  
-	
 	Solicitations toEntity(SolicitationsDTO solicitationsDTO);
 	
     default Solicitations fromId(Long id) {

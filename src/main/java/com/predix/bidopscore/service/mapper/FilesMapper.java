@@ -12,13 +12,7 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {SolicitationsMapper.class})
 public interface FilesMapper extends EntityMapper<FilesDTO, Files> {
 	
-	@Mapping(source = "solicitations", target = "solicitationsDTOs")
-	public abstract FilesDTO filesToFilesDTO(Files files);
-	
     FilesDTO toDto(Files files);
-
-    @Mapping(source = "solicitationsDTOs", target = "solicitations")
-    public abstract Files filesDTOToFiles(FilesDTO filesDTO);
     
     Files toEntity(FilesDTO filesDTO);
 
