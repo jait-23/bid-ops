@@ -12,11 +12,12 @@
         var vm = this;
         console.log(vm);
     	vm.bidders = Bidders.query();
+    	vm.secondaryEvaluation = SecondaryEvaluation.query();
     	console.log(vm.bidders);
     	
     	vm.score = 0;
     	
-    	$scope.secondaryEvaluation = SecondaryEvaluation.query();
+    	
     	
     	SecondaryEvaluation.query().$promise
 		.then(function(result) {
@@ -24,7 +25,7 @@
 			console.log(result);
 			$scope.totalCount();
 		});
-    	console.log($scope.secondaryEvaluation);
+    	console.log(vm.secondaryEvaluation);
     	console.log(vm.bidders);
     	
     	$scope.secondaryEvaluationTotal = [];
@@ -85,14 +86,16 @@
         $scope.save = function() {
 		
 			console.log(vm.score + "m here hey");
+			console.log(vm.bidders);
+			//vm.bidders[0].minimum_score_for_eligibility.push(vm.score);
 			//vm.bidders.["minimum_score_for_eligibility"].push({vm.score});
-			//vm.bidders["minimum_score_for_eligibility"]=vm.score;
+			vm.bidders[0].minimumScoreForEligibility=vm.score;
 			
-			for(var i=0; i<vm.bidders.length; i++)
-			{
+			//for(var i=0; i<vm.bidders.length; i++)
+			//{
 				//vm.bidders[i]["minimum_score_for_eligibility"]=vm.score;
-				vm.bidders[i].minimum_score_for_eligibility.push(vm.score);
-			}
+			//	vm.bidders[i].minimum_score_for_eligibility.push(vm.score);
+			//}
 			
         };
         

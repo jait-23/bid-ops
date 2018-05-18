@@ -12,7 +12,7 @@
         var vm = this;
         console.log(vm);
     	vm.bidders = Bidders.query();
-    	$scope.secondaryEvaluation = SecondaryEvaluation.query();
+    	vm.secondaryEvaluation = SecondaryEvaluation.query();
     	
     	SecondaryEvaluation.query().$promise
 		.then(function(result) {
@@ -73,21 +73,7 @@
             });
         }
         
-        $scope.total=0;
-        $scope.count=0;
-        
-        
-       // console.log(totalAvgScore());
-        
-      $scope.totalCount = function(){
-    	  for (var i=0; i < $scope.secondaryEvaluation.length; i++) {
-        		if ($scope.secondaryEvaluation[i].score != null &&  $scope.secondaryEvaluation[i].score != undefined && $scope.secondaryEvaluation[i].score != 'null') {
-        			$scope.total += $scope.secondaryEvaluation[i].score;
-        			console.log($scope.total);
-        			console.log($scope.count);
-        		}
-        	}
-      }
+     
         
         /*var average=total/count;
         
