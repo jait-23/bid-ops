@@ -13,5 +13,6 @@
     <include file="config/liquibase/changelog/20180413045916_added_entity_BiddersSolicitationsSubmitted.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180424233811_added_entity_PrimaryEvaluations.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180505044739_added_entity_SecondaryEvaluation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180511043941_added_entity_constraints_Files.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

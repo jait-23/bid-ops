@@ -1,0 +1,26 @@
+
+{
+    "bidopscoreApp": {
+        "files" : {
+            "home": {
+                "title": "Files",
+                "createLabel": "Create a new Files",
+                "createOrEditLabel": "Create or edit a Files"
+            },
+            "created": "A new Files is created with identifier {{ param }}",
+            "updated": "A Files is updated with identifier {{ param }}",
+            "deleted": "A Files is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Files {{ id }}?"
+            },
+            "detail": {
+                "title": "Files"
+            },
+            "content": "Content",
+            "type": "Type",
+            "documentName": "Document Name",
+            "solicitations": "Solicitations",
+            "solicitationsFiles": "Solicitations Files"
+        }
+    }
+}

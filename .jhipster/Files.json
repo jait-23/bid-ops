@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "solicitationsFiles",
+            "otherEntityName": "solicitations",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "content",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "documentName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "solicitations",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180511043941",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "files",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}

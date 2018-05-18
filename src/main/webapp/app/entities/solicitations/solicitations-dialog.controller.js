@@ -5,14 +5,16 @@
         .module('bidopscoreApp')
         .controller('SolicitationsDialogController', SolicitationsDialogController);
 
-    SolicitationsDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Solicitations', 'User'];
+    SolicitationsDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Solicitations', 'User', 'Files'];
 
-    function SolicitationsDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Solicitations, User) {
+    function SolicitationsDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Solicitations, User, Files) {
         var vm = this;
 
         vm.solicitations = entity;
         $scope.user = User.query();
         console.log($scope.user);
+        
+        $scope.files = Files.query();
         
         vm.clear = clear;
         vm.datePickerOpenStatus = {};

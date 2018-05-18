@@ -9,6 +9,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.predix.bidopscore.domain.Solicitations;
 import com.predix.bidopscore.domain.User;
+import com.predix.bidopscore.domain.Files;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
@@ -70,6 +71,20 @@ public class Solicitations implements Serializable {
     
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
+    
+    @ManyToMany
+    @JoinTable(name = "solicitations_to_files",
+               joinColumns = @JoinColumn(name="solicitations_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="files_id", referencedColumnName="id"))
+    private Set<Files> files = new HashSet<>();
+    
+    public Set<Files> getFiles() {
+        return new HashSet(files);
+    }
+
+    public void setFiles(Set<Files> files) {
+        this.files = files;
+    }
     
     public User getUser() {
         return user;
